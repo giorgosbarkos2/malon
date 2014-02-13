@@ -1,0 +1,96 @@
+the_click_cms_admin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TheClickCmsAdminBundle:Default:index }
+
+
+hacerLogin:
+    pattern:  /admin/hacerLogin
+    defaults: { _controller: TheClickCmsAdminBundle:Default:hacerLogin }
+
+
+login:
+    pattern:  /admin/login
+    defaults: { _controller: TheClickCmsAdminBundle:Default:login }
+
+
+
+guardarEmpresa:
+    pattern:  /admin/guardarEmpresa
+    defaults: { _controller: TheClickCmsAdminBundle:Default:guardarEmpresa }
+
+
+vistaAgregarEmpresa:
+   pattern:  /admin/vistaAgregarEmpresa
+   defaults: { _controller: TheClickCmsAdminBundle:Default:vistaAgregarEmpresa  }
+
+listarEmpresas:
+    pattern: /admin/listarEmpresas
+    defaults: {_controller: TheClickCmsAdminBundle:Default:listarEmpresas }
+
+vistaEditarEmpresa:
+    pattern: /admin/vistaEditarEmpresa/{id}
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistaEditarEmpresa}
+
+guardarEditarEmpresa:
+    pattern: /admin/guardarEditarEmpresa
+    defaults: {_controller: TheClickCmsAdminBundle:Default:guardarEditarEmpresa}
+
+eliminarEmpresa:
+    pattern: /admin/eliminarEmpresa/{id}
+    defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarEmpresa}
+
+logout:
+    pattern:  /admin/logout
+    defaults: { _controller: TheClickCmsAdminBundle:Default:logout  }
+
+principal:
+    pattern:  /admin/principal
+    defaults: { _controller: TheClickCmsAdminBundle:Default:principal }
+
+vistaFormularioUsuario:
+    pattern: /admin/vistaFormularioUsuario
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistaFormularioUsuario }
+
+guardarUsuario:
+    pattern: /admin/guardarUsuario
+    defaults: {_controller: TheClickCmsAdminBundle:Default:guardarUsuario}
+
+listarUsuarios:
+    pattern: /admin/listarUsuarios
+    defaults: {_controller: TheClickCmsAdminBundle:Default:listarUsuarios}
+
+vistaEditarUsuario:
+    pattern: /admin/vistaEditarUsuario/{id}
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistaEditarUsuario}
+
+guardarFormularioEditarUsuario:
+    pattern: /admin/guardarFormularioEditarUsuario
+    defaults: {_controller: TheClickCmsAdminBundle:Default:guardarFormularioEditarUsuario}
+
+eliminarUsuario:
+    pattern: /admin/eliminarUsuario/{id}
+    defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarUsuario}
+
+vistaAgregarActualizacion:
+    pattern: /admin/vistaAgregarActualizacion
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistaAgregarActualizacion}
+
+guardarActualizacion:
+    pattern: /admin/guardarActualizacion
+    defaults: {_controller: TheClickCmsAdminBundle:Default:guardarActualizacion}
+
+listarActualizacion:
+    pattern: /admin/listarActualizacion
+    defaults: {_controller: TheClickCmsAdminBundle:Default:listarActualizacion}
+
+vistaEditarActualizacion:
+    pattern: /admin/vistaEditarActualizacion/{id}
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistaEditarActualizacion}
+
+guardarEditarActualizacion:
+    pattern: /admin/guardarEditarActualizacion
+    defaults: {_controller: TheClickCmsAdminBundle:Default:guardarEditarActualizacion}
+
+eliminarActualizacion:
+    pattern: /admin/eliminarActualizacion/{id}
+    defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarActualizacion}

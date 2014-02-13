@@ -1,0 +1,8 @@
+the_click_cms_upload:
+    resource: "@TheClickCmsUploadBundle/Resources/config/routing.yml"
+    prefix:   /
+
+the_click_cms_admin:
+    resource: "@TheClickCmsAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
