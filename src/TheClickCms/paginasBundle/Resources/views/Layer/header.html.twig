@@ -1,0 +1,73 @@
+<div id="body-wrapper">
+	<header>
+		<div class="boxheader">
+		
+		<a id="logo" href="#"> <img src="img/logo_over.png" alt="Overtech"> </a> 
+		<a href="#" id="logoMobile"> <img src="img/logo-ot.png" alt="Overtech" width="296" height="96"> </a>
+
+<!-- BANDERAS -->		
+		 <nav id="navigation">
+			<a class="menu_button" href="#footer_nav" onclick="toggleNav(); return false;">
+				<img src="img/esp-small.png" alt="" width="35" height="23">
+				<div class="dropArrow"></div>
+			</a>
+
+			<ul id="navigation_list" role="navigation">
+				<li style="width:50px;"><a href="#">
+					<img src="img/eng-small.png" alt="" width="35" height="23"></a>
+				</li>
+				<li style="width:50px;"><a href="#">
+					<img src="img/por-small.png" alt="" width="35" height="23"></a>
+				</li>
+			</ul>
+		</nav>
+<!-- *** -->
+
+<a class="acceso-int" href="acceso.html"><span></span></a>
+			<nav id="menu" class="nav">
+				<ul>
+					<li> <a href="#"> <span class="icon">
+						<div class="homeBtn activa">Home</div>
+						</span> </a> </li>
+					<!-- Mobile buttons-->
+						<li> <a href="login.html"> <span class="icon">
+						<div class="accesoBtn">Acceso Clientes</div>
+						</span> </a> </li>
+					<!-- Fin Mobile buttons-->
+					<li> <a href="pagina.html"> <span class="icon">
+						<div class="appBtn">Historia</div>
+						</span> </a> </li>
+					<li> <a href="pagina.html"> <span class="icon">
+						<div class="proBtn">Productos</div>
+						</span> </a> </li>
+					<li> <a href="pagina.html"> <span class="icon">
+						<div class="serBtn">Servicios</div>
+						</span> </a> </li> 
+					<li> <a href="pagina.html"> <span class="icon">
+						<div class="bussiBtn">Noticias</div>
+						</span> </a> </li>
+					<li> <a href="contacto.html"> <span class="icon">
+						<div class="contactBtn">Contacto</div>
+						</span> </a> </li>
+						
+						<div class="alpha"></div>
+				</ul>
+			</nav>
+		
+<!-- VIDEO -->		
+<img src="img/loading1.gif" alt="" id="dvLoading">
+ <script type="text/javascript">
+var originalNavClasses;
+
+function toggleNav() {
+		var elem = document.getElementById('navigation_list');
+		var classes = elem.className;
+		if (originalNavClasses === undefined) {
+				originalNavClasses = classes;
+		}
+		elem.className = /expanded/.test(classes) ? originalNavClasses : originalNavClasses + ' expanded';
+}
+
+</script>		
+		</div>
+</header>
