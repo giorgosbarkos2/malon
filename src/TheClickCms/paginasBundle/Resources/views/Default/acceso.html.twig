@@ -1,0 +1,87 @@
+{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% block contenido %}
+<div id="page2">
+    <div class="contentint">
+      
+      <aside>
+        <div class="title">
+          <h1>Productos Descatados</h1>
+           </div>
+          <ul class="bxslider">
+
+  <li><img src="{{asset('bundles/theclickcmspaginas/img/pd01.jpg')}}" title="Producto 1" /></li>
+  <li><img src="{{asset('bundles/theclickcmspaginas/img/pd02.jpg')}}" title="Producto 2" /></li>
+  <li><img src="{{asset('bundles/theclickcmspaginas/img/pd03.jpg')}}" title="Producto 3" /></li>
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.bxslider').bxSlider({
+  mode: 'fade',
+  captions: true,
+  auto: true
+  });
+});
+
+  </script>    
+      </aside>
+
+<section class="acceso">
+<div class="clientes-sec1">
+        <h2 class="title-acceso">Acceso Clientes</h2>
+        <h4 class="nom-clientes">Bienvenido(a):</h4>
+        <h4 class="nom-clientes">Alvaro Salas M.</h4>
+</div>
+<div class="title-acc-logo"><img src="{{asset('bundles/theclickcmspaginas/img/logo-acceso-01.jpg')}}"/></div>
+<div class="clientes-sec2">
+        <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
+
+<div class="datagrid"><table>
+<thead><tr><th>Nombre</th><th>Fecha</th><th></th></tr></thead>
+<tbody><tr><td>Software Overcall</td><td>30/01/2014</td><td><a class="btn-des"><span>Descarga</span></a></td></tr>
+       <tr><td>Software Overcall</td><td>30/01/2014</td><td><a class="btn-des"><span>Descarga</span></a></td></tr>
+</tbody>
+</table></div>
+<div class="formularios-acceso">
+            <form id="micuenta" action="" method="post">
+            <span><h4 class="nom-clientes" style="color:#f00;">Mi cuenta:</h4></span>
+            <input name="nombre" type="text" value="Nombre ">
+            <input name="email" type="text" value="Email ">
+            <select name="pais">
+              <option selected>País</option>
+              <option>pais 01</option>
+              <option>Pais 02</option>
+              <option>Pais 03</option>
+              <option>Pais 04</option>
+              <option>Pais 05</option>
+              <option>Pais 06</option>
+              <option>Pais 07</option>
+            </select>
+            <input name="empresa" type="text" value="Empresa ">
+            <input name="cargo" type="text" value="Cargo ">
+            <input name="boton-datos" type="submit" value="&#8250; Actualizar Datos">
+            </form>
+<div class="vhr"></div>
+            <form id="cambiopass" name="formulario">
+            <span><h4 class="nom-clientes" style="color:#f00;">Cambio de Clave:</h4></span>
+                <input type="text" value="Clave Actual" onfocus="cambiaApass(this)" />
+                <input type="text" value="Nueva Clave" onfocus="cambiaApass(this)" />
+                <input type="text" value="Repetir Nueva Clave" onfocus="cambiaApass(this)" />
+                <input name="boton-datos" type="submit" value="&#8250; Cambiar Clave">
+            </form>
+</div>
+            <script>
+            var nuevo;
+            function cambiaApass(caja) {
+                nuevo=document.createElement("input");
+                nuevo.setAttribute("type","password");
+                nuevo.setAttribute("name",caja.name);
+                nuevo.setAttribute("value","");
+                document.formulario.replaceChild(nuevo,caja);
+                setTimeout("nuevo.focus();",100);
+            }
+            </script>
+        </section>
+    </div>
+  </div>
+  {% endblock %}

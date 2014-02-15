@@ -10,4 +10,19 @@ class DefaultController extends Controller
     {
         return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');
     }
+
+    public function vistaHistoriaAction()
+    {
+    	return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');
+    }
+
+    public function vistaContactoAction()
+    {
+    	return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig');
+    }
+
+    public function vistaAccesoAction()
+    {
+    	return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig');
+    }
 }

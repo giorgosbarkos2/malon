@@ -1,0 +1,80 @@
+{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% block contenido %}
+   <div id="page2">
+    <div class="contentint">
+      
+      <aside>
+        <div class="title"><h1>OverTech Group</h1></div>
+          <span class="strongfont"><br><br>Soluciones de gestión telefónica<hr></span>
+<p><b>Dirección: </b>Av. Vitacura 2808 Piso 12<br>
+Las Condes – Santiago<br>
+MC. 56-2- 2448 28 00<br>
+Fax: 56-2- 2448 28 01<br><br>
+<b>Contacto ventas:</b> Sr. Rodrigo Tomicic<br>
+<b>e-mail </b><a href="mailto:ventaschile@overtechgroup.com?&subject=Información ventas">ventaschile@overtechgroup.com</a><br><br>
+<b>Contacto soporte:</b> Sr. Mario Riera<br>
+<b>e-mail </b><a href="mailto:soportechile@overtechgroup.com?&subject=Información soporte">soportechile@overtechgroup.com</a><br><br>
+<b>Teléfonos:</b> 2243 0995 - 2224 30997 </p>
+        </aside>
+      
+      <div class="contact">
+      <p class="movilp">Para contactarnos, selecciona una opción y escribenos.</p>
+      <ul>        
+        <li><a href="mailto:ventaschile@overtechgroup.com?&subject=Información ventas"><b>Contacto ventas:</b> Sr. Rodrigo Tomicic</a></li>
+        <li><a href="mailto:soportechile@overtechgroup.com?&subject=Información soporte">Contacto soporte:</b> Sr. Mario Riera</a></li>
+
+      </ul>
+
+      <p class="movilp">
+        <span class="strongfont">OverTech Group - Soluciones de gestión telefónica</span><br> 
+    <b>Dirección: </b>Av. Vitacura 2808 Piso 12 - Las Condes, Santiago<br><br><br>
+        Telefonos:<br><a href="tel:56224482800" class="phone-link">56-2- 2448 28 00</a><br>
+        Fax:<br><a href="tel:56224482801" class="phone-link">56-2- 2448 28 01</a><br>
+    </p>
+    
+<!--               <div class="movillegal">
+            <a href="terminos.html">Términos y condiciones</a><br>
+            <a href="politicas.html">Políticas de privacidad</a>
+          </div> -->
+      
+      </div> 
+     
+      <form  action="#" id="contactForm">
+      
+     <h2>Contacto</h2>
+     <hr>
+  <ul>
+  <li><label class="formtitle" for="firstName">Nombre </label>
+  <input class="formres" name="firstName" id="firstName" placeholder="Nombre"/></li>
+  
+  <li><label for="emailaddress">Email </label>
+    <input type="email" name="emailaddress" id="emailaddress" placeholder="nombre@ejemplo.com" /></li>
+
+  <li><label for="message">Empresa</label>
+    <input class="formres" name="message" id="message" placeholder="..."/></li>
+
+  <li><label for="message">Asunto del mensaje</label>
+    <input class="formres" name="message" id="message" placeholder="..."/></li>
+  
+  <li><label class="message" for="">Mensaje</label>
+    <textarea id="mensaje2"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
+  <li>
+  <input class="enviar" id="enviar" type="submit" value="&#8250; Enviar" />
+  <input class="borrar" id="borrar" type="reset" value="&#8250; Borrar" />
+  <hr>
+  </li>
+  </form>
+
+
+
+    
+  <div id="respuesta">   
+  <span id="respuestaMail"></span>
+  <div id="negativa">Debes completar el Email</div>
+  </div>
+  <div id="mailIncorrecto">Mail Incorrecto</div>
+   
+</div>
+</div>
+  
+{% endblock %}

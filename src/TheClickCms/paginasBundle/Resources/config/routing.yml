@@ -1,3 +1,15 @@
 the_click_cmspaginas_homepage:
     pattern:  /home
     defaults: { _controller: TheClickCmspaginasBundle:Default:index }
+
+vistaHistoria:
+    pattern:  /home/vistaHistoria
+    defaults: { _controller:  TheClickCmspaginasBundle:Default:vistaHistoria }
+
+vistaContacto:
+    pattern: /home/vistaContacto
+    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaContacto}
+
+vistaAcceso:
+    pattern: /home/vistaAcceso
+    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAcceso}
