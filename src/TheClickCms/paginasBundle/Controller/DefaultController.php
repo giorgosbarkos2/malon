@@ -32,6 +32,30 @@ class DefaultController extends Controller
         $asunto = $data->request->get('asunto');
         $mensaje = $data->request->get('mensaje');
 
+        if ($nombre == '' or $correo == '' or $empresa == '' or $asunto == '' or $mensaje == '') {
+
+
+            return new Response('100');
+            
+            
+        } else {
+
+            $message = \Swift_Message::newInstance()
+                    ->setSubject('Hola mundo soy subject')
+                    ->setFrom('vicente.monsalve@gmail.com <mailto:vicente.monsalve@gmail.com>')
+                    ->setTo('vicente.monsalve@gmail.com <mailto:vicente.monsalve@gmail.com>')
+                    ->setBody(
+                    $this->renderView(
+                            'projectAdminprincipalBundle:Default:enviacorreo.html.twig', array('nombre' => $nombre, 'correo' => $correo, 'empresa' => $empresa, 'asunto'=> $asunto, 'mensaje' => $mensaje)
+                        )
+                    )
+            ;
+            $this->get('mailer')->send($message);
+
+            return new Response('200');
+        }
+    }
+
     }
 
     public function vistaAccesoAction()
