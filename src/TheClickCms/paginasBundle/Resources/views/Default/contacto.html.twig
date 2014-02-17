@@ -39,7 +39,7 @@ Fax: 56-2- 2448 28 01<br><br>
       
       </div> 
      
-      <form  action="#" id="contactForm">
+      <form  action="{{path('recibeFormulario')}}" id="contactForm">
       
      <h2>Contacto</h2>
      <hr>
@@ -50,14 +50,14 @@ Fax: 56-2- 2448 28 01<br><br>
   <li><label for="emailaddress">Email </label>
     <input type="email" name="emailaddress" id="emailaddress" placeholder="nombre@ejemplo.com" /></li>
 
-  <li><label for="message">Empresa</label>
-    <input class="formres" name="message" id="message" placeholder="..."/></li>
+  <li><label for="empresa">Empresa</label>
+    <input class="formres" name="empresa" id="message" placeholder="..."/></li>
 
-  <li><label for="message">Asunto del mensaje</label>
-    <input class="formres" name="message" id="message" placeholder="..."/></li>
+  <li><label for="asunto">Asunto del mensaje</label>
+    <input class="formres" name="asunto" id="message" placeholder="..."/></li>
   
-  <li><label class="message" for="">Mensaje</label>
-    <textarea id="mensaje2"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
+  <li><label class="mensaje" for="">Mensaje</label>
+    <textarea name="mensaje" id="mensaje2"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
   <li>
   <input class="enviar" id="enviar" type="submit" value="&#8250; Enviar" />
   <input class="borrar" id="borrar" type="reset" value="&#8250; Borrar" />

@@ -166,8 +166,8 @@ $('#pais-07').hide('slow');
 
 
 <body class="intro">
-	{% block body %}
-	{% endblock %}
+{% block body %}	
+
 	<script>
 			//  The function to change the class
 			var changeClass = function (r,className1,className2) {
@@ -192,7 +192,29 @@ $('#pais-07').hide('slow');
 		</script> 
 	<!-- Jquery generico --> 
 	<script defer src="{{asset('bundles/theclickcmspaginas/js/jquery.flexslider.js')}}"></script> 
-	<script src="{{asset('bundles/theclickcmspaginas/js/bgvideo.js')}}" type="text/javascript"></script> 
+	<script src="{{asset('bundles/theclickcmspaginas/js/bgvideo.js')}}" type="text/javascript"></script>
+	<script src="{{asset('bundles/theclickcmspaginas/js/jquery.dd.min.js')}}"></script> 
+	<script src="{{asset('bundles/theclickcmspaginas/js/jquery.bxslider.js')}}"></script>
+	 <!-- Script de video --> 
+   	<script defer src="{{asset('bundles/theclickcmspaginas/js/jquery.flexslider.js')}}"></script>
+  	<!-- Script para el selector de banderas --> 
+  	<script src="{{asset('bundles/theclickcmspaginas/js/jquery.dd.min.js')}}"></script> 
+  	<script>
+		$(document).ready(function() {
+			$('.flexslider').flexslider({
+		        animation: "slide",
+		}); 
+		})
+  	</script>
+ 
+ 	<!--- //// Ocultar barra navegación  /////////////////////////////--> 
+	<script>
+	/mobile/i.test(navigator.userAgent) && !window.location.hash && setTimeout(function () {
+	  window.scrollTo(0, 1);
+	}, 1000);
+	</script>
 </div>
+</div>
+{% endblock %}
 </body>
 </html>

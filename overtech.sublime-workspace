@@ -1,0 +1,455 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"block",
+				"block	block"
+			],
+			[
+				"in",
+				"include	Twig : Include"
+			],
+			[
+				"b",
+				"block	block"
+			],
+			[
+				"cad",
+				"cadtres"
+			],
+			[
+				"ca",
+				"caddos"
+			],
+			[
+				"_",
+				"_Prueba__privado"
+			],
+			[
+				"def",
+				"defs	Method"
+			],
+			[
+				"obj",
+				"obj2"
+			],
+			[
+				"__",
+				"__privado"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<?php\n\nnamespace TheClickCms\\paginasBundle\\Controller;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\HttpFoundation\\Request;\n\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\Controller;\n\nclass DefaultController extends Controller\n{\n    public function indexAction()\n    {\n        return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');\n    }\n\n    public function vistaHistoriaAction()\n    {\n    	return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');\n    }\n\n    public function vistaContactoAction()\n    {\n    	return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig');\n    }\n\n    public function recibeFormularioContacto(Request $data)\n    {\n\n        $nombre = $data->request->get('firstName');\n        $correo = $data->request->get('emailaddress');\n        $empresa = $data->request->get('');\n        $asunto = $data->request->get('');\n        $mensaje = $data->request->get('');\n\n    }\n\n    public function vistaAccesoAction()\n    {\n    	return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig');\n    }\n}\n",
+			"file": "src/TheClickCms/paginasBundle/Controller/DefaultController.php",
+			"file_size": 1072,
+			"file_write_time": 130371306438028423,
+			"settings":
+			{
+				"buffer_size": 1103,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/TheClickCms/paginasBundle/Resources/views/Default/contacto.html.twig",
+			"settings":
+			{
+				"buffer_size": 3129,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/python33.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"sfCommand",
+				"SfCommand: Assets:Install"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"comma",
+				"SfCommand: Assets:Install"
+			],
+			[
+				"gee",
+				"SfCommand: Generate:Bundle"
+			],
+			[
+				"genera",
+				"SfCommand: Generate:Bundle"
+			],
+			[
+				"command",
+				"SfCommand: Assets:Install"
+			],
+			[
+				"tw",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/overtech/src/TheClickCms/AdminBundle/Controller/DefaultController.php",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Controller/DefaultController.php",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Default/contacto.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Default/index.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Default/acceso.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Default/main.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Default/historia.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/config/routing.yml",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Layer/header.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Layer/base.html.twig",
+		"/var/www/overtech/src/TheClickCms/paginasBundle/Resources/views/Layer/footer.html.twig",
+		"/var/www/overtech/app/config/routing.yml",
+		"/var/www/overtech/src/TheClickCms/UploadBundle/Controller/DefaultController.php",
+		"/var/www/overtech/src/TheClickCms/AdminBundle/Controller/DefaultController.php~",
+		"/var/www/overtech/src/Acme/DemoBundle/Controller/WelcomeController.php",
+		"/var/www/overtech/src/Acme/DemoBundle/Controller/SecuredController.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Tests/Controller/ControllerResolverTest.php",
+		"/var/www/overtech/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/skeleton/controller/ControllerTest.php.twig",
+		"/var/www/overtech/src/Acme/DemoBundle/Tests/Controller/DemoControllerTest.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Controller/ControllerResolverInterface.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Controller/ControllerTest.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerNameParser.php",
+		"/var/www/overtech/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/skeleton/crud/controller.php.twig",
+		"/var/www/overtech/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Resources/skeleton/controller/Controller.php.twig",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Controller/ControllerResolver.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Controller/ControllerReference.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerResolver.php",
+		"/var/www/overtech/vendor/doctrine/annotations/tests/Doctrine/Tests/Common/Annotations/Fixtures/Controller.php",
+		"/var/www/overtech/src/Acme/DemoBundle/Controller/DemoController.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php",
+		"/var/www/overtech/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/config/controller.xml",
+		"/var/www/overtech/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Generator/ControllerGenerator.php",
+		"/var/www/overtech/vendor/sensio/framework-extra-bundle/Sensio/Bundle/FrameworkExtraBundle/EventListener/ControllerListener.php",
+		"/var/www/overtech/src/Acme/DemoBundle/EventListener/ControllerListener.php",
+		"/var/www/overtech/vendor/symfony/symfony/CONTRIBUTING.md",
+		"/var/www/overtech/app/console",
+		"/var/www/overtech/composer.json",
+		"/var/www/overtech/vendor/sensio/framework-extra-bundle/Sensio/Bundle/FrameworkExtraBundle/Resources/config/routing.xml",
+		"/var/www/overtech/src/TheClickCms/UploadBundle/Resources/config/routing.yml",
+		"/var/www/overtech/src/TheClickCms/AdminBundle/Resources/config/routing.yml~",
+		"/var/www/overtech/src/TheClickCms/AdminBundle/Resources/config/routing.yml",
+		"/var/www/overtech/src/Acme/DemoBundle/Resources/config/routing.yml",
+		"/var/www/overtech/app/cache/dev/assetic/routing.yml",
+		"/var/www/overtech/app/config/routing_dev.yml",
+		"/var/www/overtech/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Manipulator/RoutingManipulator.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/Routing/Tests/RouteTest.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Tests/Extension/RoutingExtensionTest.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/Console/Output/OutputInterface.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/Intl/Exception/MethodArgumentValueNotImplementedException.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/Form/Tests/Extension/Csrf/CsrfProvider/DefaultCsrfProviderTest.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Compiler/CheckExceptionOnInvalidReferenceBehaviorPassTest.php",
+		"/var/www/overtech/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/ContentEncoder.php",
+		"/var/www/overtech/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/SimplifiedYamlDriver.php",
+		"/var/www/overtech/vendor/incenteev/composer-parameter-handler/Incenteev/ParameterHandler/Tests/fixtures/invalid/missing_top_level.yml.dist",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bridge/ProxyManager/LazyProxy/PhpDumper/ProxyDumper.php",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/layout.html.twig",
+		"/var/www/overtech/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Auth/PlainAuthenticator.php",
+		"/var/www/overtech/vendor/monolog/monolog/tests/Monolog/PsrLogCompatTest.php",
+		"/var/www/overtech/app/phpunit.xml.dist",
+		"/var/www/overtech/src/TheClickCms/AdminBundle/Resources/views/Default/login.html.twig",
+		"/var/www/overtech/app/config/parameters.yml",
+		"/var/www/overtech/app/AppKernel.php",
+		"/var/www/overtech/vendor/doctrine/orm/tests/Doctrine/Tests/ORM/Functional/ReadOnlyTest.php",
+		"/var/www/overtech/README.md",
+		"/var/www/overtech/app/autoload.php",
+		"/var/www/overtech/vendor/doctrine/dbal/lib/Doctrine/DBAL/Cache/ArrayStatement.php",
+		"/var/www/overtech/vendor/doctrine/dbal/lib/Doctrine/DBAL/Schema/Synchronizer/AbstractSchemaSynchronizer.php",
+		"/var/www/overtech/vendor/kriswallsmith/assetic/src/Assetic/AssetManager.php",
+		"/var/www/overtech/vendor/monolog/monolog/src/Monolog/Handler/ZendMonitorHandler.php",
+		"/var/www/overtech/src/TheClickCms/AdminBundle/Resources/config/services.yml",
+		"/var/www/overtech/app/SymfonyRequirements.php",
+		"/var/www/overtech/app/bootstrap.php.cache",
+		"/var/www/overtech/app/AppCache.php",
+		"/var/www/overtech/vendor/kriswallsmith/assetic/Gemfile",
+		"/var/www/overtech/vendor/symfony/symfony/src/Symfony/Component/EventDispatcher/GenericEvent.php",
+		"/var/www/overtech/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Generator/Generator.php",
+		"/var/www/overtech/vendor/swiftmailer/swiftmailer/test-suite/lib/simpletest/packages/generate_package.php",
+		"/var/www/overtech/web/bundles/theclickcmsadmin/upload/common-scripts.js",
+		"/var/www/overtech/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Events/CommandEvent.php",
+		"/home/vmonsalve/Documentos/Python/1/1g.py",
+		"/home/vmonsalve/Documentos/Python/1/1f.py",
+		"/home/vmonsalve/Documentos/Python/1/1e.py",
+		"/home/vmonsalve/Documentos/Python/1/1d.py",
+		"/home/vmonsalve/.config/sublime-text-3/Packages/User/python33.sublime-build",
+		"/var/www/mambo3/src/avisapp/adminBundle/Controller/calugaBeneficioController.php",
+		"/var/www/mambo3/src/avisapp/adminBundle/Resources/views/calugaBeneficio/new.html.twig",
+		"/var/www/mambo3/src/avisapp/adminBundle/Resources/views/calugaBeneficio/edit.html.twig",
+		"/var/www/mambo3/src/avisapp/adminBundle/Resources/views/calugaBeneficio/index.html.twig",
+		"/var/www/mambo3/src/avisapp/adminBundle/Controller/TextoqueesdosController.php",
+		"/var/www/mambo3/src/avisapp/adminBundle/Resources/views/Caluga/index.html.twig",
+		"/var/www/mambo3/src/avisapp/adminBundle/Controller/BotonHomeController.php",
+		"/var/www/mambo3/src/avisapp/adminBundle/Tests/Controller/DefaultControllerTest.php",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/diccionario.py",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/relacionales.py",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/lista.py",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/booleanos.py",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/cadenas.py",
+		"/home/vmonsalve/.config/sublime-text-3/Packages/User/node.sublime-build",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/holanode.js",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/numeros.py",
+		"/home/vmonsalve/Documentos/Python/codigoFacilito/hola.py",
+		"/home/vmonsalve/Documentos/Python/clases/claseuno.py",
+		"/var/www/avisapp/index.html",
+		"/home/vmonsalve/Documentos/Python/0/encapsulamiento.py",
+		"/home/vmonsalve/encapsulacion.py",
+		"/home/vmonsalve/.config/sublime-text-3/Packages/User/python3.sublime-build"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"video",
+			"contenedorVideo",
+			"update"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/var/www/overtech"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/TheClickCms/paginasBundle/Controller/DefaultController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								826,
+								826
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/TheClickCms/paginasBundle/Resources/views/Default/contacto.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2366,
+								2373
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 250.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 176.0
+	},
+	"project": "",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"controller",
+				"src/TheClickCms/paginasBundle/Controller/DefaultController.php"
+			],
+			[
+				"routin",
+				"src/TheClickCms/paginasBundle/Resources/config/routing.yml"
+			],
+			[
+				"contendorvideo",
+				"vendor/symfony/symfony/src/Symfony/Component/Intl/Exception/MethodArgumentValueNotImplementedException.php"
+			],
+			[
+				"playdiv",
+				"vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/SimplifiedYamlDriver.php"
+			],
+			[
+				"routing",
+				"app/config/routing_dev.yml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
