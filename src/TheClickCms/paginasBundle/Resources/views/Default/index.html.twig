@@ -6,12 +6,12 @@
 		<div class="box-slogan">
 			<h3>Soluciones de <br> <span class="red">Gestión Telefónica</span></h3>
 		</div>
-		<div class="box-acceso">
+		<div class="box-acceso" style="position:relative;z-index:999999999;">
 			<span class="h1-clientes">Acceso Clientes</span>
 				<br>
 				<p>Rut</p><input class="textbox" placeholder="" name="rut" type="text">
 				<p>Clave</p><input class="textbox" placeholder="" name="password" type="password">
-				<input id="clickme" class="button" type="submit" value="&#8250; Enviar" name="Enviar">
+				<input id="clickme" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
 				<div style="clear:both"></div>
 				<p class="underline"><a href="#">Regístrate Aquí</a></p>
 		</div>
@@ -165,8 +165,9 @@
 				<div class="box-maps-pais-05"></div>
 				<div class="box-maps-pais-06"></div>
 				<div class="box-maps-pais-07"></div>
-				{#{{asset('bundles/theclickcmspaginas/img/maps.png')}}#}
-				<!--<img src="">-->
+				
+			<img src="{{asset('bundles/theclickcmspaginas/img/maps.png')}}">
+			
 				</div>
 			</div>
 		</div>
