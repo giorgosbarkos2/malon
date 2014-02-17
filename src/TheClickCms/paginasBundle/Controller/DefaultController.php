@@ -23,14 +23,14 @@ class DefaultController extends Controller
     	return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig');
     }
 
-    public function recibeFormularioContacto(Request $data)
+    public function recibeContactoAction(Request $data)
     {
 
-        $nombre = $data->request->get();
-        $correo = $data->request->get();
-        $empresa = $data->request->get();
-        $asunto = $data->request->get();
-        $mensaje = $data->request->get();
+        $nombre = $data->request->get('firstName');
+        $correo = $data->request->get('emailaddress');
+        $empresa = $data->request->get('empresa');
+        $asunto = $data->request->get('asunto');
+        $mensaje = $data->request->get('mensaje');
 
     }
 
