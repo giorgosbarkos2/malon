@@ -9,11 +9,11 @@
 		<div class="box-acceso">
 			<span class="h1-clientes">Acceso Clientes</span>
 				<br>
-				<p>Rut</p><input class="textbox" placeholder="" name="" type="text">
-				<p>Clave</p><input class="textbox" placeholder="" name="" type="password">
+				<p>Rut</p><input class="textbox" placeholder="" name="rut" type="text">
+				<p>Clave</p><input class="textbox" placeholder="" name="password" type="password">
+				<input id="clickme" class="button" type="submit" value="&#8250; Enviar" name="Enviar">
 				<div style="clear:both"></div>
 				<p class="underline"><a href="#">Regístrate Aquí</a></p>
-				<input id="enviar" class="button" type="submit" value="&#8250; Enviar" name="Enviar">
 		</div>
 		
 <div id="main">
@@ -165,7 +165,8 @@
 				<div class="box-maps-pais-05"></div>
 				<div class="box-maps-pais-06"></div>
 				<div class="box-maps-pais-07"></div>
-				<img src="{{asset('bundles/theclickcmspaginas/img/maps.png')}}">
+				{#{{asset('bundles/theclickcmspaginas/img/maps.png')}}#}
+				<!--<img src="">-->
 				</div>
 			</div>
 		</div>
@@ -183,4 +184,11 @@
 			</div>  
 		</div>
 	</div>
+	<script>
+		jQuery(document).ready(function($) {
+			$("#clickme").click(function() {
+				alert("Hola Mundo!!!")
+			});
+		});
+	</script>
 {% endblock %}

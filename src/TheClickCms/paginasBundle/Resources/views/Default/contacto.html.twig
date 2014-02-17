@@ -64,10 +64,6 @@ Fax: 56-2- 2448 28 01<br><br>
   <hr>
   </li>
   </form>
-
-
-
-    
   <div id="respuesta">   
   <span id="respuestaMail"></span>
   <div id="negativa">Debes completar el Email</div>
@@ -76,5 +72,19 @@ Fax: 56-2- 2448 28 01<br><br>
    
 </div>
 </div>
-  
+<script>
+  $('#contactForm').hide( 'fast' );
+                    $('#respuesta').show('fast');
+                }
+
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+
+            },
+        });
+    });
+});
+</script>
 {% endblock %}
+    

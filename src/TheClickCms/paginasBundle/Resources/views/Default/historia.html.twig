@@ -7,25 +7,22 @@
           <h1>Productos Descatados</h1>
            </div>
 
-<ul class="bxslider">
-  <li><img src="{{asset('bundles/theclickcmspaginas/img/pd01.jpg')}}" title="Producto 1" /></li>
-  <li><img src="{{asset('bundles/theclickcmspaginas/img/pd02.jpg')}}" title="Producto 2" /></li>
-  <li><img src="{{asset('bundles/theclickcmspaginas/img/pd03.jpg')}}" title="Producto 3" /></li>
-</ul>
-
-<script type="text/javascript">
-$(document).ready(function(){
-$('.bxslider').bxSlider({
-  mode: 'fade',
-  captions: true,
-  auto: true
-  });
-});
-
+  <ul class="bxslider">
+    <li><img src="{{asset('bundles/theclickcmspaginas/img/pd01.jpg')}}" title="Producto 1" /></li>
+    <li><img src="{{asset('bundles/theclickcmspaginas/img/pd02.jpg')}}" title="Producto 2" /></li>
+    <li><img src="{{asset('bundles/theclickcmspaginas/img/pd03.jpg')}}" title="Producto 3" /></li>
+  </ul>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    $('.bxslider').bxSlider({
+      mode: 'fade',
+      captions: true,
+      auto: true
+      });
+    });
   </script>         
-      </aside>
 
-
+     </aside>
 <section class="app">
         <h2>Productos</h2>
         <article>
@@ -42,4 +39,5 @@ altamente calificado, le garantiza las soluciones integradas:</p>
 </section>
     </div>
   </div>
+
 {% endblock %}

@@ -42,8 +42,8 @@ class DefaultController extends Controller
 
             $message = \Swift_Message::newInstance()
                     ->setSubject('Hola mundo soy subject')
-                    ->setFrom('vicente.monsalve@gmail.com <mailto:vicente.monsalve@gmail.com>')
-                    ->setTo('vicente.monsalve@gmail.com <mailto:vicente.monsalve@gmail.com>')
+                    ->setFrom('')
+                    ->setTo('')
                     ->setBody(
                     $this->renderView(
                             'projectAdminprincipalBundle:Default:enviacorreo.html.twig', array('nombre' => $nombre, 'correo' => $correo, 'empresa' => $empresa, 'asunto'=> $asunto, 'mensaje' => $mensaje)
@@ -56,10 +56,14 @@ class DefaultController extends Controller
         }
     }
 
-    }
-
     public function vistaAccesoAction()
     {
     	return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig');
+    }
+
+    public function recibeFormularioAccesoAction(Request $data)
+    {
+        $usuario = $data->request->get('firstName');
+        $password = $data->request->get('emailaddress');
     }
 }
