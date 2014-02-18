@@ -18,6 +18,28 @@ class DefaultController extends Controller
     	return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');
     }
 
+
+    public function noticasAction()
+    {
+        return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');
+    }
+     
+
+     public function servicioAction()
+     {
+         return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig');
+     }
+
+
+     public function productosAction()
+     {
+
+       return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig');
+
+       
+     }
+
+
     public function vistaContactoAction()
     {
     	return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig');

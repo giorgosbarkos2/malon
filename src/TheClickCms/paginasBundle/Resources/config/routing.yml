@@ -17,3 +17,12 @@ vistaAcceso:
 recibeContacto:
     pattern: /home/recibeContacto
     defaults: {_controller: TheClickCmspaginasBundle:Default:recibeContacto}
+
+
+noticias:
+        path:      /home/noticias
+        defaults:  { _controller: TheClickCmspaginasBundle:Default:noticias }    
+
+servicio:
+            path:      /home/servicio
+            defaults:  { _controller: TheClickCmspaginasBundle:Default:servicio }        

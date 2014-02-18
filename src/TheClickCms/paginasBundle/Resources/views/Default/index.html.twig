@@ -1,6 +1,25 @@
 {% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
 {% block contenido %}
 
+
+<!-- VIDEO -->		
+<img src="{{asset('bundles/theclickcmspaginas/img/loading1.gif')}}" alt="" id="dvLoading">
+<script type="text/javascript">
+var originalNavClasses;
+
+function toggleNav() {
+		var elem = document.getElementById('navigation_list');
+		var classes = elem.className;
+		if (originalNavClasses === undefined) {
+				originalNavClasses = classes;
+		}
+		elem.className = /expanded/.test(classes) ? originalNavClasses : originalNavClasses + ' expanded';
+}
+
+</script>
+
+
+
 <body class="intro">
 
  	<div id="page">
