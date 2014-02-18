@@ -87,7 +87,6 @@ class DefaultController extends Controller
 
     public function recibeFormularioAccesoAction(Request $request)
     {
-<<<<<<< HEAD
 
 
           if ($request->getMethod() == 'POST') {
@@ -112,20 +111,14 @@ class DefaultController extends Controller
         
 
         return new Respose(200);
-=======
-        $rut = $data->request->get('rut');
-        $password = $data->request->get('password');
 
-        if ($rut == '' or $password == '') {
-            return new Response('100');
-        }else{
-            return new Response('200');
-        }
->>>>>>> e4d007d0a8f49e55395bd27f59406022d91b7060
     }
 
 
     }
 
 }
+
+
+
 }
