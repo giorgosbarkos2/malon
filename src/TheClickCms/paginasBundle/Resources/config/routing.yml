@@ -17,3 +17,7 @@ vistaAcceso:
 recibeContacto:
     pattern: /home/recibeContacto
     defaults: {_controller: TheClickCmspaginasBundle:Default:recibeContacto}
+
+recibeFormularioAcceso:
+    pattern: /home/recibeFormularioAcceso
+    defaults: {_controllar: TheClickCmspaginasBundle:Default:recibeFormularioAcceso}

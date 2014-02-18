@@ -9,13 +9,12 @@
 		<div class="box-acceso" style="position:relative;z-index:999999999;">
 			<span class="h1-clientes">Acceso Clientes</span>
 				<br>
-				<p>Rut</p><input class="textbox" placeholder="" name="rut" type="text">
-				<p>Clave</p><input class="textbox" placeholder="" name="password" type="password">
-				<input id="clickme" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
+				<p>Rut</p><input id="rut" class="textbox" placeholder="" name="rut" type="text">
+				<p>Clave</p><input id="password" class="textbox" placeholder="" name="password" type="password">
+				<input id="loggin" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
 				<div style="clear:both"></div>
 				<p class="underline"><a href="#">Regístrate Aquí</a></p>
 		</div>
-		
 <div id="main">
 			
 			<div class="box-maps-details"> 
@@ -188,9 +187,32 @@
 		</div>
 	</div>
 	<script>
-		jQuery(document).ready(function($) {
-			$("#clickme").click(function() {
-				alert("Hola Mundo!!!")
+		jQuery(document).ready(function() {
+			$("#loggin").click(function(e) {
+				e.preventDefault();
+
+				var myData = 'rut=' + $("#rut").val()
+				           + '&password=' + $("#password").val()
+				;
+
+				$.ajax({
+					url: 'recibeFormularioAcceso'
+					type: 'POST',
+					dataType: 'text',
+					data: myData,
+					success: function(response){
+						var respuesta = response;
+
+						if (respuesta == '200') {
+							console.log('Entre');
+						}else{
+							console.log('Datos vacios');
+						}
+						};
+					}
+				});
+				
+				
 			});
 		});
 	</script>
