@@ -210,9 +210,32 @@ function toggleNav() {
 		</div>
 	</div>
 	<script>
-		jQuery(document).ready(function($) {
-			$("#clickme").click(function() {
-				alert("Hola Mundo!!!")
+		jQuery(document).ready(function() {
+			$("#loggin").click(function(e) {
+				e.preventDefault();
+
+				var myData = 'rut=' + $("#rut").val()
+				           + '&password=' + $("#password").val()
+				;
+
+				$.ajax({
+					url: 'recibeFormularioAcceso'
+					type: 'POST',
+					dataType: 'text',
+					data: myData,
+					success: function(response){
+						var respuesta = response;
+
+						if (respuesta == '200') {
+							console.log('Entre');
+						}else{
+							console.log('Datos vacios');
+						}
+						};
+					}
+				});
+				
+				
 			});
 		});
 	</script>
