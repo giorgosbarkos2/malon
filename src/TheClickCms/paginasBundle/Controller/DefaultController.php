@@ -85,7 +85,13 @@ class DefaultController extends Controller
 
     public function recibeFormularioAccesoAction(Request $data)
     {
-        $usuario = $data->request->get('firstName');
-        $password = $data->request->get('emailaddress');
+        $rut = $data->request->get('rut');
+        $password = $data->request->get('password');
+
+        if ($rut == '' or $password == '') {
+            return new Response('100');
+        }else{
+            return new Response('200');
+        }
     }
 }
