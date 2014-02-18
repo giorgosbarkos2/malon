@@ -211,6 +211,7 @@ function toggleNav() {
 	</div>
 	<form id="login" action="{{path('recibeFormularioAcceso')}}"></form>
 	<script>
+<<<<<<< HEAD
 		jQuery(document).ready(function(e) {
 			$("#clickme").click(function() {
 				alert('funco');
@@ -249,6 +250,35 @@ function toggleNav() {
 	
 		});
 
+=======
+		jQuery(document).ready(function() {
+			$("#loggin").click(function(e) {
+				e.preventDefault();
+
+				var myData = 'rut=' + $("#rut").val()
+				           + '&password=' + $("#password").val()
+				;
+
+				$.ajax({
+					url: 'recibeFormularioAcceso'
+					type: 'POST',
+					dataType: 'text',
+					data: myData,
+					success: function(response){
+						var respuesta = response;
+
+						if (respuesta == '200') {
+							console.log('Entre');
+						}else{
+							console.log('Datos vacios');
+						}
+						};
+					}
+				});
+				
+				
+			});
+>>>>>>> e4d007d0a8f49e55395bd27f59406022d91b7060
 		});
 	</script>
 
