@@ -19,9 +19,9 @@ class DefaultController extends Controller
     }
 
 
-    public function noticasAction()
+    public function noticiasAction()
     {
-        return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');
+        return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig');
     }
      
 
@@ -83,9 +83,38 @@ class DefaultController extends Controller
     	return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig');
     }
 
-    public function recibeFormularioAccesoAction(Request $data)
+
+
+    public function recibeFormularioAccesoAction(Request $request)
     {
-        $usuario = $data->request->get('firstName');
-        $password = $data->request->get('emailaddress');
+
+
+          if ($request->getMethod() == 'POST') {
+
+
+        $usuario = $request->request->get('usuario');
+        $password = $request->request->get('password');
+
+
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuario')->findOneBy('nombre' => $nombre , 'contrasena' => $contrasena );
+       
+
+        if($usuario){
+
+
+        return new Respose(100);
+
+
+    }else{
+
+        
+
+        return new Respose(200);
     }
+
+
+    }
+
+}
 }

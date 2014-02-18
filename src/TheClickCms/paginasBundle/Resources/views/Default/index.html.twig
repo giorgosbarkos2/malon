@@ -31,8 +31,8 @@ function toggleNav() {
 		<div class="box-acceso" style="position:relative;z-index:999999999;">
 			<span class="h1-clientes">Acceso Clientes</span>
 				<br>
-				<p>Rut</p><input class="textbox" placeholder="" name="rut" type="text">
-				<p>Clave</p><input class="textbox" placeholder="" name="password" type="password">
+				<p>Rut</p><input class="textbox" id="rut" placeholder="" name="rut" type="text">
+				<p>Clave</p><input class="textbox"  id="clave" placeholder="" name="password" type="password">
 				<input id="clickme" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
 				<div style="clear:both"></div>
 				<p class="underline"><a href="#">Regístrate Aquí</a></p>
@@ -209,11 +209,46 @@ function toggleNav() {
 
 		</div>
 	</div>
+	<form id="login" action="{{path('recibeFormularioAcceso')}}"></form>
 	<script>
-		jQuery(document).ready(function($) {
+		jQuery(document).ready(function(e) {
 			$("#clickme").click(function() {
-				alert("Hola Mundo!!!")
-			});
+				alert('funco');
+			
+
+
+
+        var myData = 'usuario=' + $("#rut").val()
+                + '&clave=' + $("#clave").val()
+              
+
+                ;
+
+
+        jQuery.ajax({
+            type: "POST", // metodo post o get 
+            url: $('#login').attr('action'),
+            dataType: "text", // tipo datos text o json etc 
+            data: myData,
+            success: function(response) {
+
+                var respuesta = response;
+
+
+             
+
+
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+
+
+            }
+
+        });
+	
+		});
+
 		});
 	</script>
 

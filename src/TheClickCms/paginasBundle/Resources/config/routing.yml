@@ -19,10 +19,21 @@ recibeContacto:
     defaults: {_controller: TheClickCmspaginasBundle:Default:recibeContacto}
 
 
-noticias:
-        path:      /home/noticias
-        defaults:  { _controller: TheClickCmspaginasBundle:Default:noticias }    
+nt:
+    pattern: /home/noticias
+    defaults: {_controller: TheClickCmspaginasBundle:Default:noticias}
+
 
 servicio:
-            path:      /home/servicio
-            defaults:  { _controller: TheClickCmspaginasBundle:Default:servicio }        
+    path:      /home/servicio
+    defaults:  { _controller: TheClickCmspaginasBundle:Default:servicio } 
+
+
+
+productos:
+    pattern: /home/productos
+    defaults: {_controller: TheClickCmspaginasBundle:Default:productos}
+
+recibeFormularioAcceso:  
+    pattern: /home/recibeFormularioAcceso
+    defaults: {_controller: TheClickCmspaginasBundle:Default:recibeFormularioAcceso}  
