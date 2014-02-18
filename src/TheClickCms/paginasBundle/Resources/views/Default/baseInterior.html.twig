@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html style=" height:100%">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="author" content="Mediadiv Ltda." />
+<meta name="HandheldFriendly" content="True" />
+<meta name="format-detection" content="telephone=no">
+<title>Overtech - Soluciones de gestión telefónica</title>
+<link href="{{asset('bundles/theclickcmspaginas/css/style.css')}}" rel="stylesheet" type="text/css">
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+
+<link rel="shortcut icon" href="{{asset('bundles/theclickcmspaginas/img/favicon.ico')}}" type="image/x-icon">
+<link rel="icon" href="{{asset('bundles/theclickcmspaginas/img/favicon.ico')}}" type="image/x-icon">
+
+<link rel="apple-touch-icon" href="{{asset('bundles/theclickcmspaginas/img/icon57.png')}}" />
+<link rel="apple-touch-icon" sizes="72x72" href="{{asset('bundles/theclickcmspaginas/img/icon72.png')}}" />
+<link rel="apple-touch-icon" sizes="114x114" href="{{asset('bundles/theclickcmspaginas/img/icon114.png')}}" />
+<!-- jQuery library (served from Google) -->
+<script src="{{asset('bundles/theclickcmspaginas/js/jquery.min.js')}}"></script>
+<!-- bxSlider Javascript file -->
+<!-- bxSlider CSS file -->
+<script src="{{asset('bundles/theclickcmspaginas/js/modernizr.custom.js')}}"></script>
+</head>
+
+<body class="page_eg">
+<div id="wrapper">
+  {%include "TheClickCmspaginasBundle:Layer:header.html.twig"%}
+
+  
+<div id="page2">
+    
+    <div class="contentint">
+
+      {% block contenido %}
+
+
+
+
+      {% endblock %}
+
+
+    </div>
+
+
+
+</div>
+
+</div>
+
+
+  <script type="text/javascript">
+      var originalNavClasses;
+
+      function toggleNav() {
+       var elem = document.getElementById('navigation_list');
+       var classes = elem.className;
+       if (originalNavClasses === undefined) {
+        originalNavClasses = classes;
+        }
+          elem.className = /expanded/.test(classes) ? originalNavClasses : originalNavClasses + ' expanded';
+        }
+</script>   
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.bxslider').bxSlider({
+  mode: 'fade',
+  captions: true,
+  auto: true
+  });
+});
+
+  </script>  
+
+
+  <script>
+/mobile/i.test(navigator.userAgent) && !window.location.hash && setTimeout(function () {
+  window.scrollTo(0, 1);
+}, 1000);
+</script>
+
+
+
+  {%include "TheClickCmspaginasBundle:Layer:footer.html.twig"%}
+
+</body>
+</html>
