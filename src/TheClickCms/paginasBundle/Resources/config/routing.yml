@@ -24,7 +24,7 @@ nt:
 
 servicio:
     path:      /home/servicio
-    defaults:  { _controller: TheClickCmspaginasBundle:Default:servicio } 
+    defaults:  { _controller: TheClickCmspaginasBundle:Default:servicio }
 
 productos:
     pattern: /home/productos
@@ -32,4 +32,8 @@ productos:
 
 recibeFormularioAcceso:  
     pattern: /home/recibeFormularioAcceso
-    defaults: {_controller: TheClickCmspaginasBundle:Default:recibeFormularioAcceso}  
+    defaults: {_controller: TheClickCmspaginasBundle:Default:recibeFormularioAcceso}
+
+recibeformularioEditar:
+    pattern: /home/recibeformularioEditar
+    defaults: {_controller: TheClickCmspaginasBundle:Default:recibeformularioEditar}
