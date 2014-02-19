@@ -134,20 +134,27 @@ class DefaultController extends Controller
         $nombre = $request->request->get('nombre');
         $correo = $request->request->get('email');
         $cargo = $request->request->get('cargo');
-        $empresa = $request->request->get('empresa');
+        $nombreEmpresa = $request->request->get('empresa');
         //Conectamos con la base de datos.
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id'=>$id));
-        //Seteando los valores que vienen del formulario editar.
+
         $usuario->setPais($pais);
         $usuario->setNombre($nombre);
         $usuario->setEmail($correo);
         $usuario->setCargo($cargo);
-        $usuario->setEmpresa($empresa);
-        //Haciendo la edicion en la base de datos.
+    
         $em->merge($usuario);
-        $em->flush();
-        return new response('Usuario Editado');
+    
+
+        $empresaId = $usuario->getEmpresa()->getId();
+        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id'=>$empresaId));
+        $empresa->setNombre($nombreEmpresa);
+        $em->persist($empresa);
+
+        $em->flush(); 
+
+        return new response( $empresaId );
     }
 
 }
