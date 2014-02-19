@@ -67,7 +67,7 @@
 				<th>Email</th>
 				<th>Cargo</th>
 				<th>Empresa</th>
-                                                                <th>Fecha Ingreso</th>
+                <th>Fecha Ingreso</th>
 				<th>Editar</th>
 				<th>Eliminar</th>
 			</thead>
@@ -80,14 +80,9 @@
 					<td>{{usuario.email}}</td>
 					<td>{{usuario.cargo}}</td>
 					<td>{{usuario.empresa}}</td>
-<<<<<<< HEAD
-                                                                                <td>{{usuario.fecha|date('y-m-d g:ia')}}</td>
-					<td><a href="#" class="btn btn-primary"> Editar </a></td>
-					<td><a href="#" class="btn btn-danger"> Eliminar </a></td>
-=======
+                    <td>{{usuario.fecha|date('y-m-d g:ia')}}</td>
 					<td><a href="vistaEditarUsuario/{{usuario.id}}" class="btn btn-primary"> Editar </a></td>
 					<td><a href="eliminarUsuario/{{usuario.id}}" class="btn btn-danger"> Eliminar </a></td>
->>>>>>> 6bfc78792234621bb44c36697e880efa13adcc30
 				</tr>
 				{% endfor %}
 			</tbody>

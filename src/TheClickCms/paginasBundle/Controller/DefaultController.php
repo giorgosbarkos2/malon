@@ -88,37 +88,24 @@ class DefaultController extends Controller
     public function recibeFormularioAccesoAction(Request $request)
     {
 
+        if($request->getMethod() == 'POST') {
 
-          if ($request->getMethod() == 'POST') {
-
-
-        $usuario = $request->request->get('usuario');
-        $password = $request->request->get('password');
+            $usuario = $request->request->get('usuario');
+            $contrasena = $request->request->get('clave');
 
 
-        $em = $this->getDoctrine()->getManager();
-        $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuario')->findOneBy('nombre' => $nombre , 'contrasena' => $contrasena );
+            $em = $this->getDoctrine()->getManager();
+            $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
        
 
-        if($usuario){
-
-
-        return new Respose(100);
-
-
-    }else{
-
-        
-
-        return new Respose(200);
-
-    }
-
+            if($usuario){
+                return new Response(100);   
+            }else{
+                return new Response(200);
+            }
 
     }
 
 }
-
-
 
 }

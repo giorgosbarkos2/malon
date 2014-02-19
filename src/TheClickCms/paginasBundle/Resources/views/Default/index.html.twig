@@ -31,8 +31,8 @@ function toggleNav() {
 		<div class="box-acceso" style="position:relative;z-index:999999999;">
 			<span class="h1-clientes">Acceso Clientes</span>
 				<br>
-				<p>Rut</p><input class="textbox" id="rut" placeholder="" name="rut" type="text">
-				<p>Clave</p><input class="textbox"  id="clave" placeholder="" name="password" type="password">
+				<p>Usuario</p><input class="textbox" id="usuario" placeholder="" name="usuario" type="text">
+				<p>Clave</p><input class="textbox"  id="clave" placeholder="" name="clave" type="password">
 				<input id="clickme" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
 				<div style="clear:both"></div>
 				<p class="underline"><a href="#">Regístrate Aquí</a></p>
@@ -211,74 +211,33 @@ function toggleNav() {
 	</div>
 	<form id="login" action="{{path('recibeFormularioAcceso')}}"></form>
 	<script>
-<<<<<<< HEAD
-		jQuery(document).ready(function(e) {
+		jQuery(document).ready(function() {
 			$("#clickme").click(function() {
-				alert('funco');
-			
+
+	        var myData = 'usuario=' + $("#usuario").val()
+		               + '&clave=' + $("#clave").val()
+	                ;
 
 
+	        jQuery.ajax({
+	            type: "POST", // metodo post o get 
+	            url:  $('#login').attr('action'),
+	            dataType: "text", // tipo datos text o json etc 
+	            data: myData,
+	            success: function(response) {
+	                var respuesta = response;
+	                if (respuesta = '200') {
+	                	window.location = "{{path('vistaAcceso')}}";	                	
+	                };
 
-        var myData = 'usuario=' + $("#rut").val()
-                + '&clave=' + $("#clave").val()
-              
+	            },
+	            error: function(xhr, ajaxOptions, thrownError) {
+	                alert(thrownError);
+	            }
 
-                ;
-
-
-        jQuery.ajax({
-            type: "POST", // metodo post o get 
-            url: $('#login').attr('action'),
-            dataType: "text", // tipo datos text o json etc 
-            data: myData,
-            success: function(response) {
-
-                var respuesta = response;
-
-
-             
-
-
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(thrownError);
-
-
-            }
-
-        });
-	
+        	});
 		});
 
-=======
-		jQuery(document).ready(function() {
-			$("#loggin").click(function(e) {
-				e.preventDefault();
-
-				var myData = 'rut=' + $("#rut").val()
-				           + '&password=' + $("#password").val()
-				;
-
-				$.ajax({
-					url: 'recibeFormularioAcceso'
-					type: 'POST',
-					dataType: 'text',
-					data: myData,
-					success: function(response){
-						var respuesta = response;
-
-						if (respuesta == '200') {
-							console.log('Entre');
-						}else{
-							console.log('Datos vacios');
-						}
-						};
-					}
-				});
-				
-				
-			});
->>>>>>> e4d007d0a8f49e55395bd27f59406022d91b7060
 		});
 	</script>
 

@@ -125,6 +125,8 @@ class DefaultController extends Controller {
 		$pais = $data->request->get('pais');
 		$detalle =$data->request->get('detalle');
 		$nombre = $data->request->get('nombre');
+		$nusuario = $data->request->get('nusuario');
+		$contrasena = $data->request->get('contrasena');
 		$correo = $data->request->get('correo');
 		$cargo = $data->request->get('cargo');
 		$empresaid = $data->request->get('empresa');
@@ -139,6 +141,8 @@ class DefaultController extends Controller {
 		$usuario->setPais($pais);
 		$usuario->setDetalle($detalle);
 		$usuario->setNombre($nombre);
+		$usuario->setNusuario($nusuario);
+		$usuario->setContrasena($contrasena);
 		$usuario->setEmail($correo);
 		$usuario->setCargo($cargo);
 		$usuario->setEmpresa($empresa);

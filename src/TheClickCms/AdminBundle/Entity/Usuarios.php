@@ -41,17 +41,21 @@ class Usuarios
     private $detalle;
 
 
-           /**
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="text" ,nullable=true )
      */
 
-
-
-
-
     private $nombre;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="nusuario", type="text" ,nullable=true )
+     */
+
+    private $nusuario;
 
 
           /**
@@ -61,6 +65,14 @@ class Usuarios
      */
 
     private $email;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="contrasena", type="text" ,nullable=true )
+     */
+
+    private $contrasena;
 
 
              /**
@@ -98,13 +110,10 @@ class Usuarios
     private $empresa;
 
 
-
-
-
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -120,14 +129,14 @@ class Usuarios
     public function setPais($pais)
     {
         $this->pais = $pais;
-
+    
         return $this;
     }
 
     /**
      * Get pais
      *
-     * @return string
+     * @return string 
      */
     public function getPais()
     {
@@ -143,14 +152,14 @@ class Usuarios
     public function setDetalle($detalle)
     {
         $this->detalle = $detalle;
-
+    
         return $this;
     }
 
     /**
      * Get detalle
      *
-     * @return string
+     * @return string 
      */
     public function getDetalle()
     {
@@ -166,18 +175,41 @@ class Usuarios
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-
+    
         return $this;
     }
 
     /**
      * Get nombre
      *
-     * @return string
+     * @return string 
      */
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Set nusuario
+     *
+     * @param string $nusuario
+     * @return Usuarios
+     */
+    public function setNusuario($nusuario)
+    {
+        $this->nusuario = $nusuario;
+    
+        return $this;
+    }
+
+    /**
+     * Get nusuario
+     *
+     * @return string 
+     */
+    public function getNusuario()
+    {
+        return $this->nusuario;
     }
 
     /**
@@ -189,18 +221,41 @@ class Usuarios
     public function setEmail($email)
     {
         $this->email = $email;
-
+    
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string
+     * @return string 
      */
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set contrasena
+     *
+     * @param string $contrasena
+     * @return Usuarios
+     */
+    public function setContrasena($contrasena)
+    {
+        $this->contrasena = $contrasena;
+    
+        return $this;
+    }
+
+    /**
+     * Get contrasena
+     *
+     * @return string 
+     */
+    public function getContrasena()
+    {
+        return $this->contrasena;
     }
 
     /**
@@ -212,14 +267,14 @@ class Usuarios
     public function setCargo($cargo)
     {
         $this->cargo = $cargo;
-
+    
         return $this;
     }
 
     /**
      * Get cargo
      *
-     * @return string
+     * @return string 
      */
     public function getCargo()
     {
@@ -235,14 +290,14 @@ class Usuarios
     public function setFecha($fecha)
     {
         $this->fecha = $fecha;
-
+    
         return $this;
     }
 
     /**
      * Get fecha
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getFecha()
     {
@@ -258,14 +313,14 @@ class Usuarios
     public function setEmpresa(\TheClickCms\AdminBundle\Entity\Empresa $empresa = null)
     {
         $this->empresa = $empresa;
-
+    
         return $this;
     }
 
     /**
      * Get empresa
      *
-     * @return \TheClickCms\AdminBundle\Entity\Empresa
+     * @return \TheClickCms\AdminBundle\Entity\Empresa 
      */
     public function getEmpresa()
     {
