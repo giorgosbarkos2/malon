@@ -36,6 +36,7 @@ function toggleNav() {
 				<input id="clickme" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
 				<div style="clear:both"></div>
 				<p class="underline"><a href="#">Regístrate Aquí</a></p>
+				<p id="mensajeForm" style="display:none;"> Usuario o contraseña incorrecta </p>
 		</div>
 		
 <div id="main">
@@ -212,6 +213,8 @@ function toggleNav() {
 	<form id="login" action="{{path('recibeFormularioAcceso')}}"></form>
 	<script>
 		jQuery(document).ready(function() {
+			$("#mensajeForm").css("display", "none");
+
 			$("#clickme").click(function() {
 
 	        var myData = 'usuario=' + $("#usuario").val()
@@ -225,10 +228,26 @@ function toggleNav() {
 	            dataType: "text", // tipo datos text o json etc 
 	            data: myData,
 	            success: function(response) {
+
+
 	                var respuesta = response;
-	                if (respuesta = '200') {
-	                	window.location = "{{path('vistaAcceso')}}";	                	
-	                };
+
+
+	                if (respuesta == '200') {
+
+
+	                		
+
+	                window.location = "{{path('vistaAcceso')}}";
+
+
+	                }else{
+
+
+	                	$("#mensajeForm").css("display", "block");
+
+
+	                }
 
 	            },
 	            error: function(xhr, ajaxOptions, thrownError) {

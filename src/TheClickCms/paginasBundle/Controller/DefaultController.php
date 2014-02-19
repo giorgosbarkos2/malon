@@ -99,9 +99,11 @@ class DefaultController extends Controller
        
 
             if($usuario){
-                return new Response(100);   
-            }else{
                 return new Response(200);
+            }else{
+
+                   return new Response(100);  
+              
             }
 
     }
