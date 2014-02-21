@@ -82,35 +82,25 @@
 					<td>{{usuario.empresa.nombre}}</td>
                     <td>{{usuario.fecha|date('y-m-d')}}</td>
 					<td><a href="vistaEditarUsuario/{{usuario.id}}" class="btn btn-primary"> Editar </a></td>
-					<td><a href="" class="btn btn-danger"> Eliminar </a></td>
+					<td><a id="eliminar" href="" class="btn btn-danger"> Eliminar </a></td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
-	{% endblock %}
-
-                    
-                             </section>
-                
-                
-                
-                             
-                
-            
-            </div>
-        </section>
-
-        <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
-           
-        </div>
-        <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            alert("Hola Mundo");
-        });
+        <script>
+           $.noConflict(
+                jQuery(document).ready(function($) {
+                    console.log("Hola entre a jquery")
+                });
+            );
         </script>
 
-
-
+	{% endblock %}
+    </section>
+    </div>
+        </section>
+        <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
+     </div>
     </body>
 </html>
 

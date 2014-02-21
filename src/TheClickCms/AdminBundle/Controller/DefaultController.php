@@ -21,10 +21,21 @@ class DefaultController extends Controller {
 
 
     public function vistaAgregarEmpresaAction(){
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('TheClickCmsAdminBundle:Default:empresaAgregar.html.twig');
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+        	return $this->render('TheClickCmsAdminBundle:Default:empresaAgregar.html.twig');
+        }else{
+
+            return new Response('Acceso no autorizado');
 
 
+        }
     }
 
     public function guardarEmpresaAction(Request $request){
@@ -91,14 +102,9 @@ class DefaultController extends Controller {
         $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
 
         if($admin){
-
-
-        return $this->render('TheClickCmsAdminBundle:Default:principal.html.twig' , array ('nombre' => $nombre , 'password' => $password));
+	        return $this->render('TheClickCmsAdminBundle:Default:principal.html.twig' , array ('nombre' => $nombre , 'password' => $password));
         }else{
-
-            return new Response('Acceso no autorizado');
-
-
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
         }
     }
 
@@ -110,18 +116,28 @@ class DefaultController extends Controller {
            $session->remove('password');
 
            return   $this->redirect('login');
-        }
-	/* Mustra el formulario agregar usuario. */
-	public function vistaFormularioUsuarioAction(){
-                           $em = $this->getDoctrine()->getManager();
-                           $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+    }
 
-	           return $this->render('TheClickCmsAdminBundle:Default:agregarUsuarios.html.twig' , array('empresa'  => $empresas));
+	public function vistaFormularioUsuarioAction(){
+
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+	        $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+		    return $this->render('TheClickCmsAdminBundle:Default:agregarUsuarios.html.twig' , array('empresa'  => $empresas));	
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
 	}
 
-	/* Controlador que guarda los datos ingresados por el usuarios en el formulario anterior. */
+
 	public function guardarUsuarioAction(Request $data){
-		//Reciviendo los valores del formulario.
+
 		$pais = $data->request->get('pais');
 		$detalle =$data->request->get('detalle');
 		$nombre = $data->request->get('nombre');
@@ -134,10 +150,8 @@ class DefaultController extends Controller {
 		$em = $this->getDoctrine()->getManager();
 		$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id' => $empresaid));
 
-		//Creamos una instancia de la clase usuario.
 		$usuario = new Usuarios();
 
-		//Seteamos los valores ingresados por el usuario
 		$usuario->setPais($pais);
 		$usuario->setDetalle($detalle);
 		$usuario->setNombre($nombre);
@@ -148,81 +162,113 @@ class DefaultController extends Controller {
 		$usuario->setEmpresa($empresa);
 		$usuario->setFecha(new \DateTime());
 
-		//coneccion a la base de datos para ingresar los datos.
-
 		$em->persist($empresa);
 		$em->persist($usuario);
 		$em->flush();
+
 		return   $this->redirect('listarUsuarios');
-
 	}
-
-	/* Mostrar usuarios de la base de datos */
 
 	public function listarUsuariosAction(){
-		$em = $this->getDoctrine()->getManager();
-		$usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findAll();
-		return $this->render('TheClickCmsAdminBundle:Default:listarUsuarios.html.twig', array('usuario' => $usuario));
-	}
 
-	/* Vista editar usuario */
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+	    	$usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findAll();
+			return $this->render('TheClickCmsAdminBundle:Default:listarUsuarios.html.twig', array('usuario' => $usuario));    
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
+	}
 
 	public function vistaEditarUsuarioAction($id){
-		$em = $this->getDoctrine()->getManager();
-		$usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->find($id);
-		return $this->render('TheClickCmsAdminBundle:Default:editarUsuario.html.twig', array('usuario'=>$usuario));
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+	        $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->find($id);
+			return $this->render('TheClickCmsAdminBundle:Default:editarUsuario.html.twig', array('usuario'=>$usuario));
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
 	}
 
-	/* Controlador para guardar el formulario editar */
 	public function guardarFormularioEditarUsuarioAction(Request $data){
-		//Recibiendo los parametros del formulario editar.
-		$id = $data->request->get('id');
+ 
+ 		$id = $data->request->get('id');
 		$pais = $data->request->get('pais');
 		$detalle = $data->request->get('detalle');
 		$nombre = $data->request->get('nombre');
 		$correo = $data->request->get('correo');
 		$cargo = $data->request->get('cargo');
 		$empresa = $data->request->get('empresa');
-		//Conectamos con la base de datos.
+
 		$em = $this->getDoctrine()->getManager();
 		$usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id'=>$id));
-		//Seteando los valores que vienen del formulario editar.
+
 		$usuario->setPais($pais);
 		$usuario->setDetalle($detalle);
 		$usuario->setNombre($nombre);
 		$usuario->setEmail($correo);
 		$usuario->setCargo($cargo);
 		$usuario->setEmpresa($empresa);
-		//Haciendo la edicion en la base de datos.
+
 		$em->merge($usuario);
 		$em->flush();
 		return new response('Usuario Editado');
 	}
 
-	/* Controlador para eliminar datos de la grilla */
 	public function eliminarUsuarioAction($id){
-		//Conectar con la base de datos.
+
 		$em = $this->getDoctrine()->getManager();
 		$usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->find($id);
 		$em->remove($usuario);
 		$em->flush();
 		return new Response('Usuario Eliminado');
 	}
-	/* Controlador para la vista listar empresas. */
+
 	public function listarEmpresasAction(){
-		$em = $this->getDoctrine()->getManager();
-		$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
-		return $this->render('TheClickCmsAdminBundle:Default:listarEmpresa.html.twig', array('empresa'=>$empresa));
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+	        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+			return $this->render('TheClickCmsAdminBundle:Default:listarEmpresa.html.twig', array('empresa'=>$empresa));	
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
 	}
 
-	/* Controlador para cargar la editar empresa */
 	public function vistaEditarEmpresaAction($id){
-		$em = $this->getDoctrine()->getManager();
-		$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->find($id);
-		return $this->render('TheClickCmsAdminBundle:Default:editarEmpresa.html.twig', array('empresa'=>$empresa));
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+			$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->find($id);
+			return $this->render('TheClickCmsAdminBundle:Default:editarEmpresa.html.twig', array('empresa'=>$empresa));        		
+
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
 	}
 
-	/* Controlador que guarda el formulario editar empresa */
 	public function guardarEditarEmpresaAction(Request $data){
 		$id = $data->request->get('id');
 		$pais = $data->request->get('pais');
@@ -244,7 +290,6 @@ class DefaultController extends Controller {
 		return new response('Usuario Editado');
 	}
 
-	/* Controlador para eliminar empresa */
 	public function eliminarEmpresaAction($id){
 		//Conectar con la base de datos.
 		$em = $this->getDoctrine()->getManager();
@@ -253,12 +298,23 @@ class DefaultController extends Controller {
 		$em->flush();
 		return new Response('Usuario Eliminado');
 	}
-	/* Controlador para la vista agregar actualizacion */
+
 	public function vistaAgregarActualizacionAction(){
-		return $this->render('TheClickCmsAdminBundle:Default:agregarActualizacion.html.twig');
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+			return $this->render('TheClickCmsAdminBundle:Default:agregarActualizacion.html.twig');
+
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
 	}
 
-	/* Controlador que guarda lo que viene del formulario agregar actualizacion */
 	public function guardarActualizacionAction(Request $data){
 		$detalle = $data->request->get('detalle');
 		$descripccioncorta = $data->request->get('descripcioncorta');
@@ -277,17 +333,38 @@ class DefaultController extends Controller {
 		return new response('Actualizacion Guardada');
 	}
 
-	/* Renderiza la vista de la grilla mostrar actualizaciones */
 	public function listarActualizacionAction(){
-		$em = $this->getDoctrine()->getManager();
-		$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
-		return $this->render('TheClickCmsAdminBundle:Default:listarActualizacion.html.twig', array('actualizacion'=>$actualizacion));
+
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+			$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+			return $this->render('TheClickCmsAdminBundle:Default:listarActualizacion.html.twig', array('actualizacion'=>$actualizacion));
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
 	}
 
 	public function vistaEditarActualizacionAction($id){
-		$em = $this->getDoctrine()->getManager();
-		$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->find($id);
-		return $this->render('TheClickCmsAdminBundle:Default:editarActualizacion.html.twig', array('actualizacion'=>$actualizacion));
+		$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+
+        $nombre =  $session->get('usuario');
+        $password = $session->get('password');
+        $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
+
+        if($admin){
+			$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->find($id);
+			return $this->render('TheClickCmsAdminBundle:Default:editarActualizacion.html.twig', array('actualizacion'=>$actualizacion));
+        }else{
+            return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
+		}
+		
 	}
 
 	public function guardarEditarActualizacionAction(Request $data){
