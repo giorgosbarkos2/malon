@@ -79,10 +79,10 @@
 					<td>{{usuario.nombre}}</td>
 					<td>{{usuario.email}}</td>
 					<td>{{usuario.cargo}}</td>
-					<td>{{usuario.empresa}}</td>
-                    <td>{{usuario.fecha|date('y-m-d g:ia')}}</td>
+					<td>{{usuario.empresa.nombre}}</td>
+                    <td>{{usuario.fecha|date('y-m-d')}}</td>
 					<td><a href="vistaEditarUsuario/{{usuario.id}}" class="btn btn-primary"> Editar </a></td>
-					<td><a href="eliminarUsuario/{{usuario.id}}" class="btn btn-danger"> Eliminar </a></td>
+					<td><a href="" class="btn btn-danger"> Eliminar </a></td>
 				</tr>
 				{% endfor %}
 			</tbody>
@@ -103,7 +103,11 @@
         <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
            
         </div>
-
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            alert("Hola Mundo");
+        });
+        </script>
 
 
 
