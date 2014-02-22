@@ -29,8 +29,12 @@
 
 <div class="datagrid"><table>
 <thead><tr><th>Nombre</th><th>Fecha</th><th></th></tr></thead>
-<tbody><tr><td>Software Overcall</td><td>30/01/2014</td><td><a class="btn-des"><span>Descarga</span></a></td></tr>
-       <tr><td>Software Overcall</td><td>30/01/2014</td><td><a class="btn-des"><span>Descarga</span></a></td></tr>
+<tbody>
+{% for actualizacion in actualizacion %}
+<tr><td>{{actualizacion.descripcionCorta}}</td><td>{{actualizacion.fechaActualizacion | date("m/d/Y")}}</td><td><a class="btn-des"><span>Descarga</span></a></td></tr>
+<!--
+<tr><td>Software Overcall</td><td>30/01/2014</td><td><a class="btn-des"><span>Descarga</span></a></td></tr>-->
+       {% endfor %}
 </tbody>
 </table></div>
 <div class="formularios-acceso">
@@ -303,14 +307,12 @@
 
             <script type="text/javascript">
             $(document).ready(function() {
+              alert("Hola Mundo");
+
               $('.bxslider').bxSlider({
                 mode: 'fade',
                 captions: true,
                 auto: true
-              });
-
-              $("#boton-datos").click(function(event) {
-                  alert("Hola me hiciste click");
               });
             });
             </script>
