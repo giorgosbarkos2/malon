@@ -330,7 +330,9 @@ class DefaultController extends Controller {
 		$em = $this->getDoctrine()->getManager();
 		$em->persist($actualizacion);
 		$em->flush();
-		return new response('Actualizacion Guardada');
+		$mensaje = 'Actualización guardada';
+		$this->redirect($this->generateUrl('route', array()));
+
 	}
 
 	public function listarActualizacionAction(){

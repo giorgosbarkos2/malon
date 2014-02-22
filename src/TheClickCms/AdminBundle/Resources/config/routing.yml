@@ -9,7 +9,7 @@ hacerLogin:
 
 
 login:
-    pattern:  /admin/login
+    pattern:  /admin/
     defaults: { _controller: TheClickCmsAdminBundle:Default:login }
 
 
