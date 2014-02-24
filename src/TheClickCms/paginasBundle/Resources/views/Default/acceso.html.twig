@@ -285,11 +285,11 @@
             <input name="boton-datos" type="submit" value="&#8250; Actualizar Datos">
             </form>
 <div class="vhr"></div>
-            <form id="cambiopass" name="formulario">
+            <form id="cambiopass" name="formulario" action="{{path('cambioClave')}}" method="POST">
             <span><h4 class="nom-clientes" style="color:#f00;">Cambio de Clave:</h4></span>
-                <input type="text" value="Clave Actual" onfocus="cambiaApass(this)" />
-                <input type="text" value="Nueva Clave" onfocus="cambiaApass(this)" />
-                <input type="text" value="Repetir Nueva Clave" onfocus="cambiaApass(this)" />
+                <input name="claveantigua " type="text" placeholder="Clave Actual" onfocus="cambiaApass(this)" />
+                <input name="clavenueva" type="text" placeholder="Nueva Clave" onfocus="cambiaApass(this)" />
+                <input name="repeticionclavenueva" type="text" placeholder="Repetir Nueva Clave" onfocus="cambiaApass(this)" />
                 <input name="boton-datos" type="submit" value="&#8250; Cambiar Clave">
             </form>
 </div>
@@ -303,18 +303,6 @@
                 document.formulario.replaceChild(nuevo,caja);
                 setTimeout("nuevo.focus();",100);
             }
-            </script>
-
-            <script type="text/javascript">
-            $(document).ready(function() {
-              alert("Hola Mundo");
-
-              $('.bxslider').bxSlider({
-                mode: 'fade',
-                captions: true,
-                auto: true
-              });
-            });
             </script>
         </section>
     </div>

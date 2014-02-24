@@ -130,14 +130,14 @@ class DefaultController extends Controller
 
     public function recibeformularioEditarAction(Request $request)
     {
-        //Recibiendo los parametros del formulario editar.
+        
         $id = $request->request->get('id');
         $pais = $request->request->get('pais');
         $nombre = $request->request->get('nombre');
         $correo = $request->request->get('email');
         $cargo = $request->request->get('cargo');
         $nombreEmpresa = $request->request->get('empresa');
-        //Conectamos con la base de datos.
+
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id'=>$id));
 
@@ -159,4 +159,34 @@ class DefaultController extends Controller
         return new response( $empresaId );
     }
 
+    public function cambioClaveAction(Request $request)
+    {
+
+        $claveantigua = $request->request->get('claveantigua');
+        $clavenueva = $request->request->get('clavenueva');
+        $repeticionclavenueva = $request->request->get('repeticionclavenueva');
+
+
+        if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
+
+            return new Response('vacia');
+            
+        }else{
+            $session = $this->getRequest()->getSession();
+
+            $usuario = $request->request->get('usuario');
+            $contrasena = $request->request->get('clave');
+
+            if ($contrasena == $claveantigua) {
+
+                if ($clavenueva == $claveantigua) {
+                    return new Response('iguales');    
+                }else{
+                    return new Response('diferentes');
+                }
+            }else{
+                return new Response('diferentes');
+            }
+        }
+    }
 }

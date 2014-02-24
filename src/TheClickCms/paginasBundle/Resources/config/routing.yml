@@ -37,3 +37,7 @@ recibeFormularioAcceso:
 recibeformularioEditar:
     pattern: /home/recibeformularioEditar
     defaults: {_controller: TheClickCmspaginasBundle:Default:recibeformularioEditar}
+
+cambioClave:
+    pattern: /home/cambioClave
+    defaults: {_controller: TheClickCmspaginasBundle:Default:cambioClave}
