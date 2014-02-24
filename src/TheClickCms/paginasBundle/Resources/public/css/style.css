@@ -471,6 +471,29 @@ margin: 0;
 position: absolute;
 display: block;
 }
+
+/*  Borrar si no funca */
+.clientes-sec3{
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+background-color:#fff;
+-webkit-border-top-right-radius: 10px;
+-webkit-border-top-left-radius: 10px;
+-moz-border-radius-topright: 10px;
+-moz-border-radius-topleft: 10px;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+top:0;
+left: 0;
+width: 100%;
+height: auto;
+padding: 0 5% 25px;
+margin: 0;
+position: absolute;
+display: block;	
+}
+
+
 .title-acc-logo{position: absolute; top: 1px; right: 2em;}
 h2.title-acceso{width: 100%;padding: 2% 0 0;}
 h4.nom-clientes{color: #444; font-size: 1em;}
