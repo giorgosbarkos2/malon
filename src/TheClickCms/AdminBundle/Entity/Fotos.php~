@@ -21,7 +21,11 @@ class Fotos
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=255 , nullable=true )
+     */
 
+    private $url;
     
         
      /**
@@ -31,10 +35,6 @@ class Fotos
      */
     
     private $usuario;
-    
-    
-    
-    
     
     
 }

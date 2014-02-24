@@ -101,3 +101,11 @@ guardarEditarActualizacion:
 eliminarActualizacion:
     pattern: /admin/eliminarActualizacion/{id}
     defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarActualizacion}
+
+uploadFotoEmpresa:
+    pattern: /admin/uploadFotoEmpresa
+    defaults: {_controller: TheClickCmsAdminBundle:Default:uploadFotoEmpresa}
+
+vistauploadFoto:
+    pattern: /admin/vistauploadFoto
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistauploadFoto}

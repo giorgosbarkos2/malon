@@ -21,7 +21,11 @@ class Fotos
      */
     private $id;
 
+    /**
+     * @ORM\Column(type="string", length=255 , nullable=true )
+     */
 
+    private $url;
     
         
      /**
@@ -33,10 +37,6 @@ class Fotos
     private $usuario;
     
     
-    
-    
-    
-    
 
     /**
      * Get id
@@ -46,6 +46,29 @@ class Fotos
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Fotos
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**
