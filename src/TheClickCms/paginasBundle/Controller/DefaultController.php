@@ -180,9 +180,7 @@ class DefaultController extends Controller
 
 
         if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
-
             return new Response('vacia');
-            
         }else{
             $session = $this->getRequest()->getSession();
 
@@ -190,14 +188,26 @@ class DefaultController extends Controller
             $contrasena = $request->request->get('clave');
 
             if ($contrasena == $claveantigua) {
+                if ($clavenueva == $repeticionclavenueva) {
+                    
+                    $usuario = $session->get('nusuario');
+                    $contrasena = $session->get('contrasena');
 
-                if ($clavenueva == $claveantigua) {
-                    return new Response('iguales');    
+                    $em = $this->getDoctrine()->getManager();
+                    $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
+
+                    $usuarios->setContrasena($clavenueva);
+
+                    $em->merge($usuarios);
+                    $em->flush();
+
+                    return new Response('ok');
+
                 }else{
-                    return new Response('diferentes');
+                    return new Response('diferentesclavenueva');
                 }
             }else{
-                return new Response('diferentes');
+                return new Response('diferentesclaveantigua');
             }
         }
     }
