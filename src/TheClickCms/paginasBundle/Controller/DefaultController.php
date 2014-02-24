@@ -22,6 +22,17 @@ class DefaultController extends Controller
     }
 
 
+    public function UploadArchivoAction(){
+
+        
+        
+        
+    
+          
+
+
+    }
+
     public function noticiasAction()
     {
         return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig');
@@ -121,6 +132,7 @@ class DefaultController extends Controller
             if($usuarios){
                 $session->set('nusuario', $usuario);
                 $session->set('contrasena', $contrasena);
+
                 return new Response(200);
             }else{
                 return new Response(100);  

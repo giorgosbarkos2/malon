@@ -8,11 +8,18 @@ hacerLogin:
     defaults: { _controller: TheClickCmsAdminBundle:Default:hacerLogin }
 
 
+uploadActualizaciones:
+    pattern:  /admin/uploadActualizaciones
+    defaults: { _controller:  TheClickCmsAdminBundle:Default:uploadActualizaciones }
+
+
 login:
     pattern:  /admin/
     defaults: { _controller: TheClickCmsAdminBundle:Default:login }
 
-
+vistauploadArchivo:
+    path:      /admin/vistauploadArchivo
+    defaults:  { _controller: TheClickCmsAdminBundle:Default:vistauploadArchivo }
 
 guardarEmpresa:
     pattern:  /admin/guardarEmpresa
