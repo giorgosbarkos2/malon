@@ -536,7 +536,7 @@ class DefaultController extends Controller {
 
 
 
-       $session->set('idUsuario' , $idUsuario);
+        $session->set('idUsuario' , $idUsuario);
 
         return $this->redirect($this->generateUrl('vistauploadFoto'));
 	}
@@ -771,7 +771,9 @@ class DefaultController extends Controller {
 		return new response("Usuario Editado");
 	}
 
-	public function eliminarActualizacionAction($id){
+	public function eliminarActualizacionAction(Request $data){
+
+        $id = $data->request->get('recordToDelete');
 		$em = $this->getDoctrine()->getManager();
 		$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->find($id);
 		$em->remove($actualizacion);

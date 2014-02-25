@@ -41,7 +41,7 @@
 				<div>
 				<section class="col-md-10" style="margin-left:5%;margin-top:2%;">
 				{% block listaractualizacion %}
-				<table class="table">
+				<table class="table" id="actualizacion">
 					<thead>
 						<th>Descripcion</th>
 						<th>Descripcion Corta</th>
@@ -52,13 +52,13 @@
 					</thead>
 					<tbody>
 						{% for actualizacion in actualizacion %}
-							<tr>
+							<tr id="actualizacion-{{actualizacion.id}}">
 								<td>{{actualizacion.descripcion}}</td>
 								<td>{{actualizacion.descripcionCorta}}</td>
 								<td>{{actualizacion.version}}</td>
 								<td>{{actualizacion.fechaActualizacion | date("m/d/Y")}}</td>
 								<td><a href="vistaEditarActualizacion/{{actualizacion.id}}" class="btn btn-primary">Editar</a></td>
-								<td><a href="eliminarActualizacion/{{actualizacion.id}}" class="btn btn-danger">Elimar</a></td>
+								 <td> <button  id="actua-{{actualizacion.id}}" class="eliminar">Eliminar</button> </td>
 							</tr>
 						{% endfor %}
 					</tbody>
@@ -66,20 +66,33 @@
 				{% endblock %}
 				</section>
 			</div>
+			<form id="formEliminarActualizacion" method="post" action="{{path('eliminarActualizacion')}}"></form>
 		</section>
 		<div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
 		</div>
 	</body>
-	
-
 		<script>
 		$(document).ready(function() {
-			alert('probando');
-			
+			$("#actualizacion").on("click", ".eliminar", function(e) {
+		        e.preventDefault();
+		        var clickedID = this.id.split('-');
+		        var DbNumberID = clickedID[1]; // toma el numero del array
+		        var myData = 'recordToDelete=' + DbNumberID;
+		     
+		        jQuery.ajax({
+		            type: "POST",
+		            url: $('#formEliminarActualizacion').attr('action'),
+		            dataType: "text",
+		            data: myData,
+		            success: function(response) {
+		              $('#caluga-' + DbNumberID).hide('slow');
+		            },
+		            error: function(xhr, ajaxOptions, thrownError) {
+		                alert(thrownError);
+		            }
+        		});
+    		});
 		});
-
 		</script>
-			{% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
-
-
+		{% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
 </html>

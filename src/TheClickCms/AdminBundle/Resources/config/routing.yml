@@ -99,7 +99,7 @@ guardarEditarActualizacion:
     defaults: {_controller: TheClickCmsAdminBundle:Default:guardarEditarActualizacion}
 
 eliminarActualizacion:
-    pattern: /admin/eliminarActualizacion/{id}
+    pattern: /admin/eliminarActualizacion/
     defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarActualizacion}
 
 uploadFotoEmpresa:
