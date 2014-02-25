@@ -422,7 +422,7 @@ class DefaultController extends Controller {
         $em->flush();
 
 
-        return new Response('guardado');
+        return $this->redirect('listarEmpresas');
     }
 
 
@@ -662,8 +662,10 @@ class DefaultController extends Controller {
 		return new response('Usuario Editado');
 	}
 
-	public function eliminarEmpresaAction($id){
-		//Conectar con la base de datos.
+	public function eliminarEmpresaAction(Request $data){
+
+        $id = $data->request->get('recordToDelete');
+
 		$em = $this->getDoctrine()->getManager();
 		$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->find($id);
 		$em->remove($empresa);

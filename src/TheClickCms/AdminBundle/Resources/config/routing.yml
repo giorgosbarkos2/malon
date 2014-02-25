@@ -43,7 +43,7 @@ guardarEditarEmpresa:
     defaults: {_controller: TheClickCmsAdminBundle:Default:guardarEditarEmpresa}
 
 eliminarEmpresa:
-    pattern: /admin/eliminarEmpresa/{id}
+    pattern: /admin/eliminarEmpresa/
     defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarEmpresa}
 
 logout:
