@@ -26,14 +26,8 @@
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-
    {% include "TheClickCmsAdminBundle:Layers:menu.html.twig" %}
-        
         <section class="wrapper scrollable">
-        
-            
-            
             <section class="title-bar">
                 <div>
                     <span> Admin </span>
@@ -52,14 +46,10 @@
                     </nav>
                 </div>
             </section>
-            
             <div>
-            
                 <section class="col-md-10" style="margin-left:5%;margin-top:2%;">
-                    
-                    
 	{% block listarusuario %}
-		<table class="table">
+		<table class="table" id="usuario">
 			<thead>
 				<th>Pais</th>
 				<th>Detalle</th>
@@ -73,7 +63,7 @@
 			</thead>
 			<tbody>
 				{% for usuario in usuario %}
-				<tr>
+				<tr  id="usuario-{{usuario.id}}">
 					<td>{{usuario.pais}}</td>
 					<td>{{usuario.detalle}}</td>
 					<td>{{usuario.nombre}}</td>
@@ -82,24 +72,40 @@
 					<td>{{usuario.empresa.nombre}}</td>
                     <td>{{usuario.fecha|date('y-m-d')}}</td>
 					<td><a href="vistaEditarUsuario/{{usuario.id}}" class="btn btn-primary"> Editar </a></td>
-					<td><a id="eliminar" href="" class="btn btn-danger"> Eliminar </a></td>
+                    <td> <button  id="usua-{{usuario.id}}" class="eliminar">Eliminar</button> </td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
-        <script>
-           $(document).ready(function(e) {
-                    console.log("Hola entre a jquery")
-                });
-            );
-        </script>
 
 	{% endblock %}
     </section>
+    <form id="formEliminarUsuario" method="post" action="{{path('eliminarUsuario')}}"></form>
     </div>
-
+            <script type="text/javascript">
+        $(document).ready(function() {
+            $("#usuario").on("click", ".eliminar", function(e) {
+                    e.preventDefault();
+                    var clickedID = this.id.split('-');
+                    var DbNumberID = clickedID[1]; // toma el numero del array
+                    var myData = 'recordToDelete=' + DbNumberID;
+                     
+                    jQuery.ajax({
+                        type: "POST",
+                        url: $('#formEliminarUsuario').attr('action'),
+                        dataType: "text",
+                        data: myData,
+                        success: function(response) {
+                            $('#usuario-' + DbNumberID).hide('slow');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                });
+            });
+        });
+        </script>
         {% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
-        
         </section>
         <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
      </div>
