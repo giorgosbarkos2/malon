@@ -230,7 +230,7 @@ class DefaultController extends Controller {
         
         $fileName = ($_REQUEST["name"]);
         
-        $targetDirectorio = 'empresa/' . $idUsuario . '/' . $fileName;
+        $targetDirectorio = 'empresas/' . $idUsuario . '/' . $fileName;
         if (file_exists($targetDirectorio)) {
         } else {
             //   mkdir('fotos/', 0777, true);
@@ -238,7 +238,7 @@ class DefaultController extends Controller {
 
 
 
-        $targetDir = 'empresa/' . $idUsuario . '/';
+        $targetDir = 'empresas/' . $idUsuario . '/';
 
         //$targetDir = 'uploads';
 

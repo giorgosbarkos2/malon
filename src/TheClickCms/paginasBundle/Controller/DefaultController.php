@@ -129,6 +129,8 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
 
+
+
             if($usuarios){
                 $session->set('nusuario', $usuario);
                 $session->set('contrasena', $contrasena);

@@ -1,5 +1,6 @@
-{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
 {% block contenido %}
+
 <div id="page2">
     <div class="contentint">
       
@@ -25,13 +26,47 @@
 </div>
 <div class="title-acc-logo"><img src="{{asset('bundles/theclickcmspaginas/img/logo-acceso-01.jpg')}}"/></div>
 
-<div id="clientes-sec3">
+
+<style>
+
+.menuAcceso{
+
+width: 800px;
+height: 20px;
+position: relative;
+margin-left:35px;
+
+margin-top: 120px;
+
+}
+.menuAcceso ul{
+
+  list-style-type: none;
+
+}
+
+.menuAcceso li{
+
+    display: inline;
+   text-align: center;
+   margin: 0 10px 0 0;
+}
+  
+
+
+
+
+
+</style>
+<div class="menuAcceso">
   <ul>
     <li><a href="">Mostrar Actualizaciones</a></li>
     <li><a href="">Modificar Usuario</a></li>
     <li><a href="">Cambiar Clave</a></li>
   </ul>
 </div>
+
+
 
 <div class="clientes-sec2">
         <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
@@ -289,6 +324,8 @@
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabue</option>
             </select>
+
+
             <input name="empresa" type="text" value="{{persona.empresa.nombre}} ">
             <input name="cargo" type="text" value="{{persona.cargo}} ">
             <input name="boton-datos" type="submit" value="&#8250; Actualizar Datos">
@@ -302,6 +339,14 @@
                 <input name="boton-datos" type="submit" value="&#8250; Cambiar Clave">
             </form>
 </div>
+
+<script> 
+$(document).ready(function(e) {
+
+  console.log('console');
+  
+});
+</script>
             <script type="text/javascript">
             var nuevo;
             function cambiaApass(caja) {
