@@ -45,3 +45,7 @@ cambioClave:
 vistaAccesoCambioClave:
     pattern: /home/vistaAccesoCambioClave
     defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAccesoCambioClave}
+
+vistaAccesoActualizarUsuario:
+    pattern: /home/vistaAccesoActualizarUsuario
+    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAccesoActualizarUsuario}

@@ -123,6 +123,26 @@ class DefaultController extends Controller
     }
 
 
+    public function vistaAccesoActualizarUsuarioAction()
+    {
+
+        $session = $this->getRequest()->getSession();
+        
+        $usuario = $session->get('nusuario');
+        $contrasena = $session->get('contrasena');
+
+        $em = $this->getDoctrine()->getManager();
+        $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
+
+        if ($usuario) {
+            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+            return $this->render('TheClickCmspaginasBundle:Default:actualizarusuario.html.twig', array('persona' => $persona));    
+        }else{
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
+        }
+
+
+    }
 
     public function recibeFormularioAccesoAction(Request $request)
     {
