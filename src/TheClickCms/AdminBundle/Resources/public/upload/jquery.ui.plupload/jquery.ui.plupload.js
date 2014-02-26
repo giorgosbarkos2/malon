@@ -21,6 +21,8 @@
 /*global window:false, document:false, plupload:false, jQuery:false */
 
 (function(window, document, plupload, $, undef) {
+    
+
 	
 var uploaders = {};	
 	
@@ -55,7 +57,7 @@ function renderUI(obj) {
 
 								'<div style="width:50px;height:50px;"><!-- Visible -->' +
                                                                                                                                                 
-									'<button class="boton agregar">' + ('Agregar') + '</button></span> ;' +
+									'<button class="btn btn-default boton agregar">' + ('Agregar') + '</button></span>' +
 						
 							
 								'</div>' +
@@ -444,7 +446,10 @@ $.widget("ui.plupload", {
 							
 			$('.plupload_upload_status', self.element).html(
 				_('Uploaded %d/%d files').replace('%d/%d', up.total.uploaded+'/'+up.files.length)
+                        
 			);
+                            
+                            console.log('total ' + up.total.uploaded);
 			
 			$('.plupload_header_content', self.element).addClass('plupload_header_content_bw');
 		
@@ -513,11 +518,15 @@ $.widget("ui.plupload", {
 				.attr('class', iconClass);
 	},
 	
+          
+                                
 	
 	_updateTotalProgress: function() {
 		var up = this.uploader;
 		
 		this.progressbar.progressbar('value', up.total.percent);
+                             
+                               
 		
 		this.element
 			.find('.plupload_total_status')
@@ -549,6 +558,10 @@ $.widget("ui.plupload", {
 			id = prefix + count;
 
 			if (file.status === plupload.DONE) {
+                            
+                  
+                                        
+                                
 				if (file.target_name) {
 					fields += '<input type="hidden" name="' + id + '_tmpname" value="'+plupload.xmlEncode(file.target_name)+'" />';
 				}
@@ -594,7 +607,13 @@ $.widget("ui.plupload", {
 			self.start_button.button('enable');
 		}
 
-
+                
+                           var total =up.total.percent;
+         if(total == 100){
+                                    alert('Tu contenido se ha subido exitosamente');
+                                    
+                                }
+                                
 		// Scroll to end of file list
 		filelist[0].scrollTop = filelist[0].scrollHeight;
 

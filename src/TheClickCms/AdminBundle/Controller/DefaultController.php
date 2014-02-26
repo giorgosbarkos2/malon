@@ -431,8 +431,13 @@ class DefaultController extends Controller {
 
         $session->set('idEmpresa' , $idEmpresa);
 
-        return $this->redirect($this->generateUrl('vistauploadFoto'));
+
+        return $this->redirect($this->generateUrl('vistaUploadEmpresa2'));
+        
     }
+
+
+
 
 
 
