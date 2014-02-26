@@ -40,11 +40,19 @@ class Empresa
     
     
     
-           /** @ORM\Column(type="string", length=200 , nullable=true) */
+    /** @ORM\Column(type="string", length=200 , nullable=true) */
     
     
     
     private $detalle;
+
+    
+
+    /** @ORM\Column(type="string", length=200 , nullable=true) */
+    
+    
+    
+    private $url;
     
     
     
@@ -75,6 +83,7 @@ class Empresa
     private $usuario;
     
       
+
     /**
      * Constructor
      */
@@ -91,6 +100,29 @@ class Empresa
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param string $pais
+     * @return Empresa
+     */
+    public function setPais($pais)
+    {
+        $this->pais = $pais;
+    
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return string 
+     */
+    public function getPais()
+    {
+        return $this->pais;
     }
 
     /**
@@ -140,6 +172,75 @@ class Empresa
     }
 
     /**
+     * Set url
+     *
+     * @param string $url
+     * @return Empresa
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     * @return Empresa
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set correo
+     *
+     * @param string $correo
+     * @return Empresa
+     */
+    public function setCorreo($correo)
+    {
+        $this->correo = $correo;
+    
+        return $this;
+    }
+
+    /**
+     * Get correo
+     *
+     * @return string 
+     */
+    public function getCorreo()
+    {
+        return $this->correo;
+    }
+
+    /**
      * Add usuario
      *
      * @param \TheClickCms\AdminBundle\Entity\Usuarios $usuario
@@ -170,74 +271,5 @@ class Empresa
     public function getUsuario()
     {
         return $this->usuario;
-    }
-
-    /**
-     * Set pais
-     *
-     * @param string $pais
-     * @return Empresa
-     */
-    public function setPais($pais)
-    {
-        $this->pais = $pais;
-    
-        return $this;
-    }
-
-    /**
-     * Get pais
-     *
-     * @return string 
-     */
-    public function getPais()
-    {
-        return $this->pais;
-    }
-
-    /**
-     * Set correo
-     *
-     * @param string $correo
-     * @return Empresa
-     */
-    public function setCorreo($correo)
-    {
-        $this->correo = $correo;
-    
-        return $this;
-    }
-
-    /**
-     * Get correo
-     *
-     * @return string 
-     */
-    public function getCorreo()
-    {
-        return $this->correo;
-    }
-
-    /**
-     * Set fecha
-     *
-     * @param \DateTime $fecha
-     * @return Empresa
-     */
-    public function setFecha($fecha)
-    {
-        $this->fecha = $fecha;
-    
-        return $this;
-    }
-
-    /**
-     * Get fecha
-     *
-     * @return \DateTime 
-     */
-    public function getFecha()
-    {
-        return $this->fecha;
     }
 }

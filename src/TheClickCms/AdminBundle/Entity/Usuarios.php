@@ -85,12 +85,6 @@ class Usuarios
     private $cargo;
 
 
-    /**
-     * @ORM\Column(type="string", length=255 , nullable=true )
-     */
-
-    private $url;
-
 
     /** @ORM\Column(type="datetime") */
 
@@ -111,6 +105,8 @@ class Usuarios
 
 
     private $empresa;
+
+
 
 
     /**
@@ -282,29 +278,6 @@ class Usuarios
     public function getCargo()
     {
         return $this->cargo;
-    }
-
-    /**
-     * Set url
-     *
-     * @param string $url
-     * @return Usuarios
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-    
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string 
-     */
-    public function getUrl()
-    {
-        return $this->url;
     }
 
     /**

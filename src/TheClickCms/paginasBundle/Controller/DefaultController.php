@@ -20,18 +20,7 @@ class DefaultController extends Controller
     {
     	return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');
     }
-
-
-    public function UploadArchivoAction(){
-
-        
-        
-        
     
-          
-
-
-    }
 
     public function noticiasAction()
     {
@@ -112,6 +101,25 @@ class DefaultController extends Controller
 
 
     	
+    }
+
+    public function vistaAccesoCambioClaveAction()
+    {
+        
+        $session = $this->getRequest()->getSession();
+        
+        $usuario = $session->get('nusuario');
+        $contrasena = $session->get('contrasena');
+
+        $em = $this->getDoctrine()->getManager();
+        $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
+
+        if ($usuario) {
+            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+            return $this->render('TheClickCmspaginasBundle:Default:cambiarclave.html.twig', array('persona' => $persona));   
+        }else{
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');
+        }
     }
 
 

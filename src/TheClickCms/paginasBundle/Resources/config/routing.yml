@@ -2,8 +2,6 @@ the_click_cmspaginas_homepage:
     pattern:  /home
     defaults: { _controller: TheClickCmspaginasBundle:Default:index }
 
-
-    
 vistaHistoria:
     pattern:  /home/vistaHistoria
     defaults: { _controller:  TheClickCmspaginasBundle:Default:vistaHistoria }
@@ -43,3 +41,7 @@ recibeformularioEditar:
 cambioClave:
     pattern: /home/cambioClave
     defaults: {_controller: TheClickCmspaginasBundle:Default:cambioClave}
+
+vistaAccesoCambioClave:
+    pattern: /home/vistaAccesoCambioClave
+    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAccesoCambioClave}

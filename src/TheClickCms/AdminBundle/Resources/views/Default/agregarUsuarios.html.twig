@@ -313,43 +313,20 @@
 		<label for="cargo">Cargo del usuario: </label>
 		<input type="text" name="cargo" class="form-control" />
 		<label for="empresa">Empresa a la que pertenece:</label>
-                
-		
-                
-                <select class="form-control" name="empresa"  >
-                                   {% for empresa in empresa %}
-                                           
-                                           <option value="{{empresa.id}}">{{empresa.nombre}}</option>
-                                           
-                                           
-                                           
-                                   {% endfor %}
-                                           
-                                           
-                                   
-                                   </select>
-                
-                
-                
-                <br>
-                
-                
-                                   
-                                   
+            <select class="form-control" name="empresa"  >
+                {% for empresa in empresa %}
+                    <option value="{{empresa.id}}">{{empresa.nombre}}</option>
+	            {% endfor %}
+            </select>
+        <br>
 		<button type="submit" class="btn btn-primary">Guardar</button>
 		</form>
-                        </section>
-                
-        </div>
-        </section>
-
-        <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
-           
-        </div>
-
-
+    </section>
+    </div>
+    </section>
+    <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
+    </div>
 	{% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
-
     </body>
 </html>
 

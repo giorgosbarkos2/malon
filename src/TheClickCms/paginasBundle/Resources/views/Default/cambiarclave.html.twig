@@ -1,0 +1,27 @@
+{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% block contenido %}
+
+<div class="formularios-acceso">
+    <form id="cambiopass" name="formulario" action="{{path('cambioClave')}}" method="POST">
+    	<span>
+    		<h4 class="nom-clientes" style="color:#f00;">Cambio de Clave:</h4>
+    	</span>
+        <input name="claveantigua" type="text" placeholder="Clave Actual" value="{{persona.contrasena}}" onfocus="cambiaApass(this)" />
+        <input name="clavenueva" type="text" placeholder="Nueva Clave" onfocus="cambiaApass(this)" />
+        <input name="repeticionclavenueva" type="text" placeholder="Repetir Nueva Clave" onfocus="cambiaApass(this)" />
+        <input name="boton-datos" type="submit" value="&#8250; Cambiar Clave">
+    </form>
+    <div class="vhr"></div>
+    <script type="text/javascript">
+        var nuevo;
+        function cambiaApass(caja) {
+            nuevo=document.createElement("input");
+            nuevo.setAttribute("type","password");
+            nuevo.setAttribute("name",caja.name);
+            nuevo.setAttribute("value","");
+            document.formulario.replaceChild(nuevo,caja);
+            setTimeout("nuevo.focus();",100);
+        }
+    </script>
+</div>
+{% endblock %}

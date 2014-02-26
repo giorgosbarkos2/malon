@@ -85,12 +85,6 @@ class Usuarios
     private $cargo;
 
 
-    /**
-     * @ORM\Column(type="string", length=255 , nullable=true )
-     */
-
-    private $url;
-
 
     /** @ORM\Column(type="datetime") */
 
@@ -111,5 +105,7 @@ class Usuarios
 
 
     private $empresa;
+
+
 
 }

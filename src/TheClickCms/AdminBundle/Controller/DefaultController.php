@@ -222,7 +222,7 @@ class DefaultController extends Controller {
     {
 
         $session = $this->getRequest()->getSession();
-        $id = $session->get('idUsuario');
+        $id = $session->get('idEmpresa');
 
         
         $idUsuario = $id;
@@ -230,7 +230,7 @@ class DefaultController extends Controller {
         
         $fileName = ($_REQUEST["name"]);
         
-        $targetDirectorio = 'empresa/' . $idUsuario . '/' . $fileName;
+        $targetDirectorio = 'empresas/' . $idUsuario . '/' . $fileName;
         if (file_exists($targetDirectorio)) {
         } else {
             //   mkdir('fotos/', 0777, true);
@@ -238,7 +238,7 @@ class DefaultController extends Controller {
 
 
 
-        $targetDir = 'empresa/' . $idUsuario . '/';
+        $targetDir = 'empresas/' . $idUsuario . '/';
 
         //$targetDir = 'uploads';
 
@@ -351,14 +351,14 @@ class DefaultController extends Controller {
 
             $em = $this->getDoctrine()->getManager();
             $session = $this->getRequest()->getSession();
-            $id = $session->get('idUsuario');
+            $id = $session->get('idEmpresa');
 
 
-
+            var_dump($fileName);
             
-            $usuario = $em->getRepository('TheClickCmsAdminBundle:Fotos')->findOneBy(array('id' => $id));
-            $usuario->setUrl($fileName);
-            $em->persist($usuario);
+            $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id' => $id));
+            $empresa->setUrl($fileName);
+            $em->persist($empresa);
             $em->flush();
 
 
@@ -421,8 +421,17 @@ class DefaultController extends Controller {
         $em->persist($empresa);
         $em->flush();
 
+        $mensaje = 'Imagen guardada';
+        $idEmpresa = $empresa->getId();
 
-        return $this->redirect('listarEmpresas');
+    
+        $session = $this->getRequest()->getSession();
+
+
+
+        $session->set('idEmpresa' , $idEmpresa);
+
+        return $this->redirect($this->generateUrl('vistauploadFoto'));
     }
 
 
@@ -528,17 +537,9 @@ class DefaultController extends Controller {
 		$em->persist($usuario);
 		$em->flush();
 
-        $mensaje = 'Imagen guardada';
-        $idUsuario = $usuario->getId();
-
-    
-        $session = $this->getRequest()->getSession();
 
 
-
-        $session->set('idUsuario' , $idUsuario);
-
-        return $this->redirect($this->generateUrl('vistauploadFoto'));
+        return $this->redirect('listarUsuarios');
 	}
 
 	public function listarUsuariosAction(){
@@ -596,7 +597,7 @@ class DefaultController extends Controller {
 
 		$em->merge($usuario);
 		$em->flush();
-		return new response('Usuario Editado');
+		return $this->generateUrl('listarUsuarios');
 	}
 
 	public function eliminarUsuarioAction(Request $data){
@@ -661,7 +662,7 @@ class DefaultController extends Controller {
 		$em->merge($empresa);
 		$em->flush();
 
-		return new response('Usuario Editado');
+		return $this->generateUrl('listarEmpresa');
 	}
 
 	public function eliminarEmpresaAction(Request $data){
@@ -772,7 +773,7 @@ class DefaultController extends Controller {
 		$em->merge($actualizacion);
 		$em->flush();
 
-		return new response("Usuario Editado");
+		return $this->generateUrl('listarUsuarios');
 	}
 
 	public function eliminarActualizacionAction(Request $data){
