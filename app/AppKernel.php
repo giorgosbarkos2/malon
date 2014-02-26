@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new TheClickCms\AdminBundle\TheClickCmsAdminBundle(),
             new TheClickCms\UploadBundle\TheClickCmsUploadBundle(),
             new TheClickCms\paginasBundle\TheClickCmspaginasBundle(),
+            new TheClickCms\IdiomaBundle\TheClickCmsIdiomaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

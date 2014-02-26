@@ -1,3 +1,7 @@
+the_click_cms_idioma:
+    resource: "@TheClickCmsIdiomaBundle/Resources/config/routing.yml"
+    prefix:   /
+
 the_click_cms_upload:
     resource: "@TheClickCmsUploadBundle/Resources/config/routing.yml"
     prefix:   /

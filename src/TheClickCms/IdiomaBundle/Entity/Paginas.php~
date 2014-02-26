@@ -1,0 +1,61 @@
+<?php
+
+namespace TheClickCms\IdiomaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Paginas
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Paginas
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+   /**
+    * @ORM\Column(type="string", length=255 , nullable=true)
+    */
+
+    private $seccion;
+
+       /**
+    * @ORM\Column(type="string", length=255 ,  nullable=true)
+    */
+
+    private $titulo;
+
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+
+    private $texto;
+
+
+    
+
+    /**
+    * @ORM\Column(type="string", length=255 , nullable=true)
+    */
+
+
+
+
+
+    private $idioma;
+
+
+
+
+
+}

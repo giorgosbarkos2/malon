@@ -1,0 +1,77 @@
+<?php
+
+namespace TheClickCms\IdiomaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Header
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Header
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+
+    private $home;
+
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+    private $historia;
+
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+    private $productos;
+
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+    private $servicios;
+
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+    
+    private $noticias;
+
+    /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+    private $contacto;
+
+
+
+     /**
+     * @ORM\Column(type="text" , nullable=true)
+     */
+
+    private $idioma;
+
+
+
+
+}
