@@ -32,16 +32,16 @@ class DefaultController extends Controller {
 
     }
 
-    public function vistauploadFotoAction(){
+    public function vistaUploadEmpresaAction(){
 
     $em = $this->getDoctrine()->getManager();
 
     $session = $this->getRequest()->getSession();
 
-    $idUsuario = $session->get('idUsuario');
+    $idEmpresa = $session->get('idEmpresa');
 
 
-    return $this->render('TheClickCmsAdminBundle:Default:uploadFoto.html.twig' ,  array('idUsuario' => $idUsuario ));
+    return $this->render('TheClickCmsAdminBundle:Default:uploadFoto.html.twig' ,  array('idEmpresa' => $idEmpresa ));
 
     }    
 
@@ -225,12 +225,12 @@ class DefaultController extends Controller {
         $id = $session->get('idEmpresa');
 
         
-        $idUsuario = $id;
+        $idEmpresa = $id;
         
         
         $fileName = ($_REQUEST["name"]);
         
-        $targetDirectorio = 'empresas/' . $idUsuario . '/' . $fileName;
+        $targetDirectorio = 'empresas/' . $idEmpresa . '/' . $fileName;
         if (file_exists($targetDirectorio)) {
         } else {
             //   mkdir('fotos/', 0777, true);
@@ -238,7 +238,7 @@ class DefaultController extends Controller {
 
 
 
-        $targetDir = 'empresas/' . $idUsuario . '/';
+        $targetDir = 'empresas/' . $idEmpresa . '/';
 
         //$targetDir = 'uploads';
 
@@ -366,7 +366,7 @@ class DefaultController extends Controller {
          
 
 
-          $resp ='
+           $resp ='
            <script>
            alert("Tu contenido se ha subido exitosamente");
            
@@ -457,8 +457,6 @@ class DefaultController extends Controller {
             return new Response('200');
 
         } else {
-
-
             return new Response('100');
         }
     }

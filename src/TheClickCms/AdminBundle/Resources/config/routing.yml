@@ -106,6 +106,6 @@ uploadFotoEmpresa:
     pattern: /admin/uploadFotoEmpresa
     defaults: {_controller: TheClickCmsAdminBundle:Default:uploadFotoEmpresa}
 
-vistauploadFoto:
-    pattern: /admin/vistauploadFoto
-    defaults: {_controller: TheClickCmsAdminBundle:Default:vistauploadFoto}
+vistaUploadEmpresa:
+    pattern: /admin/vistaUploadEmpresa
+    defaults: {_controller: TheClickCmsAdminBundle:Default:vistaUploadEmpresa}
