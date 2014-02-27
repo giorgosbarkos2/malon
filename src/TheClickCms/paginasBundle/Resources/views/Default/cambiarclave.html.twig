@@ -76,7 +76,64 @@ margin-top: 120px;
 
 <script>
 $(document).ready(function(e) {
-alert('probando');
+
+  alert('funcionando');
+
+
+  $(document).ready(function() {
+
+
+    
+    $("#enviarEmail").click(function(e) {
+        e.preventDefault();
+       console.log('enviar mail');
+       
+        var myData = 'nombre=' + $("#nombre").val()
+                            + '&email=' + $("#email").val()
+                            + '&comentarios=' + $("#comentarios").val();
+
+                            
+                           
+          
+        jQuery.ajax({
+            type: "POST", // metodo post o get 
+            url: $("#contactform").attr("action"),
+            dataType: "text", // tipo datos text o json etc 
+            data: myData,
+            success: function(response) {
+
+
+                var respuesta = response;
+                
+
+                if (respuesta == 100) {
+              
+
+  
+                }
+                    
+                if(respuesta == 200){
+                    
+                    
+                    
+                    $('#contactform').hide( 'fast' );
+                    
+                    $('#respuesta').show('fast');
+                    
+                }
+
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+
+            },
+
+        });
+    });
+});
+
+
+
 });
 
 </script>
