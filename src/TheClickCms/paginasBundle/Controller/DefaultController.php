@@ -228,44 +228,44 @@ class DefaultController extends Controller
     public function cambioClaveAction(Request $request)
     {
 
-        $claveantigua = $request->request->get('claveantigua');
-        $clavenueva = $request->request->get('clavenueva');
-        $repeticionclavenueva = $request->request->get('repeticionclavenueva');
+      
 
 
-        if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
-            return new Response('0');
-        }else{
-            $session = $this->getRequest()->getSession();
-
-            $usuario = $request->request->get('usuario');
-            $contrasena = $request->request->get('clave');
-
-            if ($contrasena == $claveantigua) {
-                if ($clavenueva == $repeticionclavenueva) {
-                    
-                    $usuario = $session->get('nusuario');
-                    $contrasena = $session->get('contrasena');
-
-                    $em = $this->getDoctrine()->getManager();
-                    $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
-
-                    $usuarios->setContrasena($clavenueva);
-
-                    $em->merge($usuarios);
-                    $em->flush();
+            $claveantigua = $request->request->get('claveantigua');
+            $clavenueva = $request->request->get('clavenueva');
+            $repeticionclavenueva = $request->request->get('repeticionclavenueva');
 
 
-                     
-                    return new Response('1');
-
-                }else{
-                    
-                    return new Response('2');
-                }
+            if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
+                return new Response('0');
             }else{
-                return new Response('3');
+                $session = $this->getRequest()->getSession();
+
+                $usuario = $request->request->get('usuario');
+                $contrasena = $request->request->get('clave');
+
+                if ($contrasena == $claveantigua) {
+                    if ($clavenueva == $repeticionclavenueva) {
+                        
+                        $usuario = $session->get('nusuario');
+                        $contrasena = $session->get('contrasena');
+
+                        $em = $this->getDoctrine()->getManager();
+                        $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
+
+                        $usuarios->setContrasena($clavenueva);
+
+                        $em->merge($usuarios);
+                        $em->flush();
+
+                        return new Response('1');
+                    }else{
+                        return new Response('2');
+                    }
+                }else{
+                    return new Response('3');
+                }
             }
-        }
+
     }
 }

@@ -78,7 +78,7 @@ margin-top: 120px;
     </form> 
     <section style="clear:both;"></section>
       <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; Cambiar Clave" >
-
+      
 </div>
 <div class="vhr"></div>
 </div>
@@ -91,7 +91,6 @@ margin-top: 120px;
 
     $("#boton-datos").click(function() {     
 
-      alert('probando');   
        var myData = 'claveantigua=' + $("#claveantigua").val()
                             + '&clavenueva=' + $("#clavenueva").val()
                             + '&repeticionclavenueva=' + $("#repeticionclavenueva").val();
@@ -105,14 +104,14 @@ margin-top: 120px;
               var respuesta = response;
 
               if (respuesta == '0') {
-                console.log("vacio");
+                console.log("Clave vacia"); 
               }
               if (respuesta == '1'){
-                console.log("Clave cambiada");
-              }
+               console.log("Clave cambiada");
+              } 
 
               if (respuesta == '2') {
-                console.log("claves nuevas diferentes");
+               console.log("claves nuevas diferentes");
               }
 
               if (respuesta == '3') {
