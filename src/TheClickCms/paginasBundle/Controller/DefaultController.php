@@ -15,7 +15,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        
+
         return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');
     }
 
@@ -203,21 +203,6 @@ class DefaultController extends Controller
         $em->flush(); 
 
         return new response( $empresaId );
-    }
-
-    public function cambioIdiomaAction(Request $data)
-    {
-
-        
-        
-
-        $idioma = $data->request->get('idioma');
-
-        if ($idioma == 'es') {
-            $em = $this->getDoctrine()->getManager();
-            $header = $em->getRepository('TheClickCmsIdiomaBundle:Header')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Layer:header.html.twig', array('header' => $header));    
-        }
     }
 
     public function vistaActualizacionesAction()
