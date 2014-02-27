@@ -65,14 +65,11 @@ class Header
 
 
 
-     /**
-     * @ORM\Column(type="text" , nullable=true)
-     */
+    /**
+    * @ORM\Column(type="text" , nullable=true)
+    */
 
     private $idioma;
-
-
-
 
 
     /**

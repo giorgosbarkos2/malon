@@ -7,12 +7,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use TheClickCms\AdminBundle\Entity\Usuarios;
 use TheClickCms\AdminBundle\Entity\Actualizacion;
+use TheClickCms\IdiomaBundle\Entity\Header;
+
 
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
+        
         return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');
     }
 
@@ -202,6 +205,21 @@ class DefaultController extends Controller
         return new response( $empresaId );
     }
 
+    public function cambioIdiomaAction(Request $data)
+    {
+
+        
+        
+
+        $idioma = $data->request->get('idioma');
+
+        if ($idioma == 'es') {
+            $em = $this->getDoctrine()->getManager();
+            $header = $em->getRepository('TheClickCmsIdiomaBundle:Header')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Layer:header.html.twig', array('header' => $header));    
+        }
+    }
+
     public function vistaActualizacionesAction()
     {
 
@@ -227,9 +245,6 @@ class DefaultController extends Controller
 
     public function cambioClaveAction(Request $request)
     {
-
-      
-
 
             $claveantigua = $request->request->get('claveantigua');
             $clavenueva = $request->request->get('clavenueva');

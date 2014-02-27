@@ -7,16 +7,18 @@
 
 <!-- BANDERAS -->		
 		 <nav id="navigation">
-			<a class="menu_button" href="#footer_nav" onclick="toggleNav(); return false;">
+			<a  id="ES" class="menu_button" href="" onclick="toggleNav(); return false;">
 				<img src="{{asset('bundles/theclickcmspaginas/img/esp-small.png')}}" alt="" width="35" height="23">
 				<div class="dropArrow"></div>
 			</a>
 
 			<ul id="navigation_list" role="navigation">
-				<li style="width:50px;"><a href="#">
+				<li style="width:50px;">
+				<a id="EN" href="#">
 					<img src="{{asset('bundles/theclickcmspaginas/img/eng-small.png')}}" alt="" width="35" height="23"></a>
 				</li>
-				<li style="width:50px;"><a href="#">
+				<li style="width:50px;">
+				<a id="PT" href="#">
 					<img src="{{asset('bundles/theclickcmspaginas/img/por-small.png')}}" alt="" width="35" height="23"></a>
 				</li>
 			</ul>
@@ -41,15 +43,14 @@
 						<div class="proBtn">Productos</div>
 						</span> </a> </li>
 					<li> <a href="{{path('servicio')}}"> <span class="icon">
-						<div class="serBtn">Servicios</div>
+						<div class="serBtn">servicios</div>
 						</span> </a> </li> 
 					<li> <a href="{{path('nt')}}"> <span class="icon">
-						<div class="bussiBtn">Noticias</div>
+						<div class="bussiBtn">noticias</div>
 						</span> </a> </li>
 					<li> <a href="{{path('vistaContacto')}}"> <span class="icon">
-						<div class="contactBtn">Contacto</div>
+						<div class="contactBtn">contacto</div>
 						</span> </a> </li>
-
 						<div class="alpha"></div>
 				</ul>
 			</nav>
