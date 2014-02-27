@@ -1,6 +1,5 @@
-{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
+{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
 {% block contenido %}
-
 <div id="page2">
     <div class="contentint">
       
@@ -18,7 +17,6 @@
       </aside>
 
 <section class="acceso">
-
 <div class="clientes-sec1">
         <h2 class="title-acceso">Acceso Clientes</h2>
         <h4 class="nom-clientes">Bienvenido(a):</h4>
@@ -58,13 +56,17 @@ margin-top: 120px;
     <li><a href="{{path('vistaAccesoCambioClave')}}">Cambiar Clave</a></li>
   </ul>
 </div>
-
-
 <div class="clientes-sec2">
-        <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
+    <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
 
 <div class="datagrid"><table>
-<thead><tr><th>Nombre</th><th>Fecha</th><th></th></tr></thead>
+<thead>
+	<tr>
+		<th>Nombre</th>
+		<th>Fecha</th>
+		<th></th>
+		</tr>
+	</thead>
 <tbody>
 {% for actualizacion in actualizacion %}
   <tr>
@@ -74,11 +76,11 @@ margin-top: 120px;
   </tr>
 {% endfor %}
 </tbody>
-</table></div>
-<div class="formularios-acceso">
+</table>
+</div>
 <div class="vhr"></div>
 </div>
 </section>
 </div>
 </div>
- {% endblock %}
+{% endblock %}

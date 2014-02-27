@@ -202,6 +202,29 @@ class DefaultController extends Controller
         return new response( $empresaId );
     }
 
+    public function vistaActualizacionesAction()
+    {
+
+
+        $session = $this->getRequest()->getSession();
+        
+        $usuario = $session->get('nusuario');
+        $contrasena = $session->get('contrasena');
+
+        $em = $this->getDoctrine()->getManager();
+        $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
+
+        if ($usuario) {
+            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+            $actualizaciones = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+            return $this->render('TheClickCmspaginasBundle:Default:actualizaciones.html.twig', array('actualizacion' => $actualizaciones, 'persona' => $persona));    
+        }else{
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
+        }
+
+
+    }
+
     public function cambioClaveAction(Request $request)
     {
 

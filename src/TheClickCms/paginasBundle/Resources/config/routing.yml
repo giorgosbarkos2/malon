@@ -6,10 +6,6 @@ vistaHistoria:
     pattern:  /home/vistaHistoria
     defaults: { _controller:  TheClickCmspaginasBundle:Default:vistaHistoria }
 
-vistaUploadEmpresa:
-        path:      /
-        defaults:  { _controller: Bundle:Controller:action }    
-
 vistaContacto:
     pattern: /home/vistaContacto
     defaults: {_controller: TheClickCmspaginasBundle:Default:vistaContacto}
@@ -53,3 +49,7 @@ vistaAccesoCambioClave:
 vistaAccesoActualizarUsuario:
     pattern: /home/vistaAccesoActualizarUsuario
     defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAccesoActualizarUsuario}
+
+vistaActualizaciones:
+    pattern: /home/vistaActualizaciones
+    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaActualizaciones}
