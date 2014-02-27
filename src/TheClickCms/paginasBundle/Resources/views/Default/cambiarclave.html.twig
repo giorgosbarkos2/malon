@@ -48,6 +48,15 @@ margin-top: 120px;
    margin: 0 10px 0 0;
 }
 
+#boton-datos{
+
+  width: 130px;
+  position: relative;
+  margin-top:-20%;
+  margin-left: 4.4%;
+
+}
+
 </style>
 <div class="menuAcceso">
   <ul>
@@ -65,8 +74,11 @@ margin-top: 120px;
         <input id="claveantigua" name="claveantigua" type="text" placeholder="Clave Actual" value="{{persona.contrasena}}" onfocus="cambiaApass(this)" />
         <input id="clavenueva" name="clavenueva" type="text" placeholder="Nueva Clave" onfocus="cambiaApass(this)" />
         <input id="repeticionclavenueva" name="repeticionclavenueva" type="text" placeholder="Repetir Nueva Clave" onfocus="cambiaApass(this)" />
-        <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; Cambiar Clave">
-    </form>
+      
+    </form> 
+    <section style="clear:both;"></section>
+      <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; Cambiar Clave" >
+
 </div>
 <div class="vhr"></div>
 </div>
@@ -76,12 +88,15 @@ margin-top: 120px;
 
 <script>
   $(document).ready(function() {
-    $("#boton-datos").click(function() {        
+
+    $("#boton-datos").click(function() {     
+
+      alert('probando');   
        var myData = 'claveantigua=' + $("#claveantigua").val()
                             + '&clavenueva=' + $("#clavenueva").val()
                             + '&repeticionclavenueva=' + $("#repeticionclavenueva").val();
 
-        $.ajax({
+        jQuery.ajax({
           url:  $('#cambiopass').attr('action'),
           type: 'POST',
           dataType: 'text',
@@ -91,28 +106,30 @@ margin-top: 120px;
 
               if (respuesta == '0') {
                 console.log("vacio");
-              };
+              }
               if (respuesta == '1'){
                 console.log("Clave cambiada");
-              };
+              }
 
               if (respuesta == '2') {
                 console.log("claves nuevas diferentes");
-              };
+              }
 
               if (respuesta == '3') {
                 console.log("claves antigua diferentes");
-              };
+              }
           },
           error: function(xhr, ajaxOptions, thrownError) {
                 console.log(thrownError);
           },
-        });
-      });
+     
+     });
+          });
+   
     });
 </script>
 <script type="text/javascript">
-    var nuevo;
+
     function cambiaApass(caja) {
         nuevo=document.createElement("input");
         nuevo.setAttribute("type","password");
