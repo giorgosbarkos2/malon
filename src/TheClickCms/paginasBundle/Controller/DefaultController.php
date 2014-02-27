@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use TheClickCms\AdminBundle\Entity\Usuarios;
-use TheClickCms\AdminBundle\Entity\Actuali;
+use TheClickCms\AdminBundle\Entity\Actualizacion;
 
 
 class DefaultController extends Controller
@@ -94,6 +94,7 @@ class DefaultController extends Controller
         if ($usuario) {
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+            //$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy()
             return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig', array('persona' => $persona, 'actualizacion' => $actualizacion));    
         }else{
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    

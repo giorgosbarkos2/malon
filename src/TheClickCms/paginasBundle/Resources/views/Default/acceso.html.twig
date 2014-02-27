@@ -70,7 +70,7 @@ margin-top: 120px;
   <tr>
     <td>{{actualizacion.descripcionCorta}}</td>
     <td>{{actualizacion.fechaActualizacion | date("m/d/Y")}}</td>
-    <td><a href="" class="btn-des"><span>Descarga</span></a></td>
+    <td><a href="../../web/actualizaciones/{{actualizacion.id}}/{{actualizacion.url}}" class="btn-des"><span>Descarga</span></a></td>
   </tr>
 {% endfor %}
 </tbody>
