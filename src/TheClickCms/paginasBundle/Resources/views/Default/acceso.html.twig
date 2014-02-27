@@ -58,23 +58,6 @@ margin-top: 120px;
     <li><a href="{{path('vistaAccesoCambioClave')}}">Cambiar Clave</a></li>
   </ul>
 </div>
-
-
-<div class="clientes-sec2">
-        <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
-
-<div class="datagrid"><table>
-<thead><tr><th>Nombre</th><th>Fecha</th><th></th></tr></thead>
-<tbody>
-{% for actualizacion in actualizacion %}
-  <tr>
-    <td>{{actualizacion.descripcionCorta}}</td>
-    <td>{{actualizacion.fechaActualizacion | date("m/d/Y")}}</td>
-    <td><a href="../../web/actualizaciones/{{actualizacion.id}}/{{actualizacion.url}}" class="btn-des"><span>Descarga</span></a></td>
-  </tr>
-{% endfor %}
-</tbody>
-</table></div>
 <div class="formularios-acceso">
 <div class="vhr"></div>
 </div>

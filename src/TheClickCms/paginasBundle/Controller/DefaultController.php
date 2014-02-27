@@ -234,7 +234,7 @@ class DefaultController extends Controller
 
 
         if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
-            return new Response('vacia');
+            return new Response('0');
         }else{
             $session = $this->getRequest()->getSession();
 
@@ -255,13 +255,16 @@ class DefaultController extends Controller
                     $em->merge($usuarios);
                     $em->flush();
 
-                    return new Response('ok');
+
+                     
+                    return new Response('1');
 
                 }else{
-                    return new Response('diferentesclavenueva');
+                    
+                    return new Response('2');
                 }
             }else{
-                return new Response('diferentesclaveantigua');
+                return new Response('3');
             }
         }
     }
