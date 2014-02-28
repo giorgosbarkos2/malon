@@ -15,8 +15,22 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
 
-        return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');
+        if ($idioma == 'EN') {
+            $cabecera = $em->getRepository('TheClickCmsIdiomaBundle:Header')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('cabecera' => $cabecera, 'idioma' => $idioma));
+
+        } elseif ($idioma == 'ES') {
+            $cabecera = $em->getRepository('TheClickCmsIdiomaBundle:Header')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('cabecera' => $cabecera, 'idioma' => $idioma));       
+        }elseif ('PT') {
+            $cabecera = $em->getRepository('TheClickCmsIdiomaBundle:Header')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('cabecera' => $cabecera, 'idioma' => $idioma));    
+        }
     }
 
     public function vistaHistoriaAction()

@@ -45,15 +45,34 @@ $(document).ready(function(e) {
         var clickedID = this.id.split('-');
         var DbNumberID = clickedID[1]; // toma el numero del array
 
-        console.log(DbNumberID);
+        
 
+        if (DbNumberID == 'EN') {
+        	$("#home").text('Home');
+        	$("#acceso").text('Access client');
+        	$("#historia").text('History');
+        	$("#producto").text('Product');
+        	$("#servicio").text('Service');
+        	$("#noticias").text('News');
+        	$("#contacto").text('Contact');
 
-       
-
-
-
-
-
+	    }else if(DbNumberID == 'PT'){
+	    	$("#home").text('pt1');
+        	$("#acceso").text('pt2');
+        	$("#historia").text('pt3');
+        	$("#producto").text('pt4');
+        	$("#servicio").text('pt5');
+        	$("#noticias").text('pt6');
+        	$("#contacto").text('pt7');
+        }else{
+        	$("#home").text('Home');
+        	$("#acceso").text('Acceso Cliente');
+        	$("#historia").text('Historia');
+        	$("#producto").text('Producto');
+        	$("#servicio").text('Servicio');
+        	$("#noticias").text('Noticias');
+        	$("#contacto").text('Contacto');
+        };  
 });
 
 
@@ -68,27 +87,27 @@ $(document).ready(function(e) {
 			<nav id="menu" class="nav">
 				<ul>
 					<li> <a href="{{path('the_click_cmspaginas_homepage')}}"> <span class="icon">
-						<div class="homeBtn activa">Home</div>
+						<div  id="home" class="homeBtn activa">Home</div>
 						</span> </a> </li>
 					<!-- Mobile buttons-->
 						<li> <a href="login.html"> <span class="icon">
-						<div class="accesoBtn">Acceso Clientes</div>
+						<div id="acceso" class="accesoBtn">Acceso Clientes</div>
 						</span> </a> </li>
 					<!-- Fin Mobile buttons-->
 					<li> <a href="{{path('vistaHistoria')}}"> <span class="icon">
-						<div class="appBtn">Historia</div>
+						<div id="historia" class="appBtn">Historia</div>
 						</span> </a> </li>
 					<li> <a href="{{path('productos')}}"> <span class="icon">
-						<div class="proBtn">Productos</div>
+						<div id="producto" class="proBtn">Productos</div>
 						</span> </a> </li>
 					<li> <a href="{{path('servicio')}}"> <span class="icon">
-						<div class="serBtn">servicios</div>
+						<div id="servicio" class="serBtn">servicios</div>
 						</span> </a> </li> 
 					<li> <a href="{{path('nt')}}"> <span class="icon">
-						<div class="bussiBtn">noticias</div>
+						<div id="noticias" class="bussiBtn">noticias</div>
 						</span> </a> </li>
 					<li> <a href="{{path('vistaContacto')}}"> <span class="icon">
-						<div class="contactBtn">contacto</div>
+						<div id="contacto" class="contactBtn">contacto</div>
 						</span> </a> </li>
 						<div class="alpha"></div>
 				</ul>
