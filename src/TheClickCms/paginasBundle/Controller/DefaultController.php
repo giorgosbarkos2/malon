@@ -35,34 +35,112 @@ class DefaultController extends Controller
 
     public function vistaHistoriaAction()
     {
-    	return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig');
-    }
-    
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+        if ($idioma == 'EN') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+
+        } elseif ($idioma == 'ES') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+        }elseif ('PT') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+        }
+
+    }    
 
     public function noticiasAction()
     {
-        return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+        if ($idioma == 'EN') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+
+        } elseif ($idioma == 'ES') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+        }elseif ('PT') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+        }
     }
      
 
      public function servicioAction()
      {
-         return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+        if ($idioma == 'EN') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+
+        } elseif ($idioma == 'ES') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+        }elseif ('PT') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+        }
+
      }
 
 
      public function productosAction()
      {
 
-       return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
 
-       
+        if ($idioma == 'EN') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+
+        } elseif ($idioma == 'ES') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+        }elseif ('PT') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+        }
+      
      }
 
 
     public function vistaContactoAction()
     {
-    	return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+        if ($idioma == 'EN') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+        } elseif ($idioma == 'ES') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+        }elseif ('PT') {
+            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+        }
+
     }
 
     public function recibeContactoAction(Request $data)
@@ -281,5 +359,19 @@ class DefaultController extends Controller
                 }
             }
 
+    }
+
+
+
+    public function idiomaAction(Request $data)
+    {
+        $idioma = $data->request->get('idioma');
+
+        $session = $this->getRequest()->getSession();
+        $session->set('idioma');
+
+
+        return $this->redirect($this->generateUrl('the_click_cmspaginas_homepage'));
+        
     }
 }

@@ -53,3 +53,7 @@ vistaAccesoActualizarUsuario:
 vistaActualizaciones:
     pattern: /home/vistaActualizaciones
     defaults: {_controller: TheClickCmspaginasBundle:Default:vistaActualizaciones}
+
+idioma:
+    pattern: /home/idioma
+    defaults: {_controller: TheClickCmspaginasBundle:Default:idioma}

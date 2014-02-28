@@ -56,6 +56,21 @@ $(document).ready(function(e) {
         	$("#noticias").text('News');
         	$("#contacto").text('Contact');
 
+        	jQuery.ajax({
+        	  url: "{{path('idioma')}}",
+        	  type: 'POST',
+        	  dataType: 'text',
+        	  data: {idioma: 'DbNumberID'},
+        	  success: function(response){
+        	  		
+
+        	  },
+        	  error: function(xhr, textStatus, errorThrown) {
+        	   
+        	  }
+        	});
+        	
+
 	    }else if(DbNumberID == 'PT'){
 	    	$("#home").text('pt1');
         	$("#acceso").text('pt2');
@@ -64,6 +79,21 @@ $(document).ready(function(e) {
         	$("#servicio").text('pt5');
         	$("#noticias").text('pt6');
         	$("#contacto").text('pt7');
+
+        	jQuery.ajax({
+        	  url: "{{path('idioma')}}",
+        	  type: 'POST',
+        	  dataType: 'text',
+        	  data: {idioma: 'DbNumberID'},
+        	  success: function(response){
+        	  		
+
+        	  },
+        	  error: function(xhr, textStatus, errorThrown) {
+        	   
+        	  }
+        	});
+
         }else{
         	$("#home").text('Home');
         	$("#acceso").text('Acceso Cliente');
@@ -72,6 +102,20 @@ $(document).ready(function(e) {
         	$("#servicio").text('Servicio');
         	$("#noticias").text('Noticias');
         	$("#contacto").text('Contacto');
+
+        	jQuery.ajax({
+        	  url: "{{path('idioma')}}",
+        	  type: 'POST',
+        	  dataType: 'text',
+        	  data: {idioma: 'DbNumberID'},
+        	  success: function(response){
+        	  		
+
+        	  },
+        	  error: function(xhr, textStatus, errorThrown) {
+        	   
+        	  }
+        	});
         };  
 });
 
