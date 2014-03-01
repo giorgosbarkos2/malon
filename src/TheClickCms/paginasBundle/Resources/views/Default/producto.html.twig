@@ -6,7 +6,7 @@
     <div class="contentint">
       <aside>
         <div class="title">
-          <h1>Productos Descatados</h1>
+          <h1>{{idioma.titulo}}</h1>
            </div>
 
   <ul class="bxslider">
@@ -26,16 +26,10 @@
 
      </aside>
 <section class="app">
-        <h2>Productos</h2>
+        <h2>{{idioma.titulo}}</h2>
         <article>
         <div class="back-img"><img src="{{asset('bundles/theclickcmspaginas/img/producto-eg.jpg')}}" alt=""></div>
-<p>Overtech Group nace en marzo del 2000, fruto de la experiencia de casi 12 años de varios
-Ingenieros en el rubro de las Telecomunicaciones y, especialmente, en Gestión Telefónica.        
-<br><br>         
-Dicha experiencia se materializó en la creación de una Empresa orientada principalmente
-a Servicios Integrales, apoyados en productos de primera línea.
-Overtech Group cuenta con tecnología de punta que en conjunto con un equipo humano
-altamente calificado, le garantiza las soluciones integradas:</p>
+             {{idioma.texto | raw }}
         </article>
         <hr>
 </section>

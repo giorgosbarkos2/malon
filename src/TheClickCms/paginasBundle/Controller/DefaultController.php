@@ -376,10 +376,10 @@ class DefaultController extends Controller
 
     public function idiomaAction(Request $data)
     {
-        $idioma = $data->request->get('idioma');
+        $idioma = $data->request->get('bandera');
 
         $session = $this->getRequest()->getSession();
-        $session->set('idioma');
+        $session->set('idioma',$idioma);
 
 
         return $this->redirect($this->generateUrl('the_click_cmspaginas_homepage'));
