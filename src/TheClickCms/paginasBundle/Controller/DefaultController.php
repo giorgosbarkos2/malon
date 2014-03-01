@@ -41,15 +41,21 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
 
         if ($idioma == 'EN') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+
+            $queryHistoria = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=historia')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('idioma' => $idioma));
+
 
         } elseif ($idioma == 'ES') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+
+            $queryHistoria = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=historia')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('idioma' => $idioma));
+
         }elseif ('PT') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+
+            $queryHistoria = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=historia')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('idioma' => $idioma));            
+
         }
 
     }    
@@ -63,15 +69,15 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
 
         if ($idioma == 'EN') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+            $queryNoticia = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=noticia')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('idioma' => $idioma));
 
         } elseif ($idioma == 'ES') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+            $queryNoticia = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=noticia')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('idioma' => $idioma));
         }elseif ('PT') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+            $queryNoticia = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=noticia')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('idioma' => $idioma));
         }
     }
      
@@ -85,15 +91,16 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
 
         if ($idioma == 'EN') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+
+            $queryServicio = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=servicio')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('idioma' => $idioma));
 
         } elseif ($idioma == 'ES') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+            $queryServicio = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=servicio')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('idioma' => $idioma));       
         }elseif ('PT') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+            $queryServicio = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=servicio')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('idioma' => $idioma));    
         }
 
      }
@@ -108,15 +115,19 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
 
         if ($idioma == 'EN') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+            $queryProductos = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=productos')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('idioma' => $idioma));
 
         } elseif ($idioma == 'ES') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+
+            $queryProductos = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=productos')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('idioma' => $idioma));
+
         }elseif ('PT') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+
+            $queryProductos = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Paginas u WHERE u.idioma=:idioma and u.seccion:=productos')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('idioma' => $idioma));            
+
         }
       
      }
@@ -131,14 +142,14 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
 
         if ($idioma == 'EN') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));
+            $queryCategorias = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Formularios u WHERE u.idioma=:idioma and u.seccion:=contacto')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('idioma' => $idioma));
         } elseif ($idioma == 'ES') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));       
+            $queryCategorias = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Formularios u WHERE u.idioma=:idioma and u.seccion:=contacto')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('idioma' => $idioma));
         }elseif ('PT') {
-            $pagina = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma));
-            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('pagina' => $cabecera, 'idioma' => $idioma));    
+            $queryCategorias = $em->createQuery('SELECT u from TheClickCmsIdiomaBundle:Formularios u WHERE u.idioma=:idioma and u.seccion:=contacto')->setParameter('idioma', $idioma);
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('idioma' => $idioma));
         }
 
     }
