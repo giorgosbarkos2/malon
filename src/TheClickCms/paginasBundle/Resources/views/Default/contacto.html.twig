@@ -41,25 +41,25 @@ Fax: 56-2- 2448 28 01<br><br>
      
       <form  action="{{path('recibeContacto')}}" id="contactForm" method="POST">
       
-     <h2>Contacto</h2>
+     <h2>{{idioma.titulo}}</h2>
      <hr>
   <ul>
-  <li><label class="formtitle" for="firstName">Nombre </label>
+  <li><label class="formtitle" for="firstName">{{idioma.campo1}} </label>
   <input class="formres" name="firstName" id="firstName" placeholder="Nombre"/></li>
   
-  <li><label for="emailaddress">Email </label>
+  <li><label for="emailaddress">{{idioma.campo2}} </label>
     <input type="email" name="emailaddress" id="emailaddress" placeholder="nombre@ejemplo.com" /></li>
 
-  <li><label for="empresa">Empresa</label>
+  <li><label for="empresa">{{idioma.campo3}}</label>
     <input class="formres" name="empresa" id="message" placeholder="..."/></li>
 
-  <li><label for="asunto">Asunto del mensaje</label>
+  <li><label for="asunto">{{idioma.campo4}}</label>
     <input class="formres" name="asunto" id="message" placeholder="..."/></li>
   
-  <li><label class="mensaje" for="">Mensaje</label>
+  <li><label class="mensaje" for="">{{idioma.campo5}}</label>
     <textarea name="mensaje" id="mensaje2"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
   <li>
-  <input class="enviar" id="enviar" type="submit" value="&#8250; Enviar" />
+  <input class="enviar" id="enviar" type="submit" value="&#8250; {{idioma.campo6}}" />
   <input class="borrar" id="borrar" type="reset" value="&#8250; Borrar" />
   <hr>
   </li>
