@@ -1,12 +1,14 @@
 {% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
 {% block contenido %}
 
+{% for producto in producto %}
+    
 
   <div id="page2">
     <div class="contentint">
       <aside>
         <div class="title">
-          <h1>{{idioma.titulo}}</h1>
+          <h1>{{producto.titulo}}</h1>
            </div>
 
   <ul class="bxslider">
@@ -26,13 +28,14 @@
 
      </aside>
 <section class="app">
-        <h2>{{idioma.titulo}}</h2>
+        <h2>{{producto.titulo}}</h2>
         <article>
         <div class="back-img"><img src="{{asset('bundles/theclickcmspaginas/img/producto-eg.jpg')}}" alt=""></div>
-             {{idioma.texto | raw }}
+             {{producto.texto | raw }}
         </article>
         <hr>
 </section>
+{% endfor %}
     </div>
   </div>
 

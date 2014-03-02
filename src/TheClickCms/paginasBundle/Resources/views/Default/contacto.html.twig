@@ -3,12 +3,10 @@
    <div id="page2">
     <div class="contentint">
       
-      <aside>
-        <div class="title"><h1>OverTech Group</h1></div>
           <span class="strongfont"><br><br>Soluciones de gestión telefónica<hr></span>
 <p><b>Dirección: </b>Av. Vitacura 2808 Piso 12<br>
 Las Condes – Santiago<br>
-MC. 56-2- 2448 28 00<br>
+MC. 56-2- 28 28 00<br>
 Fax: 56-2- 2448 28 01<br><br>
 <b>Contacto ventas:</b> Sr. Rodrigo Tomicic<br>
 <b>e-mail </b><a href="mailto:ventaschile@overtechgroup.com?&subject=Información ventas">ventaschile@overtechgroup.com</a><br><br>
@@ -40,30 +38,33 @@ Fax: 56-2- 2448 28 01<br><br>
       </div> 
      
       <form  action="{{path('recibeContacto')}}" id="contactForm" method="POST">
-      
-     <h2>{{idioma.titulo}}</h2>
+    {% for contacto in contacto %}
+          
+    
+     <h2>{{contacto.titulo}}</h2>
      <hr>
   <ul>
-  <li><label class="formtitle" for="firstName">{{idioma.campo1}} </label>
+  <li><label class="formtitle" for="firstName">{{contacto.campo1}} </label>
   <input class="formres" name="firstName" id="firstName" placeholder="Nombre"/></li>
   
-  <li><label for="emailaddress">{{idioma.campo2}} </label>
+  <li><label for="emailaddress">{{contacto.campo2}} </label>
     <input type="email" name="emailaddress" id="emailaddress" placeholder="nombre@ejemplo.com" /></li>
 
-  <li><label for="empresa">{{idioma.campo3}}</label>
+  <li><label for="empresa">{{contacto.campo3}}</label>
     <input class="formres" name="empresa" id="message" placeholder="..."/></li>
 
-  <li><label for="asunto">{{idioma.campo4}}</label>
+  <li><label for="asunto">{{contacto.campo4}}</label>
     <input class="formres" name="asunto" id="message" placeholder="..."/></li>
   
-  <li><label class="mensaje" for="">{{idioma.campo5}}</label>
+  <li><label class="mensaje" for="">{{contacto.campo5}}</label>
     <textarea name="mensaje" id="mensaje2"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
   <li>
-  <input class="enviar" id="enviar" type="submit" value="&#8250; {{idioma.campo6}}" />
+  <input class="enviar" id="enviar" type="submit" value="&#8250; {{contacto.campo6}}" />
   <input class="borrar" id="borrar" type="reset" value="&#8250; Borrar" />
   <hr>
   </li>
   </form>
+  {% endfor %}  
   <div id="respuesta">   
   <span id="respuestaMail"></span>
   <div id="negativa">Debes completar el Email</div>

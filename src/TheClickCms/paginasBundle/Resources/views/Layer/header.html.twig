@@ -61,10 +61,10 @@ $(document).ready(function(e) {
         	  url: "{{path('idioma')}}",
         	  type: 'POST',
         	  dataType: 'text',
-        	  data: {bandera: 'DbNumberID'},
+        	  data: {idioma: 'DbNumberID'},
         	  success: function(response){
         	  		
-        	  	console.log("pase" + bandera);
+        	  	console.log(idioma);
         	  },
         	  error: function(xhr, textStatus, errorThrown) {
         	   
@@ -85,9 +85,9 @@ $(document).ready(function(e) {
         	  url: "{{path('idioma')}}",
         	  type: 'POST',
         	  dataType: 'text',
-        	  data: {bandera: 'DbNumberID'},
+        	  data: {idioma: 'DbNumberID'},
         	  success: function(response){
-        	  		console.log("pase" + bandera);
+        	  		console.log(idioma);
 
         	  },
         	  error: function(xhr, textStatus, errorThrown) {
@@ -110,7 +110,7 @@ $(document).ready(function(e) {
         	  dataType: 'text',
         	  data: {bandera: 'DbNumberID'},
         	  success: function(response){
-        	  		console.log("pase" + bandera);
+        	  		console.log(bandera);
 
         	  },
         	  error: function(xhr, textStatus, errorThrown) {
