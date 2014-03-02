@@ -6,7 +6,8 @@
     <div class="contentint">
       <aside>
         <div class="title">
-          <h1>{{idioma.titulo}}</h1>
+        {% for servicio in servicio %}
+          <h1>{{servicio.titulo}}</h1>
            </div>
 
   <ul class="bxslider">
@@ -28,12 +29,13 @@
 
 
 <section class="app">
-        <h2>{{idioma.titulo}}</h2>
+        <h2>{{servicio.titulo}}</h2>
         <article>
         <div class="back-img"><img src="{{asset('bundles/theclickcmspaginas/img/producto-eg.jpg')}}" alt=""></div>
-        {{idioma.texto | raw }}
+        {{servicio.texto | raw }}
         </article>
         <hr>
+                {% endfor %}
 </section>
     </div>
   </div>
