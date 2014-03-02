@@ -45,7 +45,10 @@ $(document).ready(function(e) {
         var clickedID = this.id.split('-');
         var DbNumberID = clickedID[1]; // toma el numero del array
 
-        console.log(DbNumberID);
+        var Data  =  'idioma=' + DbNumberID;
+
+    console.log(DbNumberID);
+
         
 
         if (DbNumberID == 'EN') {
@@ -61,10 +64,11 @@ $(document).ready(function(e) {
         	  url: "{{path('idioma')}}",
         	  type: 'POST',
         	  dataType: 'text',
-        	  data: {idioma: 'DbNumberID'},
+
+        	  data: Data,
         	  success: function(response){
         	  		
-        	  	console.log(idioma);
+
         	  },
         	  error: function(xhr, textStatus, errorThrown) {
         	   
@@ -85,9 +89,9 @@ $(document).ready(function(e) {
         	  url: "{{path('idioma')}}",
         	  type: 'POST',
         	  dataType: 'text',
-        	  data: {idioma: 'DbNumberID'},
+        	  data:  Data,
         	  success: function(response){
-        	  		console.log(idioma);
+
 
         	  },
         	  error: function(xhr, textStatus, errorThrown) {
@@ -108,9 +112,9 @@ $(document).ready(function(e) {
         	  url: "{{path('idioma')}}",
         	  type: 'POST',
         	  dataType: 'text',
-        	  data: {bandera: 'DbNumberID'},
+        	  data:  Data,
         	  success: function(response){
-        	  		console.log(bandera);
+
 
         	  },
         	  error: function(xhr, textStatus, errorThrown) {

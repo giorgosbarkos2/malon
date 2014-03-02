@@ -39,6 +39,8 @@ class DefaultController extends Controller
         
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
+
+
         $seccion = 'historia';
 
         if ($idioma == 'EN') {
@@ -407,8 +409,10 @@ class DefaultController extends Controller
     {
         $idioma = $data->request->get('idioma');
 
+
         $session = $this->getRequest()->getSession();
         $session->set('idioma',$idioma);
+
 
 
         return $this->redirect($this->generateUrl('the_click_cmspaginas_homepage'));
