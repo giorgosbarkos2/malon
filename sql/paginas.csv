@@ -1,0 +1,19 @@
+id,seccion,titulo,texto,idioma
+1,historia,Productos,"<p>Overtech Group nace en marzo del 2000, fruto de la experiencia de casi 12 años de varios
+Ingenieros en el rubro de las Telecomunicaciones y, especialmente, en Gestión Telefónica.        
+<br><br>         
+Dicha experiencia se materializó en la creación de una Empresa orientada principalmente
+a Servicios Integrales, apoyados en productos de primera línea.
+Overtech Group cuenta con tecnología de punta que en conjunto con un equipo humano
+altamente calificado, le garantiza las soluciones integradas:</p>",ES
+2,historia,TituloIngles,TextoIngles,EN
+3,historia,TituloPortugues,TextoPortugues,PT
+4,productos,TitloEspañol,TextoEspañol,ES
+5,productos,TituloIngles,TextoIngles,EN
+6,productos,TituloPortugues,TextoPortugues,PT
+7,servicio,TituloEspañol,TextoExpañol,ES
+8,servicio,TituloIngles,TextoIngles,EN
+9,servicio,TituloPortugues,TextoPortugues,PT
+10,noticia,TituloEspañol,TextoEspañol,ES
+11,noticia,TituloIngles,TextoIngles,EN
+12,noticia,TituloPortgues,TextoPortugues,PT
