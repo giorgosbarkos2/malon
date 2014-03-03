@@ -20,8 +20,8 @@
 
 <section class="acceso">
 <div class="clientes-sec1">
-        <h2 class="title-acceso">Acceso Clientes</h2>
-        <h4 class="nom-clientes">Bienvenido(a):</h4>
+        <h2 class="title-acceso">{{menuacceso.titulo}}</h2>
+        <h4 class="nom-clientes"{{menuacceso.campo4}}</h4>
         <h4 class="nom-clientes">{{persona.nombre}}</h4>
 </div>
 <div class="title-acc-logo"><img src="../../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
@@ -53,16 +53,16 @@ margin-top: 120px;
 </style>
 <div class="menuAcceso">
   <ul>
-    <li><a href="{{path('vistaActualizaciones')}}">Mostrar Actualizaciones</a></li>
-    <li><a href="{{path('vistaAccesoActualizarUsuario')}}">Modificar Usuario</a></li>
-    <li><a href="{{path('vistaAccesoCambioClave')}}">Cambiar Clave</a></li>
+    <li><a href="{{path('vistaActualizaciones')}}">{{menuacceso.campo1}}</a></li>
+    <li><a href="{{path('vistaAccesoActualizarUsuario')}}">{{menuacceso.campo2}}</a></li>
+    <li><a href="{{path('vistaAccesoCambioClave')}}">{{menuacceso.campo3}}</a></li>
   </ul>
 </div>
 
 <div class="formularios-acceso">
             <form id="micuenta" action="{{path('recibeformularioEditar')}}" method="post">
             <input name="id" type="hidden" value="{{persona.id}}">
-            <span><h4 class="nom-clientes" style="color:#f00;">Mi cuenta:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo6}}</h4></span>
             <input name="nombre" type="text" value="{{persona.nombre}} ">
             <input name="email" type="text" value="{{persona.email}} ">
             <select name="pais" class="form-control">
@@ -304,7 +304,7 @@ margin-top: 120px;
             </select>
             <input name="empresa" type="text" value="{{persona.empresa.nombre}} ">
             <input name="cargo" type="text" value="{{persona.cargo}} ">
-            <input name="boton-datos" type="submit" value="&#8250; Actualizar Datos">
+            <input name="boton-datos" type="submit" value="&#8250; {{menuacceso.campo5}}">
             </form>
 <div class="vhr"></div>
 </div>

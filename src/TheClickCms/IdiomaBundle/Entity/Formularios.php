@@ -65,7 +65,9 @@ class Formularios
 
     private $campo7;
 
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
 
+    private $campo8;
 
 
 
@@ -309,5 +311,28 @@ class Formularios
     public function getCampo7()
     {
         return $this->campo7;
+    }
+
+    /**
+     * Set campo8
+     *
+     * @param string $campo8
+     * @return Formularios
+     */
+    public function setCampo8($campo8)
+    {
+        $this->campo8 = $campo8;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo8
+     *
+     * @return string 
+     */
+    public function getCampo8()
+    {
+        return $this->campo8;
     }
 }
