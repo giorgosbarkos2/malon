@@ -31,13 +31,13 @@ function toggleNav() {
 			<h3>Soluciones de <br> <span class="red">Gestión Telefónica</span></h3>
 		</div>
 		<div class="box-acceso" style="position:relative;z-index:999999999;">
-			<span class="h1-clientes">Acceso Clientes</span>
+			<span class="h1-clientes">{{acceso.titulo}}</span>
 				<br>
-				<p>Usuario</p><input class="textbox" id="usuario" placeholder="" name="usuario" type="text">
-				<p>Clave</p><input class="textbox"  id="clave" placeholder="" name="clave" type="password">
-				<input id="clickme" class="button" type="submit"  value="&#8250; Enviar" name="Enviar">
+				<p>{{acceso.campo1}}</p><input class="textbox" id="usuario" placeholder="" name="usuario" type="text">
+				<p>{{acceso.campo2}}</p><input class="textbox"  id="clave" placeholder="" name="clave" type="password">
+				<input id="clickme" class="button" type="submit"  value="&#8250; {{acceso.campo3}}" name="Enviar">
 				<div style="clear:both"></div>
-				<p class="underline"><a href="#">Regístrate Aquí</a></p>
+				<p class="underline"><a href="#">{{acceso.campo4}}</a></p>
 				<p id="mensajeForm" style="display:none;"> Usuario o contraseña incorrecta </p>
 		</div>
 		
