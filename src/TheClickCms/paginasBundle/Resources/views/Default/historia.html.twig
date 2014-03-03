@@ -4,7 +4,7 @@
     <div class="contentint">
       <aside>
         <div class="title">
-        {% for historia in historia %}
+
           <h1>{{historia.titulo}}</h1>
            </div>
   <ul class="bxslider">
@@ -20,7 +20,7 @@
       auto: true
       });
     });
-  </script>         
+  </script>
      </aside>
 <section class="app">
         <h2>{{historia.titulo}}</h2>
@@ -29,7 +29,7 @@
             {{historia.texto | raw }}
         </article>
         <hr>
-{% endfor %}
+
 </section>
     </div>
   </div>

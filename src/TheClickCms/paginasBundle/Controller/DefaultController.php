@@ -39,23 +39,41 @@ class DefaultController extends Controller
         
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
+        if($idioma == ''){
+            $idioma = 'ES';
+
+        }
 
 
-        $seccion = 'historia';
+         $seccion = 'historia';
+
+
+
 
         if ($idioma == 'EN') {
 
             $historia = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));
+
+
+
+             return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));
 
 
         } elseif ($idioma == 'ES') {
-            $historia = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));
+
+
+
+            $historia2 = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
+
+
+           return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia2));
+
+
+
 
         }elseif ('PT') {
             $historia = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));            
+         return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));
 
         }
 
@@ -402,6 +420,7 @@ class DefaultController extends Controller
             }
 
     }
+
 
 
 
