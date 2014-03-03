@@ -1,10 +1,10 @@
-{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
+{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
 {% block contenido %}
 
 
 
 
-<!-- VIDEO -->		
+<!-- VIDEO -->
 <img src="{{asset('bundles/theclickcmspaginas/img/loading1.gif')}}" alt="" id="dvLoading">
 <script type="text/javascript">
 var originalNavClasses;
@@ -26,7 +26,7 @@ function toggleNav() {
 
  	<div id="page">
 		<div class="content">
-		
+
 		<div class="box-slogan">
 			<h3>Soluciones de <br> <span class="red">Gestión Telefónica</span></h3>
 		</div>
@@ -41,10 +41,10 @@ function toggleNav() {
 				<p class="underline">{{acceso.campo4}}<a href="#"></a></p>
 				<p id="mensajeForm" style="display:none;"> Usuario o contraseña incorrecta </p>
 		</div>
-		
+
 <div id="main">
-			
-			<div class="box-maps-details"> 
+
+			<div class="box-maps-details">
 				<section id="pais-01">
 					<div class="title"><h5>Chile</h5></div>
 					<br><br><br>
@@ -68,7 +68,7 @@ function toggleNav() {
 					<span id="cerrar-01"></span>
 				</section>
 			</div>
-			<div class="box-maps-details"> 
+			<div class="box-maps-details">
 				<section id="pais-02">
 					<div class="title"><h5>PAIS 2</h5></div>
 					<br><br><br>
@@ -87,7 +87,7 @@ function toggleNav() {
 					<span id="cerrar-02"></span>
 				</section>
 			</div>
-			<div class="box-maps-details"> 
+			<div class="box-maps-details">
 				<section id="pais-03">
 					<div class="title"><h5>PAIS 3</h5></div>
 					<br><br><br>
@@ -106,7 +106,7 @@ function toggleNav() {
 					<span id="cerrar-03"></span>
 				</section>
 			</div>
-			<div class="box-maps-details"> 
+			<div class="box-maps-details">
 				<section id="pais-04">
 					<div class="title"><h5>PAIS 4</h5></div>
 					<br><br><br>
@@ -125,7 +125,7 @@ function toggleNav() {
 					<span id="cerrar-04"></span>
 				</section>
 			</div>
-			<div class="box-maps-details"> 
+			<div class="box-maps-details">
 				<section id="pais-05">
 					<div class="title"><h5>PAIS 5</h5></div>
 					<br><br><br>
@@ -145,7 +145,7 @@ function toggleNav() {
 					<span id="cerrar-05"></span>
 				</section>
 			</div>
-			<div class="box-maps-details"> 
+			<div class="box-maps-details">
 				<section id="pais-06">
 					<div class="title"><h5>PAIS 6</h5></div>
 					<br><br><br>
@@ -164,7 +164,7 @@ function toggleNav() {
 					<span id="cerrar-06"></span>
 				</section>
 			</div>
-			<div class="box-maps-details"> 
+			<div class="box-maps-details">
 				<section id="pais-07">
 					<div class="title"><h5>PAIS 7</h5></div>
 					<br><br><br>
@@ -182,7 +182,7 @@ function toggleNav() {
 						</p>
 					<span id="cerrar-07"></span>
 				</section>
-			</div>	
+			</div>
 				<div class="box-maps">
 				<div class="box-maps-pais-01"></div>
 				<div class="box-maps-pais-02"></div>
@@ -191,21 +191,21 @@ function toggleNav() {
 				<div class="box-maps-pais-05"></div>
 				<div class="box-maps-pais-06"></div>
 				<div class="box-maps-pais-07"></div>
-				
+
 			<img src="{{asset('bundles/theclickcmspaginas/img/maps.png')}}">
-			
+
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<section id="playdiv"> <img src="{{asset('bundles/theclickcmspaginas/img/btnPlay.png')}}" alt=""> </section>
 	<!-- Mascara de video y funciones -->
 	<div id="mascara">
 		<div id="todalapantalla-capa" class="d"data-fullscreen="{&quot;size&quot;: {&quot;width&quot;: 960, &quot;height&quot;: 540}}" style="left: -93px; top: 0px; width: 1470.2222222222222px; height: 827px;">
-	
-			
-			<div id="videoH"> 
+
+
+			<div id="videoH">
 					<div id="contenedorVideo">
 					</div>
 			</div>
@@ -226,9 +226,9 @@ function toggleNav() {
 
 
 	        jQuery.ajax({
-	            type: "POST", // metodo post o get 
+	            type: "POST", // metodo post o get
 	            url:  $('#login').attr('action'),
-	            dataType: "text", // tipo datos text o json etc 
+	            dataType: "text", // tipo datos text o json etc
 	            data: myData,
 	            success: function(response) {
 
@@ -239,7 +239,7 @@ function toggleNav() {
 	                if (respuesta == '200') {
 
 
-	                		
+
 
 	                window.location = "{{path('vistaAcceso')}}";
 
@@ -353,42 +353,42 @@ $('#pais-06').hide();
 });
 
 
-$('#cerrar').click(function(event) {	
+$('#cerrar').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-01').hide('slow');
 });
 
-$('#cerrar-01').click(function(event) {	
+$('#cerrar-01').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-01').hide('slow');
 });
 
-$('#cerrar-02').click(function(event) {	
+$('#cerrar-02').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-02').hide('slow');
 });
 
-$('#cerrar-03').click(function(event) {	
+$('#cerrar-03').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-03').hide('slow');
 });
 
-$('#cerrar-04').click(function(event) {	
+$('#cerrar-04').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-04').hide('slow');
 });
 
-$('#cerrar-05').click(function(event) {	
+$('#cerrar-05').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-05').hide('slow');
 });
 
-$('#cerrar-06').click(function(event) {	
+$('#cerrar-06').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-06').hide('slow');
 });
 
-$('#cerrar-07').click(function(event) {	
+$('#cerrar-07').click(function(event) {
 $('.box-maps-details').hide('slow');
 $('#pais-07').hide('slow');
 });
@@ -415,7 +415,7 @@ $('#pais-07').hide('slow');
 					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
 					}
 					return r.className;
-			};	
+			};
 
 			//  Creating our button in JS for smaller screens
 			var menuElements = document.getElementById('menu');
@@ -425,7 +425,7 @@ $('#pais-07').hide('slow');
 			document.getElementById('menutoggle').onclick = function() {
 				changeClass(this, 'navtoogle active', 'navtoogle');
 			}
-		</script> 
+		</script>
 
 		<script>
 	/mobile/i.test(navigator.userAgent) && !window.location.hash && setTimeout(function () {

@@ -1,4 +1,5 @@
-{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
+
 {% block contenido %}
 <div id="page2">
     <div class="contentint">
@@ -68,13 +69,14 @@ margin-top: 120px;
 </div>
 {##}
 <div class="formularios-acceso">
-    <form id="cambiopass" name="formulario" action="{{path('cambioClave')}}" method="POST">
+    <form id="cambiopass" name="formulario" action="{{path('cambioClave')}}" method="POST" data-validate="parsley" >
     	<span>
     		<h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo5}}:</h4>
     	</span>
+        <input type="hidden" id="usuarioId" value="{{ persona.id }}">
         <input id="claveantigua" name="claveantigua" type="text" placeholder="Clave Actual" value="{{persona.contrasena}}" onfocus="cambiaApass(this)" />
-        <input id="clavenueva" name="clavenueva" type="text" placeholder="Nueva Clave"  />
-        <input id="repeticionclavenueva" name="repeticionclavenueva" type="text" placeholder="Repetir Nueva Clave" />
+        <input id="clavenueva" name="clavenueva" type="text" placeholder="Nueva Clave" id="pas1"  data-required="true"   />
+        <input id="repeticionclavenueva" name="repeticionclavenueva" type="text" data-required="true"  placeholder="Repetir Nueva Clave" data-equalto="#pas1" />
       
     </form> 
     <section style="clear:both;"></section>
@@ -95,7 +97,8 @@ margin-top: 120px;
 
        var myData = 'claveantigua=' + $("#claveantigua").val()
                             + '&clavenueva=' + $("#clavenueva").val()
-                            + '&repeticionclavenueva=' + $("#repeticionclavenueva").val();
+                            + '&repeticionclavenueva=' + $("#repeticionclavenueva").val()
+                            + '&usuarioId=' + $('#usuarioId').val() ;
 
         jQuery.ajax({
           url:  $('#cambiopass').attr('action'),
@@ -105,20 +108,11 @@ margin-top: 120px;
           success: function(response){
               var respuesta = response;
 
-              if (respuesta == '0') {
-                console.log("Clave vacia"); 
-              }
-              if (respuesta == '1'){
-               console.log("Clave cambiada");
-              } 
 
-              if (respuesta == '2') {
-               console.log("claves nuevas diferentes");
-              }
+              $('#cambiopass').parsley( 'validate' );
 
-              if (respuesta == '3') {
-                console.log("claves antigua diferentes");
-              }
+
+
           },
           error: function(xhr, ajaxOptions, thrownError) {
                 console.log(thrownError);

@@ -303,7 +303,7 @@ class DefaultController extends Controller
 
 
 
-            //return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',array('persona' => $persona, 'actualizacion' => $actualizacion , 'idioma' => $idioma ));
+            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',array('persona' => $persona, 'actualizacion' => $actualizacion , 'idioma' => $idioma ));
         }else{
 
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
