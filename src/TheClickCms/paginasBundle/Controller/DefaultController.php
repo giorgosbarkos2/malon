@@ -556,24 +556,30 @@ class DefaultController extends Controller
     {
 
             $clavenueva = $request->request->get('clavenueva');
+            $claveantigua = $request->request->get('claveantigua');
 
             $session = $this->getRequest()->getSession();
+            
             $usuario = $session->get('nusuario');
             $contrasena = $session->get('contrasena');
             $idioma = $session->get('idioma');
 
 
-            $em = $this->getDoctrine()->getManager();
-            $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
+            if ($contrasena == $claveantigua) {
+    
+                $em = $this->getDoctrine()->getManager();
+                $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
 
-            $usuarios->setContrasena($clavenueva);
+                $usuarios->setContrasena($clavenueva);
 
-            $em->merge($usuarios);
-            $em->flush();
+                $em->merge($usuarios);
+                $em->flush();
 
-            return new Response(1);
+                return new Response(1);
 
-
+            }else{
+                return new response(2);
+            }
 
     }
 
