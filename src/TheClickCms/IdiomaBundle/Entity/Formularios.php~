@@ -65,7 +65,9 @@ class Formularios
 
     private $campo7;
 
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
 
+    private $campo8;
 
 
 

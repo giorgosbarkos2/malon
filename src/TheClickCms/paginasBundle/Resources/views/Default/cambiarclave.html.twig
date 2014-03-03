@@ -19,8 +19,8 @@
 <section class="acceso">
 
 <div class="clientes-sec1">
-        <h2 class="title-acceso">Acceso Clientes</h2>
-        <h4 class="nom-clientes">Bienvenido(a):</h4>
+        <h2 class="title-acceso">{{menuacceso.titulo}}</h2>
+        <h4 class="nom-clientes">{{menuacceso.campo4}}</h4>
         <h4 class="nom-clientes">{{persona.nombre}}</h4>
 </div>
 <div class="title-acc-logo"><img  width="100" height="100" src="../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
@@ -62,16 +62,16 @@ margin-top: 120px;
 </style>
 <div class="menuAcceso">
   <ul>
-    <li><a href="{{path('vistaAcceso')}}">Mostrar Actualizaciones</a></li>
-    <li><a href="{{path('vistaAccesoActualizarUsuario')}}">Modificar Usuario</a></li>
-    <li><a href="{{path('vistaAccesoCambioClave')}}">Cambiar Clave</a></li>
+    <li><a href="{{path('vistaAcceso')}}">{{menuacceso.campo1}}</a></li>
+    <li><a href="{{path('vistaAccesoActualizarUsuario')}}">{{menuacceso.campo2}}</a></li>
+    <li><a href="{{path('vistaAccesoCambioClave')}}">{{menuacceso.campo3}}</a></li>
   </ul>
 </div>
 {##}
 <div class="formularios-acceso">
     <form id="cambiopass" name="formulario" action="{{path('cambioClave')}}" method="POST" data-validate="parsley" >
     	<span>
-    		<h4 class="nom-clientes" style="color:#f00;">Cambio de Clave:</h4>
+    		<h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo5}}:</h4>
     	</span>
         <input type="hidden" id="usuarioId" value="{{ persona.id }}">
         <input id="claveantigua" name="claveantigua" type="text" placeholder="Clave Actual" value="{{persona.contrasena}}" onfocus="cambiaApass(this)" />
@@ -80,7 +80,7 @@ margin-top: 120px;
       
     </form> 
     <section style="clear:both;"></section>
-      <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; Cambiar Clave" >
+      <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; {{menuacceso.campo6}}" >
       
 </div>
 <div class="vhr"></div>

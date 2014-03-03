@@ -1,0 +1,20 @@
+id,idioma,NombreFormulario,titulo,campo1,campo2,campo3,campo4,campo5,campo6,campo7,campo8
+1,ES,contacto,Contacto,Nombre,Email,Empresa,"Asunto Del Mensaje",Mensaje,Enviar,NULL,NULL
+2,EN,contacto,Contact,Name,Email,Enterprise,Subject,Message,Send,NULL,NULL
+3,PT,contacto,portugues2,portugues3,portugues4,portugues5,portugues6,portugues7,portugues2,NULL,NULL
+4,ES,cambiarpass,"Acceso Clientes","Mostrar Actualizaciones","Modificar Usuario","Cambiar Clave",Bienvenido,"Cambio de Clave","Cambio Clave",NULL,NULL
+5,EN,cambiarpass,"Change Password","Show updates","Modify User","Change Password",Welcome,"Change Password","Change Password",NULL,NULL
+6,PT,cambiarpass,portugue1,portugues2,portugues3,portugues4,portugues5,portuges6,portugues8,NULL,NULL
+7,ES,acceso,"Acceso Clientes",Usuario,Contraseña,Enviar,"Registrate Aquí",NULL,NULL,NULL,NULL
+8,EN,acceso,"Access Client",User,Password,Send,"Register Here",NULL,NULL,NULL,NULL
+9,PT,acceso,AccesoPortugues,UsuarioPortugues,ContraseñaPortugues,Enviar,resgistratePortugues,NULL,NULL,NULL,NULL
+10,ES,menuacceso,"Acceso Clientes","Mostrar Actualizaciones","Modificar Usuario","Cambiar Clave",Bienvenido,NULL,NULL,NULL,NULL
+11,EN,menuacceso,"Access Clients","Show updates","Modify User","Change Password",Welcome,NULL,NULL,NULL,NULL
+12,PT,menuacceso,portugues1,portugues2,portugues3,portugues4,portugues5,NULL,NULL,NULL,NULL
+13,ES,actualizausario,"Acceso Clientes","Mostrar Actualizaciones","Modificar Usuario","Cambiar Clave",Bienvenido,"Actualizar Datos","Mi cuenta",NULL,NULL
+14,EN,actualizausario,"Access Clients","Show updates","Modify User","Change Password",Welcome,"update Information","My Account",NULL,NULL
+15,PT,actualizausario,portugues1,portugues2,portugues3,portugues4,portugues5,portugues6,portugues6,NULL,NULL
+16,ES,actualizaciones,"Acceso Clientes","Mostrar Actualizaciones","Modificar Usuario","Cambiar Clave",Bienvenido,"Tienes las siguientes actualizaciones",Nombre,Fecha,Descarga
+17,EN,actualizaciones,"Access Clients","Show updates","Modify User","Change Password",Welcome,"
+You have the following updates",Name,Date,Download
+18,PT,actualizaciones,portugues1,portugues2,portugues3,portugues4,portugues5,portugues6,portugues7,portugues8,portugues9

@@ -20,8 +20,8 @@
 
 <section class="acceso"  style="height:800px;">
 <div class="clientes-sec1">
-        <h2 class="title-acceso">Acceso Clientes</h2>
-        <h4 class="nom-clientes">Bienvenido(a):</h4>
+        <h2 class="title-acceso">{{menuacceso.titulo}}</h2>
+        <h4 class="nom-clientes">{{menuacceso.campo4}}:</h4>
         <h4 class="nom-clientes">{{persona.nombre}}</h4>
 </div>
 <div class="title-acc-logo"><img src="../../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
@@ -53,19 +53,24 @@ margin-top: 120px;
 </style>
 <div class="menuAcceso">
   <ul>
-    <li><a href="{{path('vistaActualizaciones')}}">Mostrar Actualizaciones</a></li>
-    <li><a href="{{path('vistaAccesoActualizarUsuario')}}">Modificar Usuario</a></li>
-    <li><a href="{{path('vistaAccesoCambioClave')}}">Cambiar Clave</a></li>
+    <li><a href="{{path('vistaActualizaciones')}}">{{menuacceso.campo1}}</a></li>
+    <li><a href="{{path('vistaAccesoActualizarUsuario')}}">{{menuacceso.campo2}}</a></li>
+    <li><a href="{{path('vistaAccesoCambioClave')}}">{{menuacceso.campo3}}</a></li>
   </ul>
 </div>
+<<<<<<< HEAD
+<div class="clientes-sec2">
+    <h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo5}}</h4>
+=======
 <div class="clientes-sec2" >
     <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
 
 <div class="datagrid"><table>
 <thead>
 	<tr>
-		<th>Nombre</th>
-		<th>Fecha</th>
+		<th>{{menuacceso.campo6}}</th>
+		<th>{{menuacceso.campo7}}</th>
 		<th></th>
 		</tr>
 	</thead>
@@ -74,7 +79,7 @@ margin-top: 120px;
   <tr>
     <td>{{actualizacion.descripcionCorta}}</td>
     <td>{{actualizacion.fechaActualizacion | date("m/d/Y")}}</td>
-    <td><a href="../../web/actualizaciones/{{actualizacion.id}}/{{actualizacion.url}}" class="btn-des"><span>Descarga</span></a></td>
+    <td><a href="../../web/actualizaciones/{{actualizacion.id}}/{{actualizacion.url}}" class="btn-des"><span>{{menuacceso.campo8}}</span></a></td>
   </tr>
 {% endfor %}
 </tbody>
