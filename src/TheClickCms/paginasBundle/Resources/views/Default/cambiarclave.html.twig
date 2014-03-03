@@ -74,14 +74,15 @@ margin-top: 120px;
     		<h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo5}}:</h4>
     	</span>
         <input type="hidden" id="usuarioId" value="{{ persona.id }}">
-        <input id="claveantigua" name="claveantigua" type="text" placeholder="Clave Actual" value="{{persona.contrasena}}" onfocus="cambiaApass(this)" />
+        <input id="claveantigua" name="claveantigua" type="text" placeholder="Clave Actual" value="{{persona.contrasena}}" />
         <input id="clavenueva" name="clavenueva" type="text" placeholder="Nueva Clave" id="pas1"  data-required="true"   />
         <input id="repeticionclavenueva" name="repeticionclavenueva" type="text" data-required="true"  placeholder="Repetir Nueva Clave" data-equalto="#pas1" />
       
-    </form> 
+    </form>
+    <section style="clear:both;"></section>
+    <p id="mensajeForm" style="display:none;"></p>
     <section style="clear:both;"></section>
       <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; {{menuacceso.campo6}}" >
-      
 </div>
 <div class="vhr"></div>
 </div>
@@ -91,36 +92,50 @@ margin-top: 120px;
 
 <script>
   $(document).ready(function() {
-
-    $("#boton-datos").click(function() {    
-    var  claveantigua = $("#claveantigua").val();
-
-       var myData = 'claveantigua=' + $("#claveantigua").val()
-                            + '&clavenueva=' + $("#clavenueva").val()
-                            + '&repeticionclavenueva=' + $("#repeticionclavenueva").val()
-                            + '&usuarioId=' + $('#usuarioId').val() ;
-
-        jQuery.ajax({
-          url:  $('#cambiopass').attr('action'),
-          type: 'POST',
-          dataType: 'text',
-          data: myData,
-          success: function(response){
-              var respuesta = response;
+    $("#mensajeForm").css("display", "none");
+    $("#boton-datos").click(function() {
+        var claveantigua = $("#claveantigua").val();
+        var clavenueva = $("#clavenueva").val();
+        var repeticionclavenueva = $("#repeticionclavenueva").val();
 
 
-              $('#cambiopass').parsley( 'validate' );
+        if (claveantigua == '' || clavenueva == '' || repeticionclavenueva == '' ) {
+            $("#mensajeForm").text("una de las claves esta vacia");
+            $("#mensajeForm").css("display", "block");
+        }else{
+          if(clavenueva == repeticionclavenueva){
+            jQuery.ajax({
+              url: "{{path('cambioClave')}}",
+              type: 'POST',
+              dataType: 'text',
+              data: {claveantigua: claveantigua,
+                     clavenueva: clavenueva,
+                     repeticionclavenueva: repeticionclavenueva
+                    },
+              success: function(response) {
+                var respuesta = response;
 
+                if(respuesta == 1){
+                  $("#mensajeForm").text('Datos guardados correctamente');
+                  $("#mensajeForm").css("display", "block");
+                }else{  
+                  $("#mensajeForm").text("Error en el servidor");
+                  $("#mensajeForm").css("display", "block");
+                };
 
-
-          },
-          error: function(xhr, ajaxOptions, thrownError) {
+              },
+              error: function(xhr, ajaxOptions, thrownError) {
                 console.log(thrownError);
-          },
-     
-     });
-          });
-   
+              },
+            });
+          }else{
+            $("#mensajeForm").text("claves nuevas diferentes");
+            $("#mensajeForm").css("display", "block");
+            
+          };
+        };
+
+        });
     });
 </script>
 <script type="text/javascript">
