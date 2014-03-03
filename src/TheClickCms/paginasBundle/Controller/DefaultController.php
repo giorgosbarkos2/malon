@@ -555,44 +555,25 @@ class DefaultController extends Controller
     public function cambioClaveAction(Request $request)
     {
 
-            $claveantigua = $request->request->get('claveantigua');
             $clavenueva = $request->request->get('clavenueva');
-            $repeticionclavenueva = $request->request->get('repeticionclavenueva');
 
             $session = $this->getRequest()->getSession();
+            $usuario = $session->get('nusuario');
+            $contrasena = $session->get('contrasena');
             $idioma = $session->get('idioma');
 
 
-            if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
-                return new Response('0');
-            }else{
-                $session = $this->getRequest()->getSession();
+            $em = $this->getDoctrine()->getManager();
+            $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
 
-                $usuario = $request->request->get('usuario');
-                $contrasena = $request->request->get('clave');
+            $usuarios->setContrasena($clavenueva);
 
-                if ($contrasena == $claveantigua) {
-                    if ($clavenueva == $repeticionclavenueva) {
-                        
-                        $usuario = $session->get('nusuario');
-                        $contrasena = $session->get('contrasena');
+            $em->merge($usuarios);
+            $em->flush();
 
-                        $em = $this->getDoctrine()->getManager();
-                        $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
+            return new Response(1);
 
-                        $usuarios->setContrasena($clavenueva);
 
-                        $em->merge($usuarios);
-                        $em->flush();
-
-                        return new Response('1');
-                    }else{
-                        return new Response('2');
-                    }
-                }else{
-                    return new Response('3');
-                }
-            }
 
     }
 
