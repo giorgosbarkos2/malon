@@ -61,7 +61,7 @@ class DefaultController extends Controller
 
 
 
-             return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));
+             return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia , 'idioma' => $ $idioma));
 
 
         } elseif ($idioma == 'ES') {
@@ -71,14 +71,14 @@ class DefaultController extends Controller
             $historia2 = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
 
 
-           return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia2));
+           return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia2 , 'idioma' =>  $idioma));
 
 
 
 
         }elseif ('PT') {
             $historia = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-         return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia));
+         return $this->render('TheClickCmspaginasBundle:Default:historia.html.twig', array('historia' => $historia , 'idioma' => $idioma));
 
         }
 
@@ -100,16 +100,16 @@ class DefaultController extends Controller
 
         if ($idioma == 'EN') {
             $noticias = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('noticias' => $noticias));
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('noticias' => $noticias  , 'idioma' => $idioma ));
         } elseif ($idioma == 'ES') {
 
             $noticias = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));           
-            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('noticias' => $noticias));
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('noticias' => $noticias , 'idioma' => $idioma ));
 
         }elseif ('PT') {
 
             $noticias = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('noticias' => $noticias));
+            return $this->render('TheClickCmspaginasBundle:Default:noticia.html.twig', array('noticias' => $noticias , 'idioma' => $idioma  ));
 
         }
     }
@@ -135,14 +135,14 @@ class DefaultController extends Controller
 
 
             $servicio = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('servicio' => $servicio));
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('servicio' => $servicio , 'idioma' => $idioma ));
 
         } elseif ($idioma == 'ES') {
             $servicio = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('servicio' => $servicio));       
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('servicio' => $servicio , 'idioma' => $idioma ));
         }elseif ('PT') {
             $servicio = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('servicio' => $servicio));    
+            return $this->render('TheClickCmspaginasBundle:Default:servicio.html.twig', array('servicio' => $servicio , 'idioma' => $idioma ));
         }
 
      }
@@ -167,15 +167,15 @@ class DefaultController extends Controller
         if ($idioma == 'EN') {
 
             $producto = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('producto' => $producto));
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('producto' => $producto , 'idioma' => $idioma ));
 
         } elseif ($idioma == 'ES') {
             $producto = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('producto' => $producto));
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('producto' => $producto , 'idioma' => $idioma ));
 
         }elseif ('PT') {
             $producto = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
-            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('producto' => $producto));            
+            return $this->render('TheClickCmspaginasBundle:Default:producto.html.twig', array('producto' => $producto , 'idioma' => $idioma ));
 
         }
       
@@ -198,13 +198,13 @@ class DefaultController extends Controller
 
         if ($idioma == 'EN') {
             $contacto = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('contacto' => $contacto));
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('contacto' => $contacto , 'idioma' => $idioma ));
         } elseif ($idioma == 'ES') {
             $contacto = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('contacto' => $contacto));
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('contacto' => $contacto , 'idioma' => $idioma ));
         }elseif ('PT') {
             $contacto = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('contacto' => $contacto));
+            return $this->render('TheClickCmspaginasBundle:Default:contacto.html.twig', array('contacto' => $contacto , 'idioma' => $idioma ));
         }
 
     }
