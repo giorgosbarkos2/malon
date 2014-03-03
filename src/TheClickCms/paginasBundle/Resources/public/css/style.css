@@ -1589,6 +1589,44 @@ footer .boxfooter .social {margin: 5px 5px 0 0;}
 
 
 
+input.parsley-success
+{
+    color: #666666 !important;
+    background-color: #DDDDDD !important;
+    border: 1px solid #999999 !important;
+}
+input.parsley-error
+{
+    color: #666666 !important;
+    background-color: #F8DECD !important;
+    border: 1px solid #999999 !important;
+}
+
+/*input
+{
+    width: 150px;
+    margin: 0 2px !important;
+}*/
+
+ul.parsley-error-list
+{
+    font-size: 11px;
+    margin: 2px;
+    list-style-type:none;
+    display: block;
+    float:left;
+}
+
+ul.parsley-error-list li
+{
+    color: #F95B00;
+    line-height: 11px;
+    display: block;
+    float:left;
+}
+
+
+
 
 
 
