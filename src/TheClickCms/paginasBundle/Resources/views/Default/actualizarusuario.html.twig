@@ -76,13 +76,13 @@ margin-top: 120px;
 <div class="formularios-acceso">
             <form id="micuenta" action="{{path('recibeformularioEditar')}}" method="post">
             <input name="id"  id="idUsuario"type="hidden" value="{{persona.id}}">
-            <span><h4 class="nom-clientes" style="color:#f00;">Mi cuenta:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo6}}:</h4></span>
             <br>
-            <span><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo7}}:</h4></span>
             <input name="nombre" id="nombre" type="text" value="{{persona.nombre}} ">
-            <span><h4 class="nom-clientes" style="color:#f00;">Email:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo8}}:</h4></span>
             <input name="email" id="email" type="text" value="{{persona.email}} ">
-            <span><h4 class="nom-clientes" style="color:#f00;">Pais:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo9}}:</h4></span>
             <select name="pais" class="form-control" id="pais">
               <option vale="{{persona.pais}}">{{persona.pais}}</option>
               <option value="AF">Afganistán</option>
@@ -320,7 +320,7 @@ margin-top: 120px;
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabue</option>
             </select>
-            <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo10}}:</h4></span>
 
             <select name="empresa" id="empresa">
                 <option value="{{ persona.empresa.id }}">{{ persona.empresa.nombre }}</option>
@@ -328,12 +328,12 @@ margin-top: 120px;
                     <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
                 {% endfor %}
             </select>
-            <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo11}}:</h4></span>
             <input name="cargo" id="cargo" type="text" value="{{persona.cargo}} ">
             </form>
             <section style="clear:both;"></section>
 
-            <input name="boton-datos"  id="actualizar" type="submit" value="&#8250; Actualizar Datos">
+            <input name="boton-datos"  id="actualizar" type="submit" value="&#8250; {{menuacceso.campo5}}">
 <div class="vhr"></div>
 </div>
 </section>
