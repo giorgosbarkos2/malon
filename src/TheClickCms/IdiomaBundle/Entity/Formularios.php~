@@ -69,7 +69,23 @@ class Formularios
 
     private $campo8;
 
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
 
+    private $campo9;
 
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
 
+    private $campo10;
+
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
+
+    private $campo11;
+
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
+
+    private $campo12;
+
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
+
+    private $campo13;
 }

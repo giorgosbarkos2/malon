@@ -69,9 +69,25 @@ class Formularios
 
     private $campo8;
 
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
 
+    private $campo9;
 
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
 
+    private $campo10;
+
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
+
+    private $campo11;
+
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
+
+    private $campo12;
+
+                /** @ORM\Column(type="string", length=200 , nullable=true) */
+
+    private $campo13;
 
     /**
      * Get id
@@ -334,5 +350,120 @@ class Formularios
     public function getCampo8()
     {
         return $this->campo8;
+    }
+
+    /**
+     * Set campo9
+     *
+     * @param string $campo9
+     * @return Formularios
+     */
+    public function setCampo9($campo9)
+    {
+        $this->campo9 = $campo9;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo9
+     *
+     * @return string 
+     */
+    public function getCampo9()
+    {
+        return $this->campo9;
+    }
+
+    /**
+     * Set campo10
+     *
+     * @param string $campo10
+     * @return Formularios
+     */
+    public function setCampo10($campo10)
+    {
+        $this->campo10 = $campo10;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo10
+     *
+     * @return string 
+     */
+    public function getCampo10()
+    {
+        return $this->campo10;
+    }
+
+    /**
+     * Set campo11
+     *
+     * @param string $campo11
+     * @return Formularios
+     */
+    public function setCampo11($campo11)
+    {
+        $this->campo11 = $campo11;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo11
+     *
+     * @return string 
+     */
+    public function getCampo11()
+    {
+        return $this->campo11;
+    }
+
+    /**
+     * Set campo12
+     *
+     * @param string $campo12
+     * @return Formularios
+     */
+    public function setCampo12($campo12)
+    {
+        $this->campo12 = $campo12;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo12
+     *
+     * @return string 
+     */
+    public function getCampo12()
+    {
+        return $this->campo12;
+    }
+
+    /**
+     * Set campo13
+     *
+     * @param string $campo13
+     * @return Formularios
+     */
+    public function setCampo13($campo13)
+    {
+        $this->campo13 = $campo13;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo13
+     *
+     * @return string 
+     */
+    public function getCampo13()
+    {
+        return $this->campo13;
     }
 }
