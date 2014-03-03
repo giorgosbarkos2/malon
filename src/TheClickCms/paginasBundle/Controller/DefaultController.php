@@ -20,6 +20,11 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
 
+        if($idioma == ''){
+            $idioma = 'ES';
+
+        }
+
         if ($idioma == 'EN') {
             $cabecera = $em->getRepository('TheClickCmsIdiomaBundle:Header')->findOneBy(array('idioma' => $idioma));
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('cabecera' => $cabecera, 'idioma' => $idioma));
@@ -86,7 +91,12 @@ class DefaultController extends Controller
         
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
-        $seccion = 'noticias';
+        $seccion = 'noticia';
+
+         if($idioma == ''){
+            $idioma = 'ES';
+
+        }
 
         if ($idioma == 'EN') {
             $noticias = $em->getRepository('TheClickCmsIdiomaBundle:Paginas')->findOneBy(array('idioma' => $idioma, 'seccion' => $seccion));
@@ -114,6 +124,13 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
         $seccion = 'servicio';
 
+        if($idioma == ''){
+            $idioma = 'ES';
+
+        }
+
+
+
         if ($idioma == 'EN') {
 
 
@@ -140,6 +157,11 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
 
         $seccion = 'productos';
+
+         if($idioma == ''){
+            $idioma = 'ES';
+
+        }
 
 
         if ($idioma == 'EN') {
