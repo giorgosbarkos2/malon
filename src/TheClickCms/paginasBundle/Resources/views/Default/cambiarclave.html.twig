@@ -43,10 +43,7 @@
                     }
 
                     .menuAcceso li{
-<<<<<<< HEAD
-=======
 
->>>>>>> 281b324d65bae1c2dcb6ca93e9830329a2f8085c
 
                         display: inline;
                         text-align: center;
@@ -55,15 +52,9 @@
 
                     #boton-datos{
 
-<<<<<<< HEAD
-                        width: 130px;
-                        position: relative;
-                        margin-top:-20%;
-=======
                         width: 150px;
                         position: absolute;
                         margin-top:-15%;
->>>>>>> 281b324d65bae1c2dcb6ca93e9830329a2f8085c
                         margin-left: 4.4%;
 
 
@@ -89,8 +80,10 @@
                         <input id="repeticionclavenueva" name="repeticionclavenueva" type="text" data-required="true"  placeholder="Repetir Nueva Clave" data-equalto="#pas1" />
 
                     </form>
+
+                    <p id="mensajeForm" style="width: 200px;height:20px;position:relative;float: left;margin-top:4px;margin-left:30px;color:#990000;display:none; "> </p>
                     <section style="clear:both;"></section>
-                    <p id="mensajeForm" style="display:none;"></p>
+
                     <section style="clear:both;"></section>
                     <input name="boton-datos" id="boton-datos" type="submit" value="&#8250; {{menuacceso.campo6}}" >
                 </div>
@@ -100,7 +93,6 @@
     </div>
     </div>
 
-<<<<<<< HEAD
     <script>
         $(document).ready(function() {
             $("#mensajeForm").css("display", "none");
@@ -129,70 +121,27 @@
                                 if(respuesta == 1){
                                     $("#mensajeForm").text('Datos guardados correctamente');
                                     $("#mensajeForm").css("display", "block");
+                                }else if(respuesta == 2){
+                                    $("#mensajeForm").text("claves antiguas no coinciden");
+                                    $("#mensajeForm").css("display", "block");
                                 }else{
                                     $("#mensajeForm").text("Error en el servidor");
                                     $("#mensajeForm").css("display", "block");
                                 };
-=======
-<script>
-  $(document).ready(function() {
-    $("#mensajeForm").css("display", "none");
-    $("#boton-datos").click(function() {
-        var claveantigua = $("#claveantigua").val();
-        var clavenueva = $("#clavenueva").val();
-        var repeticionclavenueva = $("#repeticionclavenueva").val();
->>>>>>> 281b324d65bae1c2dcb6ca93e9830329a2f8085c
 
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                console.log(thrownError);
+                            },
+                        });
+                    }else{
+                        $("#mensajeForm").text("claves nuevas diferentes");
+                        $("#mensajeForm").css("display", "block");
 
-        if (claveantigua == '' || clavenueva == '' || repeticionclavenueva == '' ) {
-            $("#mensajeForm").text("una de las claves esta vacia");
-            $("#mensajeForm").css("display", "block");
-        }else{
-          if(clavenueva == repeticionclavenueva){
-            jQuery.ajax({
-              url: "{{path('cambioClave')}}",
-              type: 'POST',
-              dataType: 'text',
-              data: {claveantigua: claveantigua,
-                     clavenueva: clavenueva,
-                     repeticionclavenueva: repeticionclavenueva
-                    },
-              success: function(response) {
-                var respuesta = response;
-
-<<<<<<< HEAD
-=======
-                if(respuesta == 1){
-                  $("#mensajeForm").text('Datos guardados correctamente');
-                  $("#mensajeForm").css("display", "block");
-                }else if(respuesta == 2){
-                  $("#mensajeForm").text("claves antiguas no coinciden");
-                  $("#mensajeForm").css("display", "block");
-                }else{
-                  $("#mensajeForm").text("Error en el servidor");
-                  $("#mensajeForm").css("display", "block");
+                    };
                 };
 
-              },
-              error: function(xhr, ajaxOptions, thrownError) {
-                console.log(thrownError);
-              },
->>>>>>> 281b324d65bae1c2dcb6ca93e9830329a2f8085c
             });
-          }else{
-            $("#mensajeForm").text("claves nuevas diferentes");
-            $("#mensajeForm").css("display", "block");
-            
-          };
-        };
-
-<<<<<<< HEAD
-
-
-    </script>
-=======
         });
-    });
-</script>
->>>>>>> 281b324d65bae1c2dcb6ca93e9830329a2f8085c
+    </script>
 {% endblock %}
