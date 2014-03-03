@@ -1,6 +1,20 @@
-{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
+
 {% block contenido %}
 
+
+    <style>
+        #actualizar{
+            width:200px;
+            height: 30px;
+            position: absolute;
+            margin-top: -5%;
+            margin-left: 6.2%;
+
+
+        }
+
+    </style>
 
 <div id="page2">
     <div class="contentint">
@@ -24,7 +38,7 @@
         <h4 class="nom-clientes"{{menuacceso.campo4}}</h4>
         <h4 class="nom-clientes">{{persona.nombre}}</h4>
 </div>
-<div class="title-acc-logo"><img src="../../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
+<div class="title-acc-logo"><img width="100" height="100" src="../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
 <style>
 
 .menuAcceso{
@@ -61,11 +75,23 @@ margin-top: 120px;
 
 <div class="formularios-acceso">
             <form id="micuenta" action="{{path('recibeformularioEditar')}}" method="post">
+<<<<<<< HEAD
             <input name="id" type="hidden" value="{{persona.id}}">
             <span><h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo6}}</h4></span>
             <input name="nombre" type="text" value="{{persona.nombre}} ">
             <input name="email" type="text" value="{{persona.email}} ">
             <select name="pais" class="form-control">
+=======
+            <input name="id"  id="idUsuario"type="hidden" value="{{persona.id}}">
+            <span><h4 class="nom-clientes" style="color:#f00;">Mi cuenta:</h4></span>
+            <br>
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
+            <input name="nombre" id="nombre" type="text" value="{{persona.nombre}} ">
+            <span><h4 class="nom-clientes" style="color:#f00;">Email:</h4></span>
+            <input name="email" id="email" type="text" value="{{persona.email}} ">
+            <span><h4 class="nom-clientes" style="color:#f00;">Pais:</h4></span>
+            <select name="pais" class="form-control" id="pais">
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
               <option vale="{{persona.pais}}">{{persona.pais}}</option>
               <option value="AF">Afganistán</option>
               <option value="AL">Albania</option>
@@ -302,13 +328,97 @@ margin-top: 120px;
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabue</option>
             </select>
+<<<<<<< HEAD
             <input name="empresa" type="text" value="{{persona.empresa.nombre}} ">
             <input name="cargo" type="text" value="{{persona.cargo}} ">
             <input name="boton-datos" type="submit" value="&#8250; {{menuacceso.campo5}}">
+=======
+            <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
+
+            <select name="empresa" id="empresa">
+                <option value="{{ persona.empresa.id }}">{{ persona.empresa.nombre }}</option>
+                {%  for empresas in empresas %}
+                    <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
+                {% endfor %}
+
+
+            </select>
+
+            <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
+            <input name="cargo" id="cargo" type="text" value="{{persona.cargo}} ">
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
             </form>
+            <section style="clear:both;"></section>
+
+            <input name="boton-datos"  id="actualizar" type="submit" value="&#8250; Actualizar Datos">
 <div class="vhr"></div>
 </div>
 </section>
 </div>
 </div>
+
+    <script>
+        $( document ).ready(function() {
+
+        $('#actualizar').click(function() {
+         var pais =  $('#pais').val();
+         var email = $('#email').val();
+         var nombre = $('#nombre').val();
+
+
+            var myData = 'pais=' + $("#pais").val()
+                         + '&email=' + $("#email").val()
+                         + '&nombre=' + $("#nombre").val()
+                         + '&id=' + $('#idUsuario').val()
+                         + '&empresa=' + $('#empresa').val()
+                         + '&cargo=' + $('#cargo').val();
+
+
+            console.log(myData);
+
+
+
+
+            jQuery.ajax({
+                    url: $('#micuenta').attr('action'),
+                    type: 'POST',
+                    dataType: 'text',
+
+                    data:  myData,
+                    success: function(response){
+
+                        var respuesta = response;
+
+                        if(respuesta == 100){
+
+                            alert ('Datos actualizados correctamente');
+
+
+                        }
+
+
+
+
+
+
+
+
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+
+                    }
+                });
+
+
+
+
+
+
+
+        });
+
+
+        });
+
+    </script>
        {% endblock %}

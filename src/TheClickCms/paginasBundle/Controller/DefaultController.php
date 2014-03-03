@@ -20,10 +20,17 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
 
-        $formulario = 'acceso';
+
+
+
 
         if($idioma == ''){
             $idioma = 'ES';
+
+            $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma));
+
+
 
         }
 
@@ -259,6 +266,10 @@ class DefaultController extends Controller
         $usuario = $session->get('nusuario');
         $contrasena = $session->get('contrasena');
 
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+
         $em = $this->getDoctrine()->getManager();
         $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
 
@@ -299,8 +310,9 @@ class DefaultController extends Controller
 
 
 
-            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig', array('persona' => $persona, 'actualizacion' => $actualizacion));    
+            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',array('persona' => $persona, 'actualizacion' => $actualizacion , 'idioma' => $idioma ));
         }else{
+
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
         }
 
@@ -315,6 +327,10 @@ class DefaultController extends Controller
         
         $usuario = $session->get('nusuario');
         $contrasena = $session->get('contrasena');
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+
 
         $em = $this->getDoctrine()->getManager();
         $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
@@ -345,8 +361,15 @@ class DefaultController extends Controller
                 return $this->render('TheClickCmspaginasBundle:Default:cambiarclave.html.twig', array('menuacceso' => $menuacceso , 'idioma' => $idioma, 'persona' => $persona ));
             }
 
+<<<<<<< HEAD
         //    $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
         //    return $this->render('TheClickCmspaginasBundle:Default:cambiarclave.html.twig', array('persona' => $persona));   
+=======
+            */
+
+            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+            return $this->render('TheClickCmspaginasBundle:Default:cambiarclave.html.twig', array('persona' => $persona , 'idioma' => $idioma));
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
         }else{
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');
         }
@@ -360,11 +383,16 @@ class DefaultController extends Controller
         
         $usuario = $session->get('nusuario');
         $contrasena = $session->get('contrasena');
+<<<<<<< HEAD
 
+=======
+        $idioma  = $session->get('idioma');
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
 
         $em = $this->getDoctrine()->getManager();
         $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
 
+<<<<<<< HEAD
 
         $idioma = $session->get('idioma');
         
@@ -394,6 +422,19 @@ class DefaultController extends Controller
 
            // $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
           //  return $this->render('TheClickCmspaginasBundle:Default:actualizarusuario.html.twig', array('persona' => $persona));    
+=======
+        $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+
+
+
+        if ($usuario) {
+
+
+
+            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario ) );
+
+            return $this->render('TheClickCmspaginasBundle:Default:actualizarusuario.html.twig', array('persona' => $persona , 'idioma' => $idioma , 'empresas' => $empresas));
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
         }else{
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
         }
@@ -435,27 +476,33 @@ class DefaultController extends Controller
         $nombre = $request->request->get('nombre');
         $correo = $request->request->get('email');
         $cargo = $request->request->get('cargo');
-        $nombreEmpresa = $request->request->get('empresa');
-
+        $EmpresaId = $request->request->get('empresa');
         $em = $this->getDoctrine()->getManager();
+        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id'=>$EmpresaId));
+
+
+
         $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id'=>$id));
 
         $usuario->setPais($pais);
+
         $usuario->setNombre($nombre);
         $usuario->setEmail($correo);
+        $usuario->setEmpresa($empresa);
         $usuario->setCargo($cargo);
     
-        $em->merge($usuario);
-    
-
-        $empresaId = $usuario->getEmpresa()->getId();
-        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id'=>$empresaId));
-        $empresa->setNombre($nombreEmpresa);
+        $em->persist($usuario);
         $em->persist($empresa);
 
         $em->flush(); 
 
-        return new response( $empresaId );
+        return new response(100);
+
+
+
+
+
+
     }
 
     public function vistaActualizacionesAction()
@@ -466,6 +513,12 @@ class DefaultController extends Controller
         
         $usuario = $session->get('nusuario');
         $contrasena = $session->get('contrasena');
+
+
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+
+
 
         $em = $this->getDoctrine()->getManager();
         $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
@@ -481,6 +534,7 @@ class DefaultController extends Controller
         }
 
         if ($usuario) {
+<<<<<<< HEAD
 
 
              if ($idioma == 'EN') {
@@ -505,6 +559,11 @@ class DefaultController extends Controller
             //$persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             //$actualizaciones = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
             //return $this->render('TheClickCmspaginasBundle:Default:actualizaciones.html.twig', array('actualizacion' => $actualizaciones, 'persona' => $persona));    
+=======
+            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+            $actualizaciones = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+            return $this->render('TheClickCmspaginasBundle:Default:actualizaciones.html.twig', array('actualizacion' => $actualizaciones, 'persona' => $persona , 'idioma' => $idioma ));
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
         }else{
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
         }
@@ -518,6 +577,9 @@ class DefaultController extends Controller
             $claveantigua = $request->request->get('claveantigua');
             $clavenueva = $request->request->get('clavenueva');
             $repeticionclavenueva = $request->request->get('repeticionclavenueva');
+
+            $session = $this->getRequest()->getSession();
+            $idioma = $session->get('idioma');
 
 
             if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {

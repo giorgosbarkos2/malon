@@ -1,12 +1,14 @@
-{% extends 'TheClickCmspaginasBundle:Default:main.html.twig' %}
+{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
 {% block contenido %}
 <div id="page2">
-    <div class="contentint">
+    <div class="contentint" >
       
       <aside>
         <div class="title">
           <h1>Productos Descatados</h1>
            </div>
+
+
           <ul class="bxslider">
 
             <li><img src="{{asset('bundles/theclickcmspaginas/img/pd01.jpg')}}" title="Producto 1" /></li>
@@ -16,7 +18,7 @@
 
       </aside>
 
-<section class="acceso">
+<section class="acceso"  style="height:800px;">
 <div class="clientes-sec1">
         <h2 class="title-acceso">{{menuacceso.titulo}}</h2>
         <h4 class="nom-clientes">{{menuacceso.campo4}}:</h4>
@@ -56,8 +58,13 @@ margin-top: 120px;
     <li><a href="{{path('vistaAccesoCambioClave')}}">{{menuacceso.campo3}}</a></li>
   </ul>
 </div>
+<<<<<<< HEAD
 <div class="clientes-sec2">
     <h4 class="nom-clientes" style="color:#f00;">{{menuacceso.campo5}}</h4>
+=======
+<div class="clientes-sec2" >
+    <h4 class="nom-clientes" style="color:#f00;">Tienes las siguientes actualizaciones:</h4>
+>>>>>>> 749ce4a63bff9724ddc0c1cb9e75912ce2e0cb91
 
 <div class="datagrid"><table>
 <thead>
