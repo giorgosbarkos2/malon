@@ -70,4 +70,244 @@ class Formularios
 
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idioma
+     *
+     * @param string $idioma
+     * @return Formularios
+     */
+    public function setIdioma($idioma)
+    {
+        $this->idioma = $idioma;
+    
+        return $this;
+    }
+
+    /**
+     * Get idioma
+     *
+     * @return string 
+     */
+    public function getIdioma()
+    {
+        return $this->idioma;
+    }
+
+    /**
+     * Set NombreFormulario
+     *
+     * @param string $nombreFormulario
+     * @return Formularios
+     */
+    public function setNombreFormulario($nombreFormulario)
+    {
+        $this->NombreFormulario = $nombreFormulario;
+    
+        return $this;
+    }
+
+    /**
+     * Get NombreFormulario
+     *
+     * @return string 
+     */
+    public function getNombreFormulario()
+    {
+        return $this->NombreFormulario;
+    }
+
+    /**
+     * Set titulo
+     *
+     * @param string $titulo
+     * @return Formularios
+     */
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+    
+        return $this;
+    }
+
+    /**
+     * Get titulo
+     *
+     * @return string 
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+
+    /**
+     * Set campo1
+     *
+     * @param string $campo1
+     * @return Formularios
+     */
+    public function setCampo1($campo1)
+    {
+        $this->campo1 = $campo1;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo1
+     *
+     * @return string 
+     */
+    public function getCampo1()
+    {
+        return $this->campo1;
+    }
+
+    /**
+     * Set campo2
+     *
+     * @param string $campo2
+     * @return Formularios
+     */
+    public function setCampo2($campo2)
+    {
+        $this->campo2 = $campo2;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo2
+     *
+     * @return string 
+     */
+    public function getCampo2()
+    {
+        return $this->campo2;
+    }
+
+    /**
+     * Set campo3
+     *
+     * @param string $campo3
+     * @return Formularios
+     */
+    public function setCampo3($campo3)
+    {
+        $this->campo3 = $campo3;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo3
+     *
+     * @return string 
+     */
+    public function getCampo3()
+    {
+        return $this->campo3;
+    }
+
+    /**
+     * Set campo4
+     *
+     * @param string $campo4
+     * @return Formularios
+     */
+    public function setCampo4($campo4)
+    {
+        $this->campo4 = $campo4;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo4
+     *
+     * @return string 
+     */
+    public function getCampo4()
+    {
+        return $this->campo4;
+    }
+
+    /**
+     * Set campo5
+     *
+     * @param string $campo5
+     * @return Formularios
+     */
+    public function setCampo5($campo5)
+    {
+        $this->campo5 = $campo5;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo5
+     *
+     * @return string 
+     */
+    public function getCampo5()
+    {
+        return $this->campo5;
+    }
+
+    /**
+     * Set campo6
+     *
+     * @param string $campo6
+     * @return Formularios
+     */
+    public function setCampo6($campo6)
+    {
+        $this->campo6 = $campo6;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo6
+     *
+     * @return string 
+     */
+    public function getCampo6()
+    {
+        return $this->campo6;
+    }
+
+    /**
+     * Set campo7
+     *
+     * @param string $campo7
+     * @return Formularios
+     */
+    public function setCampo7($campo7)
+    {
+        $this->campo7 = $campo7;
+    
+        return $this;
+    }
+
+    /**
+     * Get campo7
+     *
+     * @return string 
+     */
+    public function getCampo7()
+    {
+        return $this->campo7;
+    }
 }

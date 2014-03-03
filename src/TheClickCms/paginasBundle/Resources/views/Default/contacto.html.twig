@@ -38,9 +38,6 @@ Fax: 56-2- 2448 28 01<br><br>
       </div> 
      
       <form  action="{{path('recibeContacto')}}" id="contactForm" method="POST">
-    {% for contacto in contacto %}
-          
-    
      <h2>{{contacto.titulo}}</h2>
      <hr>
   <ul>
@@ -64,7 +61,6 @@ Fax: 56-2- 2448 28 01<br><br>
   <hr>
   </li>
   </form>
-  {% endfor %}  
   <div id="respuesta">   
   <span id="respuestaMail"></span>
   <div id="negativa">Debes completar el Email</div>
