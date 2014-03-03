@@ -92,38 +92,6 @@ margin-top: 120px;
 
 <script>
   $(document).ready(function() {
-<<<<<<< HEAD
-
-    $("#boton-datos").click(function() {    
-    var  claveantigua = $("#claveantigua").val();
-
-       var myData = 'claveantigua=' + $("#claveantigua").val()
-                            + '&clavenueva=' + $("#clavenueva").val()
-                            + '&repeticionclavenueva=' + $("#repeticionclavenueva").val()
-                            + '&usuarioId=' + $('#usuarioId').val() ;
-
-        jQuery.ajax({
-          url:  $('#cambiopass').attr('action'),
-          type: 'POST',
-          dataType: 'text',
-          data: myData,
-          success: function(response){
-              var respuesta = response;
-
-
-
-
-
-
-
-
-
-
-
-
-          },
-          error: function(xhr, ajaxOptions, thrownError) {
-=======
     $("#mensajeForm").css("display", "none");
     $("#boton-datos").click(function() {
         var claveantigua = $("#claveantigua").val();
@@ -147,9 +115,6 @@ margin-top: 120px;
               success: function(response) {
                 var respuesta = response;
 
-
-
-
                 if(respuesta == 1){
                   $("#mensajeForm").text('Datos guardados correctamente');
                   $("#mensajeForm").css("display", "block");
@@ -160,7 +125,6 @@ margin-top: 120px;
 
               },
               error: function(xhr, ajaxOptions, thrownError) {
->>>>>>> 02afe591de439c28fd081cb567468e8f3b3ee91d
                 console.log(thrownError);
               },
             });
@@ -175,6 +139,8 @@ margin-top: 120px;
     });
 </script>
 <script type="text/javascript">
+
+
 
   
 </script>
