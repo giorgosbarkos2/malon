@@ -20,10 +20,17 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
 
-        $formulario = 'acceso';
+
+
+
 
         if($idioma == ''){
             $idioma = 'ES';
+
+            $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma));
+
+
 
         }
 
@@ -275,8 +282,9 @@ class DefaultController extends Controller
 
 
 
-            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig', array('persona' => $persona, 'actualizacion' => $actualizacion , 'idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',array('persona' => $persona, 'actualizacion' => $actualizacion , 'idioma' => $idioma ));
         }else{
+
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
         }
 
@@ -335,13 +343,17 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena) );
 
+        $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+
+
+
         if ($usuario) {
 
 
 
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario ) );
 
-            return $this->render('TheClickCmspaginasBundle:Default:actualizarusuario.html.twig', array('persona' => $persona , 'idioma' => $idioma));
+            return $this->render('TheClickCmspaginasBundle:Default:actualizarusuario.html.twig', array('persona' => $persona , 'idioma' => $idioma , 'empresas' => $empresas));
         }else{
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig');    
         }
@@ -383,27 +395,33 @@ class DefaultController extends Controller
         $nombre = $request->request->get('nombre');
         $correo = $request->request->get('email');
         $cargo = $request->request->get('cargo');
-        $nombreEmpresa = $request->request->get('empresa');
-
+        $EmpresaId = $request->request->get('empresa');
         $em = $this->getDoctrine()->getManager();
+        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id'=>$EmpresaId));
+
+
+
         $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id'=>$id));
 
         $usuario->setPais($pais);
+
         $usuario->setNombre($nombre);
         $usuario->setEmail($correo);
+        $usuario->setEmpresa($empresa);
         $usuario->setCargo($cargo);
     
-        $em->merge($usuario);
-    
-
-        $empresaId = $usuario->getEmpresa()->getId();
-        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id'=>$empresaId));
-        $empresa->setNombre($nombreEmpresa);
+        $em->persist($usuario);
         $em->persist($empresa);
 
         $em->flush(); 
 
-        return new response( $empresaId );
+        return new response(100);
+
+
+
+
+
+
     }
 
     public function vistaActualizacionesAction()

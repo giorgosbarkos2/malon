@@ -3,6 +3,19 @@
 {% block contenido %}
 
 
+    <style>
+        #actualizar{
+            width:200px;
+            height: 30px;
+            position: absolute;
+            margin-top: -5%;
+            margin-left: 6.2%;
+
+
+        }
+
+    </style>
+
 <div id="page2">
     <div class="contentint">
       
@@ -25,7 +38,7 @@
         <h4 class="nom-clientes">Bienvenido(a):</h4>
         <h4 class="nom-clientes">{{persona.nombre}}</h4>
 </div>
-<div class="title-acc-logo"><img src="../../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
+<div class="title-acc-logo"><img width="100" height="100" src="../empresas/{{persona.empresa.id}}/{{persona.empresa.url}}"></div>
 <style>
 
 .menuAcceso{
@@ -62,10 +75,14 @@ margin-top: 120px;
 
 <div class="formularios-acceso">
             <form id="micuenta" action="{{path('recibeformularioEditar')}}" method="post">
-            <input name="id" type="hidden" value="{{persona.id}}">
+            <input name="id"  id="idUsuario"type="hidden" value="{{persona.id}}">
             <span><h4 class="nom-clientes" style="color:#f00;">Mi cuenta:</h4></span>
+            <br>
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
             <input name="nombre" id="nombre" type="text" value="{{persona.nombre}} ">
+            <span><h4 class="nom-clientes" style="color:#f00;">Email:</h4></span>
             <input name="email" id="email" type="text" value="{{persona.email}} ">
+            <span><h4 class="nom-clientes" style="color:#f00;">Pais:</h4></span>
             <select name="pais" class="form-control" id="pais">
               <option vale="{{persona.pais}}">{{persona.pais}}</option>
               <option value="AF">Afganistán</option>
@@ -303,10 +320,23 @@ margin-top: 120px;
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabue</option>
             </select>
-            <input name="empresa" type="text" value="{{persona.empresa.nombre}} ">
-            <input name="cargo" type="text" value="{{persona.cargo}} ">
-            <input name="boton-datos"  id="actualizar"type="submit" value="&#8250; Actualizar Datos">
+            <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
+
+            <select name="empresa" id="empresa">
+                <option value="{{ persona.empresa.id }}">{{ persona.empresa.nombre }}</option>
+                {%  for empresas in empresas %}
+                    <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
+                {% endfor %}
+
+
+            </select>
+
+            <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
+            <input name="cargo" id="cargo" type="text" value="{{persona.cargo}} ">
             </form>
+            <section style="clear:both;"></section>
+
+            <input name="boton-datos"  id="actualizar" type="submit" value="&#8250; Actualizar Datos">
 <div class="vhr"></div>
 </div>
 </section>
@@ -325,13 +355,17 @@ margin-top: 120px;
             var myData = 'pais=' + $("#pais").val()
                          + '&email=' + $("#email").val()
                          + '&nombre=' + $("#nombre").val()
+                         + '&id=' + $('#idUsuario').val()
+                         + '&empresa=' + $('#empresa').val()
+                         + '&cargo=' + $('#cargo').val();
 
-                    ;
+
+            console.log(myData);
 
 
 
 
-                jQuery.ajax({
+            jQuery.ajax({
                     url: $('#micuenta').attr('action'),
                     type: 'POST',
                     dataType: 'text',
@@ -339,7 +373,20 @@ margin-top: 120px;
                     data:  myData,
                     success: function(response){
 
-                        window.top.location.href = 'home';
+                        var respuesta = response;
+
+                        if(respuesta == 100){
+
+                            alert ('Datos actualizados correctamente');
+
+
+                        }
+
+
+
+
+
+
 
 
                     },
@@ -347,7 +394,6 @@ margin-top: 120px;
 
                     }
                 });
-
 
 
 
