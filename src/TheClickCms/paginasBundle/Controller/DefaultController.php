@@ -22,7 +22,7 @@ class DefaultController extends Controller
 
 
 
-
+        $formulario = '';
 
         if($idioma == ''){
             $idioma = 'ES';
@@ -43,7 +43,7 @@ class DefaultController extends Controller
         } elseif ($idioma == 'ES') {
         
             $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idiomaidioma, 'acceso' => $acceso));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso));
         
         }elseif ('PT') {
             
@@ -459,41 +459,33 @@ class DefaultController extends Controller
             $claveantigua = $request->request->get('claveantigua');
             $clavenueva = $request->request->get('clavenueva');
             $repeticionclavenueva = $request->request->get('repeticionclavenueva');
+            $usuarioId = $request->request->get('usuarioId');
 
             $session = $this->getRequest()->getSession();
             $idioma = $session->get('idioma');
+            $em = $this->getDoctrine()->getManager();
 
 
-            if ( $claveantigua == " " or $clavenueva == " " or $repeticionclavenueva == " " ) {
-                return new Response('0');
-            }else{
-                $session = $this->getRequest()->getSession();
+           $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id' => $usuario , 'contrasena' => $claveantigua ));
 
-                $usuario = $request->request->get('usuario');
-                $contrasena = $request->request->get('clave');
+           if($usuario){
 
-                if ($contrasena == $claveantigua) {
-                    if ($clavenueva == $repeticionclavenueva) {
-                        
-                        $usuario = $session->get('nusuario');
-                        $contrasena = $session->get('contrasena');
 
-                        $em = $this->getDoctrine()->getManager();
-                        $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario , 'contrasena' => $contrasena));
 
-                        $usuarios->setContrasena($clavenueva);
 
-                        $em->merge($usuarios);
-                        $em->flush();
 
-                        return new Response('1');
-                    }else{
-                        return new Response('2');
-                    }
-                }else{
-                    return new Response('3');
-                }
-            }
+
+           }else{
+
+
+
+               // Caso que la contraseña antigua este mala
+
+               return new Response(900);
+
+           }
+
+
 
     }
 
