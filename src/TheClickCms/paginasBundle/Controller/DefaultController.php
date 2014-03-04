@@ -246,7 +246,7 @@ class DefaultController extends Controller
         if ($nombre == '' or $correo == '' or $empresa == '' or $asunto == '' or $mensaje == '') {
 
 
-            return new Response('100');
+            return new Response(100);
             
             
         } else {
@@ -263,7 +263,7 @@ class DefaultController extends Controller
             ;
             $this->get('mailer')->send($message);
 
-            return new Response('200');
+            return new Response(200);
         }
     }
 
