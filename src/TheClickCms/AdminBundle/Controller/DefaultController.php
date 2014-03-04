@@ -540,9 +540,8 @@ class DefaultController extends Controller {
 		$em->persist($usuario);
 		$em->flush();
 
+        return $this->redirect($this->generateUrl('listarUsuarios'));
 
-
-        return $this->redirect('listarUsuarios');
 	}
 
 	public function listarUsuariosAction(){
@@ -572,7 +571,8 @@ class DefaultController extends Controller {
 
         if($admin){
 	        $usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->find($id);
-			return $this->render('TheClickCmsAdminBundle:Default:editarUsuario.html.twig', array('usuario'=>$usuario));
+            $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+			return $this->render('TheClickCmsAdminBundle:Default:editarUsuario.html.twig', array('usuario'=>$usuario, 'empresa' => $empresa));
         }else{
             return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
 		}
@@ -586,10 +586,12 @@ class DefaultController extends Controller {
 		$nombre = $data->request->get('nombre');
 		$correo = $data->request->get('correo');
 		$cargo = $data->request->get('cargo');
-		$empresa = $data->request->get('empresa');
+        $EmpresaId = $data->request->get('empresa');
+        
 
 		$em = $this->getDoctrine()->getManager();
 		$usuario = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('id'=>$id));
+        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id'=>$EmpresaId));
 
 		$usuario->setPais($pais);
 		$usuario->setDetalle($detalle);
@@ -598,9 +600,12 @@ class DefaultController extends Controller {
 		$usuario->setCargo($cargo);
 		$usuario->setEmpresa($empresa);
 
-		$em->merge($usuario);
+
+        $em->persist($usuario);
+        $em->persist($empresa);
 		$em->flush();
-		return $this->generateUrl('listarUsuarios');
+
+		return $this->redirect($this->generateUrl('listarUsuarios'));
 	}
 
 	public function eliminarUsuarioAction(Request $data){
@@ -665,7 +670,7 @@ class DefaultController extends Controller {
 		$em->merge($empresa);
 		$em->flush();
 
-		return $this->generateUrl('listarEmpresa');
+        return $this->redirect($this->generateUrl('listarEmpresas'));
 	}
 
 	public function eliminarEmpresaAction(Request $data){
@@ -776,7 +781,8 @@ class DefaultController extends Controller {
 		$em->merge($actualizacion);
 		$em->flush();
 
-		return $this->generateUrl('listarUsuarios');
+
+        return $this->redirect($this->generateUrl('listarActualizacion'));
 	}
 
 	public function eliminarActualizacionAction(Request $data){

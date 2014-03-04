@@ -47,7 +47,7 @@ eliminarEmpresa:
     defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarEmpresa}
 
 logout:
-    pattern:  /admin/logout
+    pattern:  /admin/
     defaults: { _controller: TheClickCmsAdminBundle:Default:logout  }
 
 principal:

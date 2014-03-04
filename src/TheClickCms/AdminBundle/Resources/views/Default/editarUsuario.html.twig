@@ -1,15 +1,60 @@
 <!doctype html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Admin - Login</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		{% include "TheClickCmsAdminBundle:Layers:cssJs.html.twig" %}
-		<script src="{{asset('bundles/theclickcmsadmin/js/login.js')}}"></script>
-	</head>
-	<body>
-	{# Formulario ingresar usuario. #}
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Admin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+
+         {% include "TheClickCmsAdminBundle:Layers:cssprincipal.html.twig" %}
+
+
+    </head>
+
+    <body class="dashboard-page">
+
+        <script>
+	        var theme = $.cookie('protonTheme') || 'default';
+	        $('body').removeClass (function (index, css) {
+	            return (css.match (/\btheme-\S+/g) || []).join(' ');
+	        });
+	        if (theme !== 'default') $('body').addClass(theme);
+        </script>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+   {% include "TheClickCmsAdminBundle:Layers:menu.html.twig" %}
+
+        <section class="wrapper scrollable">
+
+
+
+            <section class="title-bar">
+                <div>
+                    <span> Admin </span>
+                    <nav class="dashboard-menu">
+                        <a href="javascript:;">
+                            <i class="icon-cog toggle-widget-setup"></i>
+                            <i class="menu-state-icon icon-sort-up"></i>
+                            <i class="menu-state-icon icon-caret-down active"></i>
+                        </a>
+                        <ul>
+
+                            <li><a data-toggle="modal" href="#quickLaunchModal">Menu </a></li>
+                            <li><a data-toggle="modal" href="#quickLaunchModal">Menu </a></li>
+                            <li><a href="javascript:;">Third Menu Item</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+            <div>
+                <section class="col-md-10" style="margin-left:5%;margin-top:2%;">
+	{% block editarusuario %}
 	<form action="{{path('guardarFormularioEditarUsuario')}}" method="POST">
 		<fieldset>
 			<legend>Administracion / Usuario: </legend>
@@ -262,12 +307,24 @@
 		<label for="cargo">Cargo del usuario: </label>
 		<input type="text" name="cargo" class="form-control" value="{{usuario.cargo}}"/>
 		<label for="empresa">Empresa a la que pertenece:</label>
-		<input type="text" name="empresa" class="form-control" value="{{usuario.empresa}}"/>
+		<select name="empresa" id="empresa" class="form-control">
+                <option value="{{ usuario.empresa.id }}">{{ usuario.empresa.nombre }}</option>
+                {%  for empresa in empresa %}
+                    <option value="{{ empresa.id }}"> {{ empresa.nombre }}</option>
+                {% endfor %}
+            </select>
 		<button type="submit" class="btn btn-primary">Guardar</button>
 	</form>
+	
+	{% endblock %}
 
-		{% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
-		
-	</body>
+                </section>
+            </div>
+        </section>
+        <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
+        </div>
+    </body>
 
+    	{% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
+    	
 </html>
