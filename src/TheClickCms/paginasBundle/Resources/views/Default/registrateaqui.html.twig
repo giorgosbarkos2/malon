@@ -1,0 +1,76 @@
+{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
+{% block contenido %}
+  <div id="page2">
+    <div class="contentint">
+      
+      <aside>
+        <div class="title">
+          <h1>Productos Descatados</h1>
+           </div>
+           <ul class="bxslider">
+	  		   <li><img src="img/pd01.jpg" title="Producto 1" /></li>
+	           <li><img src="img/pd02.jpg" title="Producto 2" /></li>
+	           <li><img src="img/pd03.jpg" title="Producto 3" /></li>
+           </ul>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.bxslider').bxSlider({
+		  mode: 'fade',
+		  captions: true,
+		  auto: true
+		 });
+	});
+  </script>
+</aside>
+<section class="app">
+<div>
+<br>
+<hr>
+<p>Si no tienes una cuenta <u>regístrate aquí.</u></p>
+    <div class="formularios-registro">
+            <form id="form-registro"  name="formulario">
+            <span><h4 class="nom-clientes" style="color:#f00;">Datos</h4></span>
+            <input name="nombre" type="text" value="Nombre ">
+            <input name="email" type="text" value="Email ">
+            <select name="pais" id ="pais" class="form-control">
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brasil">Brasil</option>
+              <option value="Canadá">Canadá</option>
+              <option value="Chile" selected>Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Dinamarca">Dinamarca</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="España">España</option>
+              <option value="Estados Unidos">Estados Unidos</option>
+              <option value="Guadalupe">Guadalupe</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guayana">Guayana</option>
+              <option value="Guayana Francesa">Guayana Francesa</option>
+              <option value="Honduras">Honduras</option>
+              <option value="México">México</option>
+              <option value="Panamá">Panamá</option>
+              <option value="Perú">Perú</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Reino Unido">Reino Unido</option>
+              <option value="República Dominicana">República Dominicana</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+            <input name="empresa" type="text" value="Empresa ">
+            <input name="cargo" type="text" value="Cargo ">
+            <hr>
+            <span><h4 class="nom-clientes" style="color:#f00;">Clave de Acceso</h4></span>
+                <input type="text" value="Clave"/>
+                <p>(4 Caracteres mínimo)</p>
+                <input type="text" value="Confirmar Clave" />
+                <input name="boton-datos" type="submit" value="&#8250; Proceder a Registrarse">
+            </form>
+</div>
+</section>
+{% endblock %}

@@ -42,18 +42,10 @@ cambioClave:
     pattern: /home/cambioClave
     defaults: {_controller: TheClickCmspaginasBundle:Default:cambioClave}
 
-vistaAccesoCambioClave:
-    pattern: /home/vistaAccesoCambioClave
-    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAccesoCambioClave}
-
-vistaAccesoActualizarUsuario:
-    pattern: /home/vistaAccesoActualizarUsuario
-    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAccesoActualizarUsuario}
-
-vistaActualizaciones:
-    pattern: /home/vistaActualizaciones
-    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaActualizaciones}
-
 idioma:
     pattern: /home/idioma
     defaults: {_controller: TheClickCmspaginasBundle:Default:idioma}
+
+vistaRegistrate:
+    pattern: /home/vistaRegistrate
+    defaults: {_controller: TheClickCmspaginasBundle:Default:vistaRegistrate}
