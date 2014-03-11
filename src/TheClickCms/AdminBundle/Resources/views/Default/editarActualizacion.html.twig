@@ -62,6 +62,22 @@
 					<input type="hidden" name="id" value="{{actualizacion.id}}" />
 					<label for="detalle"> Detalle de la Actualizacion:</label>
 					<textarea name="detalle" class="form-control">{{actualizacion.descripcion}}</textarea>
+                    <label for="Idioma">Seleccione un Idioma</label>
+                    <select name="idioma" class="form-control">
+                    {% if actualizacion.idioma == "Español" %}
+                        <option value="Español" selected>Español</option>
+                        <option value="Ingles">Ingles</option>
+                        <option value="Portugues">Portugues</option>
+                    {% elseif actualizacion.idioma == "Ingles" %}
+                        <option value="Español">Español</option>
+                        <option value="Ingles" selected>Ingles</option>
+                        <option value="Portugues">Portugues</option>
+                    {% elseif actualizacion.idioma == "Portugues" %}                    
+                        <option value="Español">Español</option>
+                        <option value="Ingles">Ingles</option>
+                        <option value="Portugues" selected>Portugues</option>
+                    {% endif %}
+                    </select>
 					<label for="descripcioncorta">Descripion Corta:</label>
 					<input type="text"name="descripcioncorta" value="{{actualizacion.descripcionCorta}}" class="form-control" />
 					<label for="version"> Version del software </label>
@@ -69,6 +85,8 @@
 					<!--
 						Seccion upload
 					-->
+                    <br />
+                    <br />
 				<input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
 				</form>
 				{% endblock %}

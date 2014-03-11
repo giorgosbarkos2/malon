@@ -61,7 +61,16 @@ class Actualizacion
 
     private $version;
 
+      /**
+     * @var string
+     *
+     * @ORM\Column(name="Idioma", type="text" ,nullable=true )
+     */
 
+
+
+
+    private $Idioma;
 
 
 
@@ -79,8 +88,6 @@ class Actualizacion
      */
 
     private $url;
-
-    
 
 
 
@@ -161,6 +168,29 @@ class Actualizacion
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * Set Idioma
+     *
+     * @param string $idioma
+     * @return Actualizacion
+     */
+    public function setIdioma($idioma)
+    {
+        $this->Idioma = $idioma;
+    
+        return $this;
+    }
+
+    /**
+     * Get Idioma
+     *
+     * @return string 
+     */
+    public function getIdioma()
+    {
+        return $this->Idioma;
     }
 
     /**

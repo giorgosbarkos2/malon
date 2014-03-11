@@ -703,12 +703,14 @@ class DefaultController extends Controller {
 	public function guardarActualizacionAction(Request $data){
 		$detalle = $data->request->get('detalle');
 		$descripccioncorta = $data->request->get('descripcioncorta');
+        $idioma = $data->request->get('idioma');
 		$version = $data->request->get('version');
 
 		$actualizacion = new Actualizacion();
 
 		$actualizacion->setDescripcion($detalle);
 		$actualizacion->setDescripcionCorta($descripccioncorta);
+        $actualizacion->setIdioma($idioma);
 		$actualizacion->setVersion($version);
 		$actualizacion->setFechaActualizacion(new \DateTime());
 

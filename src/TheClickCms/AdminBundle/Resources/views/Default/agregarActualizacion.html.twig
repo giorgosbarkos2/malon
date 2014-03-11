@@ -61,13 +61,21 @@
 					</fieldset>
 					<label for="detalle"> Detalle de la Actualizacion:</label>
 					<textarea name="detalle" class="form-control"></textarea>
-					<label for="descripcioncorta">Descripion Corta:</label>
+                    <label for="Idioma">Seleccione un Idioma</label>
+                    <select name="idioma" class="form-control">
+                        <option value="Español">Español</option>
+                        <option value="Ingles">Ingles</option>
+                        <option value="Portugues">Portugues</option>
+                    </select>
+                    <label for="descripcioncorta">Descripion Corta:</label>
 					<input type="text"name="descripcioncorta" class="form-control" />
 					<label for="version"> Version del software </label>
 					<input type="text" name="version" class="form-control" />
 					<!--
 						Seccion upload
 					-->
+                    <br />
+                    <br />
 				<input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
 				</form>
 				{% endblock %}
