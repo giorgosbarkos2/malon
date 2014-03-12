@@ -595,7 +595,7 @@ class DefaultController extends Controller
         }    
     }
 
-        public function paisesAction()
+        public function paisesAction($id)
     {
 
 
@@ -616,6 +616,7 @@ class DefaultController extends Controller
         if ($idioma == 'EN') {
             return $this->render('TheClickCmspaginasBundle:Default:paises.html.twig',
              array(
+                'idpais' => $id,
                 'idioma' => $idioma  , 
                 'path' => $path
                 )
@@ -623,6 +624,7 @@ class DefaultController extends Controller
         } elseif ($idioma == 'ES') {
             return $this->render('TheClickCmspaginasBundle:Default:paises.html.twig', 
                 array(
+                    'idpais' => $id,
                     'idioma' => $idioma, 
                     'path' => $path 
                     )
@@ -630,6 +632,7 @@ class DefaultController extends Controller
         }elseif ('PT') {
             return $this->render('TheClickCmspaginasBundle:Default:paises.html.twig', 
                 array(
+                    'idpais' => $id,
                     'idioma' => $idioma  , 
                     'path' => $path
                     )

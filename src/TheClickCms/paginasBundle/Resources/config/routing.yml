@@ -55,5 +55,5 @@ registrate:
     defaults: {_controller: TheClickCmspaginasBundle:Default:registrate}
 
 paises:
-    pattern: /home/paises
+    pattern: /home/paises/{id}
     defaults: {_controller: TheClickCmspaginasBundle:Default:paises}
