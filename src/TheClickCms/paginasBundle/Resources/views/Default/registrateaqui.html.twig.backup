@@ -1,0 +1,163 @@
+{% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
+{% block contenido %}
+  <div id="page2">
+    <div class="contentint">
+      	<aside>
+	        <div class="title">
+	          <h1>Productos Descatados</h1>
+	        </div>
+	    	<ul class="bxslider">
+				<li><img src="img/pd01.jpg" title="Producto 1" /></li>
+				<li><img src="img/pd02.jpg" title="Producto 2" /></li>
+				<li><img src="img/pd03.jpg" title="Producto 3" /></li>
+	        </ul>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						mode: 'fade',
+						captions: true,
+				    	auto: true
+					});
+				});
+			</script>
+		</aside>
+<section class="app">
+<div>
+<br><hr>
+    <div class="formularios-registro">
+            <form id="form-registro"  name="formulario" action="" method="POST">
+            <span><h4 class="nom-clientes" style="color:#f00;">Datos</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre Completo:</h4></span>
+            <input id="nombre" name="nombre" type="text">
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre de Usuario:</h4></span>
+            <input id="nusuario" name="nusuario" type="text">
+            <span><h4 class="nom-clientes" style="color:#f00;">Correo Electronico:</h4></span>
+            <input id="email" name="email" type="text">
+            <span><h4 class="nom-clientes" style="color:#f00;">Seleccione un País:</h4></span>
+            <select name="pais" id ="pais" class="form-control">
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brasil">Brasil</option>
+              <option value="Canadá">Canadá</option>
+              <option value="Chile" selected>Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Dinamarca">Dinamarca</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="España">España</option>
+              <option value="Estados Unidos">Estados Unidos</option>
+              <option value="Guadalupe">Guadalupe</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guayana">Guayana</option>
+              <option value="Guayana Francesa">Guayana Francesa</option>
+              <option value="Honduras">Honduras</option>
+              <option value="México">México</option>
+              <option value="Panamá">Panamá</option>
+              <option value="Perú">Perú</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Reino Unido">Reino Unido</option>
+              <option value="República Dominicana">República Dominicana</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+            <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
+			<select name="empresa" id="empresa">
+                {%  for empresas in empresas %}
+                    <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
+                {% endfor %}
+            </select>
+            <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
+            <input name="cargo" type="text">
+            <hr>
+            <span><h4 class="nom-clientes" style="color:#f00;">Clave de Acceso</h4></span>
+                <input id="claveuno" type="text" placeholder="Clave Uno"/>
+                <p>(4 Caracteres mínimo)</p>
+                <input id="clavedos" type="text" placeholder="Clave Dos"/>
+
+            </form>
+ 			
+            
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   <input id="registrate" name="boton-datos" type="submit" value="&#8250; Proceder a Registrarse">
+</section>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$("#registrate").click(function() {
+			
+			var nombre = $("#nombre").val();
+			var nusuario = $("#nusuario").val();
+			var correo = $("#email").val();
+			var pais = $("#pais").val();
+			var empresa = $("#empresa").val();
+			var cargo = $("#cargo").val();
+			var claveuno = $("#claveuno").val();
+			var clavedos = $("#clavedos").val();
+
+			if (nombre == '' || nusuario == '' || correo == '' || pais == '' || empresa == '' || cargo == || claveuno == '' || clavedos == '' ) {
+
+				alert("Datos vacios");
+
+			}else{
+
+				if (claveuno != clavedos) {
+					jQuery.ajax({
+						url: "{{path('registrate')}}",
+						type: "POST",
+						dataType: 'text',
+						data: {
+							nombre: nombre,
+							nusuario: nusuario,
+							correo: correo,
+							pais: pais,
+							empresa: empresa,
+							cargo: cargo,
+							clave: claveuno	
+						},
+						success: function(response) {
+							var respuesta = response;
+							if (respuesta == 100) {
+								alert("Sus datos se han guadado.");
+							};
+
+		                },
+		                error: function(xhr, ajaxOptions, thrownError) {
+		                    alert(thrownError);
+		                },
+
+					});
+				}else{
+					alert("Claves distintas");
+				};
+			
+			};
+		});
+	});
+
+</script>
+{% endblock %}

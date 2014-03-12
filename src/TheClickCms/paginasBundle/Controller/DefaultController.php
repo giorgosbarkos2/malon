@@ -594,4 +594,47 @@ class DefaultController extends Controller
                 );
         }    
     }
+
+        public function paisesAction()
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        
+        $session = $this->getRequest()->getSession();
+        $idioma = $session->get('idioma');
+        $formulario = 'registrateaca';
+        $path = '../home';
+
+
+
+        if($idioma == ''){
+            $idioma = 'ES';
+
+        }
+
+        if ($idioma == 'EN') {
+            return $this->render('TheClickCmspaginasBundle:Default:paises.html.twig',
+             array(
+                'idioma' => $idioma  , 
+                'path' => $path
+                )
+             );
+        } elseif ($idioma == 'ES') {
+            return $this->render('TheClickCmspaginasBundle:Default:paises.html.twig', 
+                array(
+                    'idioma' => $idioma, 
+                    'path' => $path 
+                    )
+                );
+        }elseif ('PT') {
+            return $this->render('TheClickCmspaginasBundle:Default:paises.html.twig', 
+                array(
+                    'idioma' => $idioma  , 
+                    'path' => $path
+                    )
+                );
+        }    
+
+    }
 }

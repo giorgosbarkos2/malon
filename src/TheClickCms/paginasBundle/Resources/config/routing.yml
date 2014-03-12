@@ -53,3 +53,7 @@ vistaRegistrate:
 registrate:
     pattern: /home/registrate
     defaults: {_controller: TheClickCmspaginasBundle:Default:registrate}
+
+paises:
+    pattern: /home/paises
+    defaults: {_controller: TheClickCmspaginasBundle:Default:paises}
