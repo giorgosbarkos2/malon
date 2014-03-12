@@ -37,28 +37,28 @@
             <h4 class="nom-clientes" style="color:#f00;">Datos</h4>
 
 
-                <div class="formInput">
-                <span style="position: relative;width: 200px;height: 10px;"><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
-                 <input id="nombre" class="form-control" name="nombre" type="text" data-required="true"  data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment..">
 
-                </div>
-               
+                <span><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
+                 <input id="nombre" name="nombre" type="text" data-required="true"  data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment..">
 
 
-          <div class="formInput">
-
-            <span style="position: relative;width: 200px;height: 10px;" ><h4  style="color:#f00;">Nombre de Usuario:</h4></span>
-            <input id="nusuario"  class="form-control"  name="nusuario" type="text"  data-required="true"  >
-           </div>
-
-                <div class="formInput">
-            <span><h4  style="color:#f00;">Correo Electronico:</h4></span>
-            <input id="email" name="email"  class="form-control"  type="text">
-
-                </div>
 
 
-                <div class="formInput">
+
+
+
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre de Usuario:</h4></span>
+            <input id="nusuario" name="nusuario" type="text"  >
+
+
+
+            <span><h4 class="nom-clientes" style="color:#f00;">Correo Electronico:</h4></span>
+            <input id="email" name="email" type="text">
+
+
+
+
+
 
                 <span><h4 class="nom-clientes" style="color:#f00;">Seleccione un País:</h4></span>
             <select name="pais" id ="pais" class="form-control">
@@ -91,10 +91,9 @@
               <option value="Uruguay">Uruguay</option>
               <option value="Venezuela">Venezuela</option>
             </select>
-            </div>
 
 
-            <div class="formInput">
+
             <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
 			<select name="empresa" id="empresa">
                 {%  for empresas in empresas %}
@@ -102,28 +101,28 @@
                 {% endfor %}
             </select>
 
-            </div>
 
 
 
-            <div class="formInput">
+
+
             <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
             <input name="cargo" type="text">
-            </div>
+
 
             <hr>
-           <div class="formInput">
+
             <span><h4 class="nom-clientes" style="color:#f00;">Clave de Acceso</h4></span>
                 <input id="claveuno" type="text" placeholder="Clave Uno"/>
 
-           </div>
 
-           <div class="formInput">
+
+
                <span> <p>(4 Caracteres mínimo)</p></span>
 
                 <input id="clavedos" type="text" placeholder="Clave Dos"/>
 
-           </div>
+
 
             </form>
 
@@ -139,10 +138,8 @@
 
         .formInput{
             width: 880px;
-            height: 70px;
+            height: 50px;
             position: relative;
-            margin: 2px;
-            background-color:#006600;
 
 
         }
