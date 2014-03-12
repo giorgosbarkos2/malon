@@ -184,7 +184,13 @@ function toggleNav() {
 					<span id="cerrar-07"></span>
 				</section>
 			</div>
+
+
 				<div class="box-maps">
+
+
+                    {%  if mobil == 'no' %}
+
 				<div class="box-maps-pais-01"></div>
 				<div class="box-maps-pais-02"></div>
 				<div class="box-maps-pais-03"></div>
@@ -193,7 +199,22 @@ function toggleNav() {
 				<div class="box-maps-pais-06"></div>
 				<div class="box-maps-pais-07"></div>
 
-			<img src="{{asset('bundles/theclickcmspaginas/img/maps.png')}}">
+
+                        {%  else  %}
+
+
+
+                    <a href="{{ path('paises') }}" id="pais01"> <div class="box-maps-pais-01"></div></a>
+                    <a href="{{ path('paises') }}" id="pais02">    <div class="box-maps-pais-02"></div></a>
+                    <a href="{{ path('paises') }}" id="pais03">   <div class="box-maps-pais-03"></div></a>
+                    <a href="{{ path('paises') }}" id="pais04">     <div class="box-maps-pais-04"></div></a>
+                    <a href="{{ path('paises') }}" id="pais05">    <div class="box-maps-pais-05"></div></a>
+                    <a href="{{ path('paises') }}" id="pais06">   <div class="box-maps-pais-06"></div></a>
+                                <a href="#" id="pais07">   <div class="box-maps-pais-07"></div></a>
+
+                    {%  endif  %}
+
+                    <img src="{{asset('bundles/theclickcmspaginas/img/maps.png')}}">
 
 				</div>
 			</div>

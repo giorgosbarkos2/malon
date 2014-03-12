@@ -27,22 +27,38 @@ class DefaultController extends Controller
 
         $formulario = 'acceso';
 
-        
-          
+
+        if(preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
+
+
+            $mobil = 'yes';
+
+
+
+        }else{
+
+
+            $mobil = 'no';
+
+
+        }
+
+
+
         if ($idioma == 'EN') {
 
-            $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario  ));
+            $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario  , 'mobil' => $mobil ));
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso , 'path' => $path));
 
         } elseif ($idioma == 'ES') {
         
             $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso , 'path' => $path));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso , 'path' => $path ,  'mobil' => $mobil));
         
         }elseif( $idioma =='PT') {
             
             $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso , 'path' => $path));
+            return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso , 'path' => $path ,  'mobil' => $mobil));
         
         }
     }

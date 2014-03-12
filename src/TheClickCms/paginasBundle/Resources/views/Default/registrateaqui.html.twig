@@ -1,6 +1,13 @@
 {% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
 {% block contenido %}
-  <div id="page2">
+
+
+
+
+    <link href="{{asset('bundles/theclickcmspaginas/css/parsley.css')}}" rel="stylesheet" type="text/css">
+
+
+    <div id="page2">
     <div class="contentint">
       	<aside>
 	        <div class="title">
@@ -24,16 +31,36 @@
 <section class="app">
 <div>
 <br><hr>
-    <div class="formularios-registro">
-            <form id="form-registro"  name="formulario" action="" method="POST">
-            <span><h4 class="nom-clientes" style="color:#f00;">Datos</h4></span>
-            <span><h4 class="nom-clientes" style="color:#f00;">Nombre Completo:</h4></span>
-            <input id="nombre" name="nombre" type="text">
-            <span><h4 class="nom-clientes" style="color:#f00;">Nombre de Usuario:</h4></span>
-            <input id="nusuario" name="nusuario" type="text">
-            <span><h4 class="nom-clientes" style="color:#f00;">Correo Electronico:</h4></span>
-            <input id="email" name="email" type="text">
-            <span><h4 class="nom-clientes" style="color:#f00;">Seleccione un País:</h4></span>
+    <div class="formularios-registro" >
+            <form id="form-registro"  name="formulario" action="" method="POST" data-validate="parsley" >
+
+            <h4 class="nom-clientes" style="color:#f00;">Datos</h4>
+
+
+                <div class="formInput">
+                <span style="position: relative;width: 200px;height: 10px;"><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
+                 <input id="nombre" class="form-control" name="nombre" type="text" data-required="true"  data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment..">
+
+                </div>
+               
+
+
+          <div class="formInput">
+
+            <span style="position: relative;width: 200px;height: 10px;" ><h4  style="color:#f00;">Nombre de Usuario:</h4></span>
+            <input id="nusuario"  class="form-control"  name="nusuario" type="text"  data-required="true"  >
+           </div>
+
+                <div class="formInput">
+            <span><h4  style="color:#f00;">Correo Electronico:</h4></span>
+            <input id="email" name="email"  class="form-control"  type="text">
+
+                </div>
+
+
+                <div class="formInput">
+
+                <span><h4 class="nom-clientes" style="color:#f00;">Seleccione un País:</h4></span>
             <select name="pais" id ="pais" class="form-control">
               <option value="Argentina">Argentina</option>
               <option value="Bolivia">Bolivia</option>
@@ -64,28 +91,111 @@
               <option value="Uruguay">Uruguay</option>
               <option value="Venezuela">Venezuela</option>
             </select>
+            </div>
+
+
+            <div class="formInput">
             <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
 			<select name="empresa" id="empresa">
                 {%  for empresas in empresas %}
                     <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
                 {% endfor %}
             </select>
+
+            </div>
+
+
+
+            <div class="formInput">
             <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
             <input name="cargo" type="text">
+            </div>
+
             <hr>
+           <div class="formInput">
             <span><h4 class="nom-clientes" style="color:#f00;">Clave de Acceso</h4></span>
                 <input id="claveuno" type="text" placeholder="Clave Uno"/>
-                <p>(4 Caracteres mínimo)</p>
+
+           </div>
+
+           <div class="formInput">
+               <span> <p>(4 Caracteres mínimo)</p></span>
+
                 <input id="clavedos" type="text" placeholder="Clave Dos"/>
-                <input id="registrate" name="boton-datos" type="submit" value="&#8250; Proceder a Registrarse">
+
+           </div>
+
             </form>
+
+
+        <input id="registrate" name="boton-datos" type="submit" value="&#8250; Proceder a Registrarse" style="margin-top:10%; ">
+
 </div>
 </section>
+
+
+    <style>
+
+
+        .formInput{
+            width: 880px;
+            height: 70px;
+            position: relative;
+            margin: 2px;
+            background-color:#006600;
+
+
+        }
+
+        input.parsley-success
+        {
+            color: #666666 !important;
+            background-color: #DDDDDD !important;
+            border: 1px solid #999999 !important;
+        }
+        input.parsley-error
+        {
+            color: #666666 !important;
+            background-color: #F8DECD !important;
+            border: 1px solid #999999 !important;
+        }
+
+        /*input
+        {
+            width: 150px;
+            margin: 0 2px !important;
+        }*/
+
+        ul.parsley-error-list
+        {
+            font-size: 11px;
+            margin: 2px;
+            list-style-type:none;
+            display: block;
+            float:left;
+        }
+
+        ul.parsley-error-list li
+        {
+            color: #F95B00;
+            line-height: 11px;
+            display: block;
+            float:left;
+        }
+
+
+    </style>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		
 		$("#registrate").click(function() {
+
+
+
+            $( '#form-registro' ).parsley('validate');
+
+
 			
 			var nombre = $("#nombre").val();
 			var nusuario = $("#nusuario").val();
@@ -96,9 +206,9 @@
 			var claveuno = $("#claveuno").val();
 			var clavedos = $("#clavedos").val();
 
-			if (nombre == '' || nusuario == '' || correo == '' || pais == '' || empresa == '' || cargo == || claveuno == '' || clavedos == '' ) {
+			if (nombre == '' || nusuario == '' || correo == '' || pais == '' || empresa == '' || cargo == '' || claveuno == '' || clavedos == '' ) {
 
-				alert("Datos vacios");
+
 
 			}else{
 
@@ -130,9 +240,11 @@
 					});
 				}else{
 					alert("Claves distintas");
-				};
+				}
 			
-			};
+			}
+
+
 		});
 	});
 
