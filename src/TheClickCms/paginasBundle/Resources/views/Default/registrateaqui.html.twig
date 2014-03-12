@@ -97,6 +97,11 @@
 			var clavedos = $("#clavedos").val();
 
 			if (nombre == '' || nusuario == '' || correo == '' || pais == '' || empresa == '' || cargo == || claveuno == '' || clavedos == '' ) {
+
+				alert("Datos vacios");
+
+			}else{
+
 				if (claveuno == clavedos) {
 					jQuery.ajax({
 						url: "{{path('registrate')}}",
@@ -126,8 +131,7 @@
 				}else{
 					alert("Claves distintas");
 				};
-			}else{
-				alert("Datos vacios");
+			
 			};
 		});
 	});
