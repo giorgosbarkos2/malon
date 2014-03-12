@@ -1,4 +1,4 @@
-athe_click_cmspaginas_homepage:
+the_click_cmspaginas_homepage:
     pattern:  /home
     defaults: { _controller: TheClickCmspaginasBundle:Default:index }
 

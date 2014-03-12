@@ -23,9 +23,9 @@
 		</aside>
 <section class="app">
 <div>
-<hr>
+<br><hr>
     <div class="formularios-registro">
-            <form id="registro"  name="formulario" action="{{path('registrate')}}" method="POST">
+            <form id="form-registro"  name="formulario" action="" method="POST">
             <span><h4 class="nom-clientes" style="color:#f00;">Datos</h4></span>
             <span><h4 class="nom-clientes" style="color:#f00;">Nombre Completo:</h4></span>
             <input id="nombre" name="nombre" type="text">
@@ -84,7 +84,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		
 		$("#registrate").click(function() {
+			
 			var nombre = $("#nombre").val();
 			var nusuario = $("#nusuario").val();
 			var correo = $("#email").val();
@@ -94,28 +96,39 @@
 			var claveuno = $("#claveuno").val();
 			var clavedos = $("#clavedos").val();
 
-			$.ajax({
-				url: $('#registro').attr('action'),
-				type: $('#registro').attr('method'),
-				dataType: 'text',
-				data: {
-					nombre: nombre,
-					nusuario: nusuario,
-					correo: correo,
-					pais: pais,
-					empresa: empresa,
-					cargo: cargo,
-					clave: claveuno	
-				},
-				success: function(response) {
-					
+			if (nombre == '' || nusuario == '' || correo == '' || pais == '' || empresa == '' || cargo == || claveuno == '' || clavedos == '' ) {
+				if (claveuno == clavedos) {
+					jQuery.ajax({
+						url: "{{path('registrate')}}",
+						type: "POST",
+						dataType: 'text',
+						data: {
+							nombre: nombre,
+							nusuario: nusuario,
+							correo: correo,
+							pais: pais,
+							empresa: empresa,
+							cargo: cargo,
+							clave: claveuno	
+						},
+						success: function(response) {
+							var respuesta = response;
+							if (respuesta == 100) {
+								alert("Sus datos se han guadado.");
+							};
 
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    console.log(thrownError);
-                },
+		                },
+		                error: function(xhr, ajaxOptions, thrownError) {
+		                    alert(thrownError);
+		                },
 
-			});
+					});
+				}else{
+					alert("Claves distintas");
+				};
+			}else{
+				alert("Datos vacios");
+			};
 		});
 	});
 

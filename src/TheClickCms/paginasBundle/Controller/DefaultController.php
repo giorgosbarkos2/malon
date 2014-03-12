@@ -458,15 +458,14 @@ class DefaultController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id' => $empresaid));
+        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id' => $empresa));
 
         $usuario = new Usuarios();
 
         $usuario->setPais($pais);
-        $usuario->setDetalle($detalle);
         $usuario->setNombre($nombre);
         $usuario->setNusuario($nusuario);
-        $usuario->setContrasena($contrasena);
+        $usuario->setContrasena($clave);
         $usuario->setEmail($correo);
         $usuario->setCargo($cargo);
         $usuario->setEmpresa($empresa);
