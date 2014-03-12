@@ -317,7 +317,7 @@ class DefaultController extends Controller
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('Idioma' => $idioma));
 
 
             $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
@@ -344,7 +344,7 @@ class DefaultController extends Controller
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('Idioma' => $idioma));
 
 
             $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
@@ -371,7 +371,7 @@ class DefaultController extends Controller
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findAll();
+            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('Idioma' => $idioma));
 
 
             $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
