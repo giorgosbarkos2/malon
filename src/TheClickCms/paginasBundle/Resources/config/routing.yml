@@ -1,4 +1,4 @@
-the_click_cmspaginas_homepage:
+athe_click_cmspaginas_homepage:
     pattern:  /home
     defaults: { _controller: TheClickCmspaginasBundle:Default:index }
 
@@ -49,3 +49,7 @@ idioma:
 vistaRegistrate:
     pattern: /home/vistaRegistrate
     defaults: {_controller: TheClickCmspaginasBundle:Default:vistaRegistrate}
+
+registrate:
+    pattern: /home/registrate
+    defaults: {_controller: TheClickCmspaginasBundle:Default:registrate}

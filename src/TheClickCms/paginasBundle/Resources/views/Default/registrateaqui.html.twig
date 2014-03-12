@@ -2,36 +2,38 @@
 {% block contenido %}
   <div id="page2">
     <div class="contentint">
-      
-      <aside>
-        <div class="title">
-          <h1>Productos Descatados</h1>
-           </div>
-           <ul class="bxslider">
-	  		   <li><img src="img/pd01.jpg" title="Producto 1" /></li>
-	           <li><img src="img/pd02.jpg" title="Producto 2" /></li>
-	           <li><img src="img/pd03.jpg" title="Producto 3" /></li>
-           </ul>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.bxslider').bxSlider({
-		  mode: 'fade',
-		  captions: true,
-		  auto: true
-		 });
-	});
-  </script>
-</aside>
+      	<aside>
+	        <div class="title">
+	          <h1>Productos Descatados</h1>
+	        </div>
+	    	<ul class="bxslider">
+				<li><img src="img/pd01.jpg" title="Producto 1" /></li>
+				<li><img src="img/pd02.jpg" title="Producto 2" /></li>
+				<li><img src="img/pd03.jpg" title="Producto 3" /></li>
+	        </ul>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.bxslider').bxSlider({
+						mode: 'fade',
+						captions: true,
+				    	auto: true
+					});
+				});
+			</script>
+		</aside>
 <section class="app">
 <div>
-<br>
 <hr>
-<p>Si no tienes una cuenta <u>regístrate aquí.</u></p>
     <div class="formularios-registro">
-            <form id="form-registro"  name="formulario">
+            <form id="registro"  name="formulario" action="{{path('registrate')}}" method="POST">
             <span><h4 class="nom-clientes" style="color:#f00;">Datos</h4></span>
-            <input name="nombre" type="text" value="Nombre ">
-            <input name="email" type="text" value="Email ">
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre Completo:</h4></span>
+            <input id="nombre" name="nombre" type="text">
+            <span><h4 class="nom-clientes" style="color:#f00;">Nombre de Usuario:</h4></span>
+            <input id="nusuario" name="nusuario" type="text">
+            <span><h4 class="nom-clientes" style="color:#f00;">Correo Electronico:</h4></span>
+            <input id="email" name="email" type="text">
+            <span><h4 class="nom-clientes" style="color:#f00;">Seleccione un País:</h4></span>
             <select name="pais" id ="pais" class="form-control">
               <option value="Argentina">Argentina</option>
               <option value="Bolivia">Bolivia</option>
@@ -62,15 +64,60 @@
               <option value="Uruguay">Uruguay</option>
               <option value="Venezuela">Venezuela</option>
             </select>
-            <input name="empresa" type="text" value="Empresa ">
-            <input name="cargo" type="text" value="Cargo ">
+            <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
+			<select name="empresa" id="empresa">
+                {%  for empresas in empresas %}
+                    <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
+                {% endfor %}
+            </select>
+            <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
+            <input name="cargo" type="text">
             <hr>
             <span><h4 class="nom-clientes" style="color:#f00;">Clave de Acceso</h4></span>
-                <input type="text" value="Clave"/>
+                <input id="claveuno" type="text" placeholder="Clave Uno"/>
                 <p>(4 Caracteres mínimo)</p>
-                <input type="text" value="Confirmar Clave" />
-                <input name="boton-datos" type="submit" value="&#8250; Proceder a Registrarse">
+                <input id="clavedos" type="text" placeholder="Clave Dos"/>
+                <input id="registrate" name="boton-datos" type="submit" value="&#8250; Proceder a Registrarse">
             </form>
 </div>
 </section>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#registrate").click(function() {
+			var nombre = $("#nombre").val();
+			var nusuario = $("#nusuario").val();
+			var correo = $("#email").val();
+			var pais = $("#pais").val();
+			var empresa = $("#empresa").val();
+			var cargo = $("#cargo").val();
+			var claveuno = $("#claveuno").val();
+			var clavedos = $("#clavedos").val();
+
+			$.ajax({
+				url: $('#registro').attr('action'),
+				type: $('#registro').attr('method'),
+				dataType: 'text',
+				data: {
+					nombre: nombre,
+					nusuario: nusuario,
+					correo: correo,
+					pais: pais,
+					empresa: empresa,
+					cargo: cargo,
+					clave: claveuno	
+				},
+				success: function(response) {
+					
+
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    console.log(thrownError);
+                },
+
+			});
+		});
+	});
+
+</script>
 {% endblock %}

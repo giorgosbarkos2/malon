@@ -446,6 +446,42 @@ class DefaultController extends Controller
 
 
 
+    public function registrateAction(Request $request)
+    {
+        $nombre = $request->request->get('nombre');
+        $nusuario = $request->request->get('nusuario');
+        $correo = $request->request->get('correo');
+        $pais = $request->request->get('pais');
+        $empresa = $request->request->get('empresa');
+        $cargo = $request->request->get('cargo');
+        $clave = $request->request->get('clave');
+
+
+        $em = $this->getDoctrine()->getManager();
+        $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id' => $empresaid));
+
+        $usuario = new Usuarios();
+
+        $usuario->setPais($pais);
+        $usuario->setDetalle($detalle);
+        $usuario->setNombre($nombre);
+        $usuario->setNusuario($nusuario);
+        $usuario->setContrasena($contrasena);
+        $usuario->setEmail($correo);
+        $usuario->setCargo($cargo);
+        $usuario->setEmpresa($empresa);
+        $usuario->setFecha(new \DateTime());
+
+        $em->persist($empresa);
+        $em->persist($usuario);
+        $em->flush();
+
+        return new response(100);
+
+    }
+
+
+
     public function cambioClaveAction(Request $request)
     {
 
@@ -509,27 +545,33 @@ class DefaultController extends Controller
         }
 
         if ($idioma == 'EN') {
+            $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
             $registrateaca = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
             return $this->render('TheClickCmspaginasBundle:Default:registrateaqui.html.twig',
              array(
+                'empresas' => $empresas,
                 'registrateaca' => $registrateaca , 
                 'idioma' => $idioma  , 
                 'path' => $path
                 )
              );
         } elseif ($idioma == 'ES') {
+            $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
             $registrateaca = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
             return $this->render('TheClickCmspaginasBundle:Default:registrateaqui.html.twig', 
                 array(
+                    'empresas' => $empresas,
                     'registrateaca' => $registrateaca,
                     'idioma' => $idioma, 
                     'path' => $path 
                     )
                 );
         }elseif ('PT') {
+            $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
             $registrateaca = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
             return $this->render('TheClickCmspaginasBundle:Default:registrateaqui.html.twig', 
                 array(
+                    'empresas' => $empresas,
                     'registrateaca' => $registrateaca , 
                     'idioma' => $idioma  , 
                     'path' => $path
