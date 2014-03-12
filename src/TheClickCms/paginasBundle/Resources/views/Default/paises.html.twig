@@ -27,7 +27,9 @@ $('.bxslider').bxSlider({
 
 
 <section class="app">
-        <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-01.png')}}" width="46" height="30" alt=""><span><h2>Pais 01</h2></span></div>
+        <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-01.png')}}" width="46" height="30" alt="">
+        <div id="pais01"></div>
+        <span><h2>Pais 01</h2></span></div>
         <article>
         <p>
         Av. Vitacura 2808 Piso 12<br>
@@ -52,6 +54,7 @@ $('.bxslider').bxSlider({
         <hr>
     <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-02.png')}}" width="46" height="30" alt=""><span><h2>Pais 02</h2></span></div>
         <article>
+        <div id="pais02"></div>
         <p>
         Av. Vitacura 2808 Piso 12<br>
         Las Condes – Santiago<br>
@@ -73,7 +76,9 @@ $('.bxslider').bxSlider({
     <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
 </ul>
         <hr>
-        <div class="title-pais"><img src="img/p-mo-03.png" width="46" height="30" alt=""><span><h2>Pais 03</h2></span></div>
+        <div class="title-pais">
+        <div id="pais03"></div>
+        <img src="{{asset('bundles/theclickcmspaginas/img/p-mo-03.png')}}" width="46" height="30" alt=""><span><h2>Pais 03</h2></span></div>
         <article>
         <p>
         Av. Vitacura 2808 Piso 12<br>
@@ -96,7 +101,9 @@ $('.bxslider').bxSlider({
     <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
 </ul>
         <hr>
-        <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-04.png')}}" width="46" height="30" alt=""><span><h2>Pais 04</h2></span></div>
+        <div class="title-pais">
+        <div id="pais04"></div>
+        <img src="{{asset('bundles/theclickcmspaginas/img/p-mo-04.png')}}" width="46" height="30" alt=""><span><h2>Pais 04</h2></span></div>
         <article>
         <p>
         Av. Vitacura 2808 Piso 12<br>
@@ -119,7 +126,9 @@ $('.bxslider').bxSlider({
     <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
 </ul>
         <hr>
-        <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-05.png')}}" width="46" height="30" alt=""><span><h2>Pais 05</h2></span></div>
+        <div class="title-pais">
+        <div id="pais05"></div>
+        <img src="{{asset('bundles/theclickcmspaginas/img/p-mo-05.png')}}" width="46" height="30" alt=""><span><h2>Pais 05</h2></span></div>
         <article>
         <p>
         Av. Vitacura 2808 Piso 12<br>
@@ -142,7 +151,9 @@ $('.bxslider').bxSlider({
     <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
 </ul>
         <hr>
-        <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-06.png')}}" width="46" height="30" alt=""><span><h2>Pais 06</h2></span></div>
+        <div class="title-pais">
+        <div id="pais06"></div>
+		<img src="{{asset('bundles/theclickcmspaginas/img/p-mo-06.png')}}" width="46" height="30" alt=""><span><h2>Pais 06</h2></span></div>
         <article>
         <p>
         Av. Vitacura 2808 Piso 12<br>
@@ -165,7 +176,9 @@ $('.bxslider').bxSlider({
     <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
 </ul>
         <hr>
-        <div class="title-pais"><img src="{{asset('bundles/theclickcmspaginas/img/p-mo-07.png')}}" width="46" height="30" alt=""><span><h2>Pais 07</h2></span></div>
+        <div class="title-pais">
+		<div id="pais07"></div>
+        <img src="{{asset('bundles/theclickcmspaginas/img/p-mo-07.png')}}" width="46" height="30" alt=""><span><h2>Pais 07</h2></span></div>
         <article>
         <p>
         Av. Vitacura 2808 Piso 12<br>
@@ -192,4 +205,12 @@ $('.bxslider').bxSlider({
 <br><br><br><br><br><br>
     </div>
   </div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+		var ancla = "{{idpais}}";
+		document.location.href = "#" + ancla;	
+});
+</script>
 {% endblock %}
