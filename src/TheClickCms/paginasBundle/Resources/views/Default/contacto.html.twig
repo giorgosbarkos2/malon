@@ -2,15 +2,18 @@
 
 {% extends 'TheClickCmspaginasBundle:Default:baseInterior.html.twig' %}
 {% block contenido %}
+
+
+
    <div id="page2">
     <div class="contentint">
-
-
-        <aside>
+      
+      <aside>
+        <div class="title"><h1>OverTech Group</h1></div>
           <span class="strongfont"><br><br>Soluciones de gestión telefónica<hr></span>
 <p><b>Dirección: </b>Av. Vitacura 2808 Piso 12<br>
 Las Condes – Santiago<br>
-MC. 56-2- 28 28 00<br>
+MC. 56-2- 2448 28 00<br>
 Fax: 56-2- 2448 28 01<br><br>
 <b>Contacto ventas:</b> Sr. Rodrigo Tomicic<br>
 <b>e-mail </b><a href="mailto:ventaschile@overtechgroup.com?&subject=Información ventas">ventaschile@overtechgroup.com</a><br><br>
@@ -40,16 +43,17 @@ Fax: 56-2- 2448 28 01<br><br>
           </div> -->
       
       </div> 
-     {# {{path('recibeContacto')}} #}
-      <form  action="" id="contactForm" method="POST">
+     
+      <form action="{{path('recibeContacto')}}" id="contactForm" method="POST">
+      
      <h2>{{contacto.titulo}}</h2>
      <hr>
   <ul>
-  <li><label class="formtitle" for="firstName">{{contacto.campo1}} </label>
-  <input class="formres" name="firstName" id="firstName" placeholder="Nombre"/></li>
+  <li><label class="formtitle" for="nombre">{{contacto.campo1}}</label>
+  <input class="formres" name="nombre" id="nombre" placeholder="Nombre"/></li>
   
-  <li><label for="emailaddress">{{contacto.campo2}} </label>
-    <input type="email" name="emailaddress" id="emailaddress" placeholder="nombre@ejemplo.com" /></li>
+  <li><label for="email">{{contacto.campo2}}</label>
+    <input type="email" name="email" id="email" placeholder="nombre@ejemplo.com" /></li>
 
   <li><label for="empresa">{{contacto.campo3}}</label>
     <input class="formres" name="empresa" id="empresa" placeholder="..."/></li>
@@ -57,79 +61,73 @@ Fax: 56-2- 2448 28 01<br><br>
   <li><label for="asunto">{{contacto.campo4}}</label>
     <input class="formres" name="asunto" id="asunto" placeholder="..."/></li>
   
-  <li><label class="mensaje" for="">{{contacto.campo5}}</label>
+  <li><label class="message" for="mensaje">{{contacto.campo5}}</label>
     <textarea name="mensaje" id="mensaje"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
   <li>
+  </form>
   <input class="enviar" id="enviar" type="submit" value="&#8250; {{contacto.campo6}}" />
   <input class="borrar" id="borrar" type="reset" value="&#8250; Borrar" />
   <hr>
   </li>
-  </form>
+  
+
+   
   <div id="respuesta">   
-    <div id="negativa"></div>
+     <span id="respuestaMail"></span>
+     <!--
+    <div id="negativa">Debes completar el Email</div>
+    -->
   </div>
-  <!--
-  <div id="mailIncorrecto">Mail Incorrecto</div>
-   -->
-</div>
-</div>
+    <div id="mailIncorrecto">Mail Incorrecto</div>
+   
+  </div>
+  </div>
+
 <script type="text/javascript">
-
 $(document).ready(function() {
-  $("#respuesta").css("display", "none");
+      $("#respuesta").hide("fast");
+      $("#mailIncorrecto").hide("fast");
 
-  $("#enviar").click(function() {
+      $("#enviar").click(function() {
+        
+          var nombre = $("#nombre").val();
+          var correo = $("#email").val();
+          var empresa = $("#empresa").val();
+          var asunto = $("#asunto").val();
+          var mensaje = $("#mensaje").val();
 
-    var  nombre  = $("#firstName").val();
-    var  correo  = $("#emailaddress").val();
-    var  empresa = $("#empresa").val();
-    var  asunto  = $("#asunto").val();
-    var  mensaje = $("#mensaje2").val();
+          if (nombre == '' || correo == '' || empresa == '' || asunto == '' || mensaje == ''){
+              alert('Campos vacios');
 
-    if (nombre != '' || correo != '' || empresa != '' || asunto != '' || mensaje != '') {
-      jQuery.ajax({
-          url: "{{path('recibeContacto')}}",
-          type: 'POST',
-          dataType: 'text',
-          data: {nombre: nombre,
-                 correo: correo,
-                 empresa: empresa,
-                 asunto: asunto,
-                 mensaje: mensaje},
-          success: function(response) {
-            var respuesta = response;
-            if (respuesta == 200){
-              alert("me envie");
-              /*
-              $("#respuesta").css("display", "block");
-              $("#negativa").text("Su correo a sido enviado.");
-              */
-            };
-          },
-          error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError);
+          }else{
+              $.ajax({
+                    url: $("#contactForm").attr('action'),
+                    type: $("#contactForm").attr('method'),
+                    dataType: 'text',
+
+                    data: {
+                            nombre  : nombre,
+                            correo  : correo,
+                            empresa : empresa,
+                            asunto  : asunto,
+                            mensaje : mensaje
+                          },
+                    success: function(response){
+
+                        var respuesta = response;
+
+                        if(respuesta == 1){
+                          alert('Campos vacios');
+                        }else if(respuesta == 2){
+                          alert("Correo enviado");
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        alert(thrownError);
+                    }
+              });
           }
-        });
-    }else{
-      alert("campos vacios");
-    };
-  });
-});
-
-/*
-  $('#contactForm').hide( 'fast' );
-                    
-                }
-
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                
-
-            },
-        });
+      });
     });
-});
-*/
 </script>
 {% endblock %}
-    

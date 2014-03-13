@@ -14,9 +14,6 @@ vistaAcceso:
     pattern: /home/vistaAcceso
     defaults: {_controller: TheClickCmspaginasBundle:Default:vistaAcceso}
 
-recibeContacto:
-    pattern: /home/recibeContacto
-    defaults: {_controller: TheClickCmspaginasBundle:Default:recibeContacto}
 
 nt:
     pattern: /home/noticias
@@ -41,6 +38,10 @@ recibeformularioEditar:
 cambioClave:
     pattern: /home/cambioClave
     defaults: {_controller: TheClickCmspaginasBundle:Default:cambioClave}
+
+recibeContacto:
+    pattern: /home/recibeContacto
+    defaults: {_controller: TheClickCmspaginasBundle:Default:recibeContacto}
 
 idioma:
     pattern: /home/idioma
