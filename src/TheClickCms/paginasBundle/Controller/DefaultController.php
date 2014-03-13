@@ -250,20 +250,22 @@ class DefaultController extends Controller
 
     }
 
-    public function recibeContactoAction(Request $request)
+    public function recibeContactoAction(Request $data)
     {
 
-        $nombre = $request->request->get('nombre');
-        $correo = $request->request->get('correo');
-        $empresa = $request->request->get('empresa');
-        $asunto = $request->request->get('asunto');
-        $mensaje = $request->request->get('mensaje');
+
+
+        $nombre = $data->request->get('nombre');
+        $correo = $data->request->get('correo');
+        $empresa = $data->request->get('empresa');
+        $asunto = $data->request->get('asunto');
+        $mensaje = $data->request->get('mensaje');
 
         
         if ($nombre == '' or $correo == '' or $empresa == '' or $asunto == '' or $mensaje == '') {
 
 
-            return new Response(1);
+            return new response(100);
             
             
         } else {
@@ -280,7 +282,7 @@ class DefaultController extends Controller
             ;
             $this->get('mailer')->send($message);
 
-            return new Response(2);
+            return new response(200);
         }
     }
 

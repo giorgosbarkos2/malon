@@ -770,14 +770,18 @@ class DefaultController extends Controller {
 	public function guardarEditarActualizacionAction(Request $data){
 		$id = $data->request->get('id');
 		$detalle = $data->request->get('detalle');
+        $idioma = $data->request->get('idioma');
 		$descripcioncorta = $data->request->get('descripcioncorta');
 		$version = $data->request->get('version');
+        
+
 
 		$em = $this->getDoctrine()->getManager();
 		$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('id'=>$id));
 
 		$actualizacion->setDescripcion($detalle);
 		$actualizacion->setDescripcionCorta($descripcioncorta);
+        $actualizacion->setIdioma($idioma);
 		$actualizacion->setVersion($version);
 
 		$em->merge($actualizacion);

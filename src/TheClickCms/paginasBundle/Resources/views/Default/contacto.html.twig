@@ -44,7 +44,7 @@ Fax: 56-2- 2448 28 01<br><br>
       
       </div> 
      
-      <form action="{{path('recibeContacto')}}" id="contactForm" method="POST">
+      <form action="" id="contactForm" method="POST">
       
      <h2>{{contacto.titulo}}</h2>
      <hr>
@@ -70,16 +70,16 @@ Fax: 56-2- 2448 28 01<br><br>
   <hr>
   </li>
   
-
+<!--
    
   <div id="respuesta">   
      <span id="respuestaMail"></span>
-     <!--
+    
     <div id="negativa">Debes completar el Email</div>
-    -->
+    
   </div>
     <div id="mailIncorrecto">Mail Incorrecto</div>
-   
+    -->
   </div>
   </div>
 
@@ -100,9 +100,10 @@ $(document).ready(function() {
               alert('Campos vacios');
 
           }else{
-              $.ajax({
-                    url: $("#contactForm").attr('action'),
+
+              jQuery.ajax({
                     type: $("#contactForm").attr('method'),
+                    url: "{{path('recibeContacto')}}",
                     dataType: 'text',
 
                     data: {
@@ -116,16 +117,18 @@ $(document).ready(function() {
 
                         var respuesta = response;
 
-                        if(respuesta == 1){
-                          alert('Campos vacios');
-                        }else if(respuesta == 2){
-                          alert("Correo enviado");
-                        }
+                        if (respuesta == 100){
+                          alert('malo');
+                        }else{
+                          alert('bueno');
+                        };
+
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         alert(thrownError);
                     }
               });
+
           }
       });
     });
