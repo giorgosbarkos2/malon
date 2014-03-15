@@ -64,13 +64,13 @@ class Actualizacion
       /**
      * @var string
      *
-     * @ORM\Column(name="Idioma", type="text" ,nullable=true )
+     * @ORM\Column(name="idioma", type="text" ,nullable=true )
      */
 
 
 
 
-    private $Idioma;
+    private $idioma;
 
 
 
@@ -84,10 +84,9 @@ class Actualizacion
     private $fechaActualizacion;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable=true )
-     */
-
-    private $url;
-
-
+    * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Archivos", mappedBy="Actualizacion" , cascade={"remove"})
+    */
+    
+    
+    private $archivos;
 }

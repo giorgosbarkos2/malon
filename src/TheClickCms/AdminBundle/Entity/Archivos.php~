@@ -23,12 +23,19 @@ class Archivos
 
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    * @var string
+    *
+    * @ORM\Column(name="url", type="string", length=100 , nullable=true)
+    */
+
+    private $url;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="TheClickCms\AdminBundle\Entity\Actualizacion", inversedBy="Archivos")
+    * @ORM\JoinColumn(name="actualizacion_id", referencedColumnName="id")
+    *
+    */
+    
+    private $Actualizacion;
+
 }

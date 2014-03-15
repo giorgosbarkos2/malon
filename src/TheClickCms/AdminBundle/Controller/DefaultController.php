@@ -9,7 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use TheClickCms\AdminBundle\Entity\Usuarios;
 use TheClickCms\AdminBundle\Entity\Empresa;
 use TheClickCms\AdminBundle\Entity\Actualizacion;
-
+use TheClickCms\AdminBundle\Entity\Fotos;
+use TheClickCms\AdminBundle\Entity\Archivos;
 
 class DefaultController extends Controller {
 
@@ -184,14 +185,21 @@ class DefaultController extends Controller {
             $session = $this->getRequest()->getSession();
             $id = $session->get('idActualizacion');
 
-
-
             
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('id' => $id));
-            $actualizacion->setUrl($fileName);
-            $em->persist($actualizacion);
-            $em->flush();
+           $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('id' => $id));
 
+
+
+           $em->persist($actualizacion);
+           $archivo = new Archivos();
+           $archivo->setUrl($fileName);
+           $archivo->setActualizacion($actualizacion);
+           $em->flush();
+           
+           
+           $em->persist($archivo);
+           $em->persist($actualizacion);
+           $em->flush();
 
 
          
@@ -350,20 +358,27 @@ class DefaultController extends Controller {
             rename("{$filePath}.part", $filePath);
 
             $em = $this->getDoctrine()->getManager();
-            $session = $this->getRequest()->getSession();
+
             $id = $session->get('idEmpresa');
 
 
-            var_dump($fileName);
+            
             
             $empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findOneBy(array('id' => $id));
-            $empresa->setUrl($fileName);
-            $em->persist($empresa);
-            $em->flush();
+            
 
 
 
-         
+           $em->persist($empresa);
+           $foto = new Fotos();
+           $foto->setUrl($fileName);
+           $foto->setEmpresa($empresa);
+           $em->flush();
+           
+           
+           $em->persist($foto);
+           $em->persist($empresa);
+           $em->flush();
 
 
            $resp ='
@@ -681,7 +696,7 @@ class DefaultController extends Controller {
 		$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->find($id);
 		$em->remove($empresa);
 		$em->flush();
-		return new Response('Usuario Eliminado');
+		return new Response('Empresa Eliminado');
 	}
 
 	public function vistaAgregarActualizacionAction(){
@@ -791,15 +806,17 @@ class DefaultController extends Controller {
         return $this->redirect($this->generateUrl('listarActualizacion'));
 	}
 
-	public function eliminarActualizacionAction(Request $data){
+    public function eliminarArchivoActualizacionAction(Request $request)
+    {
+        $id = $request->request->get('recordToDelete');
 
-        $id = $data->request->get('recordToDelete');
-		$em = $this->getDoctrine()->getManager();
-		$actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->find($id);
-		$em->remove($actualizacion);
-		$em->flush();
-		return new Response('Actualizacion Eliminada');
-	}
+        $em = $this->getDoctrine->getManager();
 
+        $archivos = $em->getRepository('TheClickCmsAdminBundle:Archivos')->find($id);
 
+        $em->remove($archivos);
+        $em->flush();
+
+        return new Response('Archivo Eliminado');
+    }
 }

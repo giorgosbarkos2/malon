@@ -82,9 +82,30 @@
 					<input type="text"name="descripcioncorta" value="{{actualizacion.descripcionCorta}}" class="form-control" />
 					<label for="version"> Version del software </label>
 					<input type="text" name="version" value="{{actualizacion.version}}" class="form-control" />
-					<!--
-						Seccion upload
-					-->
+                    <br>
+                    <br>
+                    {% if actualizacion.archivos %}
+                        {% set archivo = actualizacion.archivos %}
+                        {% for archivo in archivo %}
+                         <table class="tablaarchivo">
+                             <thead>
+                                 <th>Actualizacion: </th>
+                             </thead>
+                             <tbody>
+                                 <tr id="arch-{{archivo.id}}">
+                                    <td>{{archivo.url}}
+                                    <br>
+                                    <br>
+                                    <a href="#" class="eliminar">
+                                    <button id="eliminar" class="btn btn-danger" style="margin: 10px;">Eliminar</button>
+                                    </a>
+                                    </td>
+                                 </tr>
+                             </tbody>
+                         </table>   
+                        <br>
+                        {% endfor %}
+                    {% endif %}
                     <br />
                     <br />
 				<input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
@@ -93,8 +114,35 @@
                 </section>
             </div>
         </section>
+         <form id="formEliminarArchivo"action="{{path('eliminarArchivoActualizacion')}}"></form>   
         <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
         </div>
+        <script type="text/javascript">
+
+            jQuery(document).ready(function($) {
+                jQuery("#tablaarchivo").on('click', '.eliminar', function() {
+                     
+                    var clickedID = this.id.split('-');
+                    var DbNumberID = clickedID[1]; // toma el numero del array
+
+                    var myData = 'recordToDelete=' + DbNumberID;
+
+                    jQuery.ajax({
+                        type: "POST",
+                        url: $('#formEliminarArchivo').attr('action'),
+                            
+                        dataType: "text",
+                        data: myData,
+                        success: function(response) {
+                           $('#arch-' + DbNumberID).hide('slow');;
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError);
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
         {% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
         

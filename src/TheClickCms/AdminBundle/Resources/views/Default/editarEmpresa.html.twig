@@ -100,6 +100,24 @@
 		<br>
 		<input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
 		</form>
+
+        <table>
+            <thead>
+                <th>Foto Empresa: </th>
+            </thead>
+            <tbody>
+                {% set foto = empresa.fotos %}
+                {% for foto in foto %}
+                <tr>
+                    <td>
+                        <img src="../../web/empresas/{{empresa.id}}/{{foto.url}}" alt="{{foto.url}}"  height="120" width="120" />
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>    
+
 		{% endblock %}
                 </section>
             </div>

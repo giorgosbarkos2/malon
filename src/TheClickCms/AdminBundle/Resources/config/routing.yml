@@ -109,3 +109,7 @@ uploadFotoEmpresa:
 vistaUploadEmpresa2:
     pattern: /admin/vistaUploadEmpresa
     defaults: {_controller: TheClickCmsAdminBundle:Default:vistaUploadEmpresa}
+
+eliminarArchivoActualizacion:
+    pattern: /admin/eliminarArchivoActualizacion
+    defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarArchivoActualizacion}

@@ -64,13 +64,13 @@ class Actualizacion
       /**
      * @var string
      *
-     * @ORM\Column(name="Idioma", type="text" ,nullable=true )
+     * @ORM\Column(name="idioma", type="text" ,nullable=true )
      */
 
 
 
 
-    private $Idioma;
+    private $idioma;
 
 
 
@@ -84,13 +84,19 @@ class Actualizacion
     private $fechaActualizacion;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable=true )
+    * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Archivos", mappedBy="Actualizacion" , cascade={"remove"})
+    */
+    
+    
+    private $archivos;
+    /**
+     * Constructor
      */
-
-    private $url;
-
-
-
+    public function __construct()
+    {
+        $this->archivos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -171,26 +177,26 @@ class Actualizacion
     }
 
     /**
-     * Set Idioma
+     * Set idioma
      *
      * @param string $idioma
      * @return Actualizacion
      */
     public function setIdioma($idioma)
     {
-        $this->Idioma = $idioma;
+        $this->idioma = $idioma;
     
         return $this;
     }
 
     /**
-     * Get Idioma
+     * Get idioma
      *
      * @return string 
      */
     public function getIdioma()
     {
-        return $this->Idioma;
+        return $this->idioma;
     }
 
     /**
@@ -217,25 +223,35 @@ class Actualizacion
     }
 
     /**
-     * Set url
+     * Add archivos
      *
-     * @param string $url
+     * @param \TheClickCms\AdminBundle\Entity\Archivos $archivos
      * @return Actualizacion
      */
-    public function setUrl($url)
+    public function addArchivo(\TheClickCms\AdminBundle\Entity\Archivos $archivos)
     {
-        $this->url = $url;
+        $this->archivos[] = $archivos;
     
         return $this;
     }
 
     /**
-     * Get url
+     * Remove archivos
      *
-     * @return string 
+     * @param \TheClickCms\AdminBundle\Entity\Archivos $archivos
      */
-    public function getUrl()
+    public function removeArchivo(\TheClickCms\AdminBundle\Entity\Archivos $archivos)
     {
-        return $this->url;
+        $this->archivos->removeElement($archivos);
+    }
+
+    /**
+     * Get archivos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArchivos()
+    {
+        return $this->archivos;
     }
 }

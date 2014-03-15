@@ -47,17 +47,8 @@ class Empresa
     private $detalle;
 
     
-
-    /** @ORM\Column(type="string", length=200 , nullable=true) */
     
-    
-    
-    private $url;
-    
-    
-    
-    
-  /** @ORM\Column(type="datetime") */
+    /** @ORM\Column(type="datetime") */
     
     
     private $fecha;
@@ -65,23 +56,28 @@ class Empresa
     
     
     
-     /** @ORM\Column(type="string", length=200 , nullable=true) */
-    
-    
-
-    
+    /** @ORM\Column(type="string", length=200 , nullable=true) */
     
     
     private $correo;
     
     
-       /**
+    /**
      * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Usuarios", mappedBy="empresa")
      */
     
     
     private $usuario;
+  
+
+
+    /**
+    * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Fotos", mappedBy="Empresa" , cascade={"remove"})
+    */
+
+
+    private $fotos;
     
-      
+
 
 }

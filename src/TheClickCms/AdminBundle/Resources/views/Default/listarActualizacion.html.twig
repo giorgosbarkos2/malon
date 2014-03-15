@@ -48,6 +48,7 @@
 						<th>Version</th>
 						<th>Idioma</th>
 						<th>Fecha</th>
+						<th>Actualizacion</th>
 						<th>Editar</th>
 						<th>Eliminar</th>
 					</thead>
@@ -59,6 +60,13 @@
 								<td>{{actualizacion.version}}</td>
 								<td>{{actualizacion.idioma}}</td>
 								<td>{{actualizacion.fechaActualizacion | date("m/d/Y")}}</td>
+								{% if actualizacion.archivos %}
+									{% set archivo = actualizacion.archivos %}
+									{% for archivo in archivo %}
+									    <td>{{archivo.url}}</td>
+									{% endfor %}
+								{% endif %}	
+
 								<td><a href="vistaEditarActualizacion/{{actualizacion.id}}" class="btn btn-primary">Editar</a></td>
 								 <td> <button  id="actua-{{actualizacion.id}}" class="eliminar">Eliminar</button> </td>
 							</tr>

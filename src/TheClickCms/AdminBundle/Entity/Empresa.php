@@ -47,17 +47,8 @@ class Empresa
     private $detalle;
 
     
-
-    /** @ORM\Column(type="string", length=200 , nullable=true) */
     
-    
-    
-    private $url;
-    
-    
-    
-    
-  /** @ORM\Column(type="datetime") */
+    /** @ORM\Column(type="datetime") */
     
     
     private $fecha;
@@ -65,24 +56,29 @@ class Empresa
     
     
     
-     /** @ORM\Column(type="string", length=200 , nullable=true) */
-    
-    
-
-    
+    /** @ORM\Column(type="string", length=200 , nullable=true) */
     
     
     private $correo;
     
     
-       /**
+    /**
      * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Usuarios", mappedBy="empresa")
      */
     
     
     private $usuario;
+  
+
+
+    /**
+    * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Fotos", mappedBy="Empresa" , cascade={"remove"})
+    */
+
+
+    private $fotos;
     
-      
+
 
     /**
      * Constructor
@@ -90,6 +86,7 @@ class Empresa
     public function __construct()
     {
         $this->usuario = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->fotos = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -172,29 +169,6 @@ class Empresa
     }
 
     /**
-     * Set url
-     *
-     * @param string $url
-     * @return Empresa
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-    
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string 
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
      * Set fecha
      *
      * @param \DateTime $fecha
@@ -271,5 +245,38 @@ class Empresa
     public function getUsuario()
     {
         return $this->usuario;
+    }
+
+    /**
+     * Add fotos
+     *
+     * @param \TheClickCms\AdminBundle\Entity\Fotos $fotos
+     * @return Empresa
+     */
+    public function addFoto(\TheClickCms\AdminBundle\Entity\Fotos $fotos)
+    {
+        $this->fotos[] = $fotos;
+    
+        return $this;
+    }
+
+    /**
+     * Remove fotos
+     *
+     * @param \TheClickCms\AdminBundle\Entity\Fotos $fotos
+     */
+    public function removeFoto(\TheClickCms\AdminBundle\Entity\Fotos $fotos)
+    {
+        $this->fotos->removeElement($fotos);
+    }
+
+    /**
+     * Get fotos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFotos()
+    {
+        return $this->fotos;
     }
 }
