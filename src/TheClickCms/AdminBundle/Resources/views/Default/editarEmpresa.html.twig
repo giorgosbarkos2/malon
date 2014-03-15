@@ -99,33 +99,72 @@
 		<input name="correo" type="text" class="form-control" value="{{empresa.correo}}"/>
 		<br>
 		<input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
-		</form>
-
-        <table>
+        <a href="{{path('vistaUploadEmpresa2')}}" class="btn btn-primary">Agregar Imagen</a>
+		</form>        
+        
+        <table id="fotoempresa">
             <thead>
                 <th>Foto Empresa: </th>
             </thead>
             <tbody>
-                {% set foto = empresa.fotos %}
-                {% for foto in foto %}
-                <tr>
+                {% set fotos = empresa.fotos %}
+                {% for fotos in fotos %}
+                <tr id="foto-{{fotos.id}}">
                     <td>
-                        <img src="../../web/empresas/{{empresa.id}}/{{foto.url}}" alt="{{foto.url}}"  height="120" width="120" />
-
+                        <img src="../../../empresas/{{empresa.id}}/{{fotos.url}}" alt="{{fotos.url}}" height="120" width="120" />
+                        <br>
+                        <a id="fotoempresa-{{fotos.id}}" class="eliminar">
+                            <button class="btn btn-danger" style="margin: 30px;">Eliminar</button>
+                        </a>    
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
-    </table>    
+        </table>
 
-		{% endblock %}
-                </section>
-            </div>
+
+        <form id="formEliminarFotoEmpresa" action="{{path('eliminarFotoEmpresa')}}"></form>
+        </section>
+        </div>
         </section>
         <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
         </div>
-    </body>
+        
+        
+		{% endblock %}
+        
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#fotoempresa").on('click', '.eliminar', function(e) {
+                e.preventDefault();
+                var clickedID = this.id.split('-');
+                var DbNumberID = clickedID[1]; // toma el numero del array
+                var myData = 'recordToDelete=' + DbNumberID;
 
+                console.log(myData);
+
+                
+                jQuery.ajax({
+                        type: "POST",
+                        url: $('#formEliminarFotoEmpresa').attr('action'),
+                        dataType: "text",
+                        data: myData,
+                        success: function(response) {
+                          $('#foto-' + DbNumberID).hide('slow');;
+
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+
+                            alert(thrownError);
+
+                        }
+
+                });
+            });
+        });
+        </script>
+    </body>
+    
     	{% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
     	
 </html>

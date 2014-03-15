@@ -819,4 +819,19 @@ class DefaultController extends Controller {
 
         return new Response('Archivo Eliminado');
     }
+
+    public function eliminarFotoEmpresaAction(Request $request)
+    {
+        
+        $id = $request->request->get('recordToDelete');
+
+        $em = $this->getDoctrine->getManager();
+
+        $fotos = $em->getRepository('TheClickCmsAdminBundle:Fotos')->find($id);
+
+        $em->remove($fotos);
+        $em->flush();
+
+        return new Response('Foto Eliminado');   
+    }
 }

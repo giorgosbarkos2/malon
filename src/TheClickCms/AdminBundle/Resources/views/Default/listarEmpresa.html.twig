@@ -66,6 +66,14 @@
 						<td>{{empresa.detalle}}</td>
 						<td>{{empresa.correo}}</td>
 						<td>{{empresa.fecha | date("m/d/Y")}}</td>
+						<td>
+							{% if empresa.fotos %}
+								{% set fotos = empresa.fotos %}
+								{% for fotos in fotos %}
+								    <img src="../../empresas/{{empresa.id}}/{{fotos.url}}" alt="{{fotos.url}}" />
+								{% endfor %}
+							{% endif %}
+						</td>
 						<td><a href="vistaEditarEmpresa/{{empresa.id}}" class="btn btn-primary">Editar</a></td>
 						<td> <button  id="empre-{{empresa.id}}" class="eliminar">Eliminar</button> </td>
 					</tr>

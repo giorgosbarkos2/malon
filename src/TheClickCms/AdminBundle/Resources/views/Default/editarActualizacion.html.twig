@@ -82,9 +82,13 @@
 					<input type="text"name="descripcioncorta" value="{{actualizacion.descripcionCorta}}" class="form-control" />
 					<label for="version"> Version del software </label>
 					<input type="text" name="version" value="{{actualizacion.version}}" class="form-control" />
-                    <br>
-                    <br>
-                    {% if actualizacion.archivos %}
+                    <br><br>
+				    <input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
+                    <a href="{{path('vistauploadArchivo')}}" class="btn btn-primary">Subir Actualización</a>
+				</form>
+                 <br><br>
+
+                {% if actualizacion.archivos %}
                         {% set archivo = actualizacion.archivos %}
                         {% for archivo in archivo %}
                          <table class="tablaarchivo">
@@ -92,11 +96,11 @@
                                  <th>Actualizacion: </th>
                              </thead>
                              <tbody>
-                                 <tr id="arch-{{archivo.id}}">
+                                 <tr id="archivo-{{archivo.id}}">
                                     <td>{{archivo.url}}
                                     <br>
                                     <br>
-                                    <a href="#" class="eliminar">
+                                    <a id="archivo-{{archivo.id}}" class="eliminar">
                                     <button id="eliminar" class="btn btn-danger" style="margin: 10px;">Eliminar</button>
                                     </a>
                                     </td>
@@ -106,15 +110,11 @@
                         <br>
                         {% endfor %}
                     {% endif %}
-                    <br />
-                    <br />
-				<input type="submit" value="Guardar &rarr;" class="btn btn-primary"/>
-				</form>
 				{% endblock %}
                 </section>
             </div>
         </section>
-         <form id="formEliminarArchivo"action="{{path('eliminarArchivoActualizacion')}}"></form>   
+        <form id="formEliminarArchivo"action="{{path('eliminarArchivoActualizacion')}}"></form>   
         <div id="quickLaunchModal" tabindex="-1" role="dialog" class="modal fade">
         </div>
         <script type="text/javascript">
@@ -134,7 +134,7 @@
                         dataType: "text",
                         data: myData,
                         success: function(response) {
-                           $('#arch-' + DbNumberID).hide('slow');;
+                           $('#archivo-' + DbNumberID).hide('slow');;
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
                             alert(thrownError);
@@ -144,6 +144,6 @@
             });
         </script>
     </body>
-        {% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
+    {% include "TheClickCmsAdminBundle:Layers:js.html.twig" %}
         
 </html>
