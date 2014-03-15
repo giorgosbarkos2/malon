@@ -317,10 +317,14 @@ class DefaultController extends Controller
         if ($usuario) {
 
          if ($idioma == 'EN') {
+
+
+            $lenguaje = 'Ingles';
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('Idioma' => $idioma));
+
+            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
 
 
             $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
@@ -344,10 +348,11 @@ class DefaultController extends Controller
 
 
         } elseif ($idioma == 'ES') {
+            $lenguaje = 'Español';
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
-
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('Idioma' => $idioma));
+            
+            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
 
 
             $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
@@ -371,10 +376,13 @@ class DefaultController extends Controller
 
 
         }elseif ('PT') {
+            $lenguaje = 'Portugues';
+
             $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
             $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('Idioma' => $idioma));
+
+            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
 
 
             $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
@@ -385,7 +393,7 @@ class DefaultController extends Controller
             
             return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
                 array(
-                   'empresas' => $empresas, 
+                   'empresas' => $empresas,
                    'idioma' => $idioma, 'persona' => $persona, 
                    'actualizacion' => $actualizacion , 
                    'path' => $path,
