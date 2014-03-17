@@ -51,40 +51,45 @@ $('.bxslider').bxSlider({
     </tr>
   </thead>
 <tbody>
-      {% if actualizacion.idioma == "Español" and idioma == 'ES' %}
-      {% set archivos =  actualizacion.archivos %}
-      {% for archivos in archivos %}
-      <tr>
-        <td>{{actualizacion.descripcionCorta}}</td>
-        <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
-        <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
-      </tr>
-      {% endfor %}
-      {% endif %}
+        {% if actualizacion is empty %}
+            <tr>
+              <td colspan="3">No tiene actuqalizaciones</td>
+            </tr>        
+        {% else %}
+          {% if actualizacion.idioma == "Español" and idioma == 'ES' %}
+          {% set archivos =  actualizacion.archivos %}
+          {% for archivos in archivos %}
+          <tr>
+            <td>{{actualizacion.descripcionCorta}}</td>
+            <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
+            <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
+          </tr>
+          {% endfor %}
+          {% endif %}
 
-      {% if actualizacion.idioma == "Ingles" and idioma == 'EN' %}
-      {% set archivos =  actualizacion.archivos %}
-      {% for archivos in archivos %}
-      <tr>
-        <td>{{actualizacion.descripcionCorta}}</td>
-        <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
-        <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
-      </tr>
-      {% endfor %}      
-      {% endif %}
-      {% if actualizacion.idioma == "Portugues" and idioma == 'PT' %}
+          {% if actualizacion.idioma == "Ingles" and idioma == 'EN' %}
+          {% set archivos =  actualizacion.archivos %}
+          {% for archivos in archivos %}
+          <tr>
+            <td>{{actualizacion.descripcionCorta}}</td>
+            <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
+            <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
+          </tr>
+          {% endfor %}      
+          {% endif %}
+          {% if actualizacion.idioma == "Portugues" and idioma == 'PT' %}
 
-      {% set archivos =  actualizacion.archivos %}
-      {% for archivos in archivos %}
-      <tr>
-        <td>{{actualizacion.descripcionCorta}}</td>
-        <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
-        <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
-      </tr>
-      {% endfor %}      
-
-      {% endif %}
-</tbody>
+          {% set archivos =  actualizacion.archivos %}
+          {% for archivos in archivos %}
+          <tr>
+            <td>{{actualizacion.descripcionCorta}}</td>
+            <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
+            <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
+          </tr>
+          {% endfor %}      
+          {% endif %}
+        {% endif %}
+      </tbody>
 </table>
 </div>
       <div class="formularios-acceso">

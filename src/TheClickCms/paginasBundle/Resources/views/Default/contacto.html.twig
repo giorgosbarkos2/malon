@@ -66,9 +66,13 @@ Fax: 56-2- 2448 28 01<br><br>
   <li>
   </form>
   <input class="enviar" id="enviar" type="submit" value="&#8250; {{contacto.campo6}}" />
-  <input class="borrar" id="borrar" type="reset" value="&#8250; Borrar" />
+  <input class="borrar" id="borrar" type="submit" value="&#8250; Borrar" />
   <hr>
   </li>
+
+  <div id="respuesta">
+    
+  </div>
   
 <!--
    
@@ -85,6 +89,7 @@ Fax: 56-2- 2448 28 01<br><br>
 
 <script type="text/javascript">
 $(document).ready(function() {
+
       $("#respuesta").hide("fast");
       $("#mailIncorrecto").hide("fast");
 
@@ -97,8 +102,8 @@ $(document).ready(function() {
           var mensaje = $("#mensaje").val();
 
           if (nombre == '' || correo == '' || empresa == '' || asunto == '' || mensaje == ''){
-              alert('Campos vacios');
-
+             $("#respuesta").val('Campos Vacios');
+             $("#respuesta").show("fast");
           }else{
 
               jQuery.ajax({
@@ -118,9 +123,11 @@ $(document).ready(function() {
                         var respuesta = response;
 
                         if (respuesta == 100){
-                          alert('malo');
+                           $("#respuesta").val('Correo no enviado');
+                           $("#respuesta").show("fast");
                         }else{
-                          alert('bueno');
+                           $("#respuesta").val('Su correo se ah enviado satisfactoriamente');
+                           $("#respuesta").show("fast");
                         };
 
                     },
@@ -128,9 +135,9 @@ $(document).ready(function() {
                         alert(thrownError);
                     }
               });
-
           }
       });
+
     });
 </script>
 {% endblock %}

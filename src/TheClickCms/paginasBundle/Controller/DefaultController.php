@@ -32,7 +32,6 @@ class DefaultController extends Controller
             $mobil = 'yes';
         }else{
             $mobil = 'no';
-
         }
 
 
@@ -305,7 +304,7 @@ class DefaultController extends Controller
         if($idioma == ''){
             $idioma = 'ES';
 
-        }
+        
 
         if ($usuario) {
 
@@ -341,13 +340,14 @@ class DefaultController extends Controller
 
 
             } elseif ($idioma == 'ES') {
+
+
                 
                 $lenguaje = 'Español';
                 $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
                 $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
                 
                 $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
-
 
                 $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
                 $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
