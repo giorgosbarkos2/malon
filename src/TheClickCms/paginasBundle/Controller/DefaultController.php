@@ -268,10 +268,16 @@ class DefaultController extends Controller
                     ->setTo('')
                     ->setBody(
                     $this->renderView(
-                            'projectAdminprincipalBundle:Default:enviacorreo.html.twig', array('nombre' => $nombre, 'correo' => $correo, 'empresa' => $empresa, 'asunto'=> $asunto, 'mensaje' => $mensaje)
+                        'projectAdminprincipalBundle:Default:enviacorreo.html.twig', 
+                        array(
+                            'nombre' => $nombre, 
+                            'correo' => $correo, 
+                            'empresa' => $empresa, 
+                            'asunto'=> $asunto, 
+                            'mensaje' => $mensaje
+                            )
                         )
-                    )
-            ;
+                    );
             $this->get('mailer')->send($message);
 
             return new response(200);
@@ -416,6 +422,14 @@ class DefaultController extends Controller
         
 
         }else{
+
+            $formulario = 'acceso';
+
+            if(preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
+                $mobil = 'yes';
+            }else{
+                $mobil = 'no';
+            }
         
             if($idioma == ''){
                 $idioma = 'ES';
@@ -425,13 +439,13 @@ class DefaultController extends Controller
 
             if($idioma == 'EN'){
                 $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path, 'acceso' => $menuacceso));
+                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path, 'acceso' => $menuacceso, 'mobil' => $mobil));
             }elseif ($idioma == 'ES'){
                 $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path, 'acceso' => $menuacceso));
+                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path, 'acceso' => $menuacceso, 'mobil' => $mobil));
             }elseif($idioma == 'PT'){
                 $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path, 'acceso' => $menuacceso));
+                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path, 'acceso' => $menuacceso, 'mobil' => $mobil));
             }
         }
 

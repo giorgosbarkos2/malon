@@ -44,7 +44,7 @@ Fax: 56-2- 2448 28 01<br><br>
       
       </div> 
      
-      <form action="" id="contactForm" method="POST">
+      <form id="contactForm" method="POST">
       
      <h2>{{contacto.titulo}}</h2>
      <hr>
@@ -53,7 +53,7 @@ Fax: 56-2- 2448 28 01<br><br>
   <input class="formres" name="nombre" id="nombre" placeholder="Nombre"/></li>
   
   <li><label for="email">{{contacto.campo2}}</label>
-    <input type="email" name="email" id="email" placeholder="nombre@ejemplo.com" /></li>
+    <input type="text" name="email" id="email" placeholder="nombre@ejemplo.com" /></li>
 
   <li><label for="empresa">{{contacto.campo3}}</label>
     <input class="formres" name="empresa" id="empresa" placeholder="..."/></li>
@@ -65,52 +65,77 @@ Fax: 56-2- 2448 28 01<br><br>
     <textarea name="mensaje" id="mensaje"  rows="9" placeholder="Escribenos un comentario o consulta, siempre contestamos ." ></textarea></li>
   <li>
   </form>
-  <input class="enviar" id="enviar"  value="&#8250; {{contacto.campo6}}" />
-  <input class="borrar" id="borrar"  value="&#8250; Borrar" />
+
+
+  <input class="enviar" id="enviar" type="submit" value="&#8250; {{contacto.campo6}}" />
+  <input class="borrar" id="borrar" type="submit" value="&#8250; Borrar" />
+  
+
   <hr>
   </li>
-
+  <style> 
+      #respuesta{
+        display: none;
+      }
+  </style>
   <div id="respuesta">
     
   </div>
-  
-<!--
-   
-  <div id="respuesta">   
-     <span id="respuestaMail"></span>
-    
-    <div id="negativa">Debes completar el Email</div>
-    
-  </div>
-    <div id="mailIncorrecto">Mail Incorrecto</div>
-    -->
   </div>
   </div>
 
 <script type="text/javascript">
 $(document).ready(function() {
 
-      $("#respuesta").hide("fast");
-      $("#mailIncorrecto").hide("fast");
+
+      //Funcion valida correo
+
+      function  validarcorreo(correo_electronico) {
+        // creamos nuestra regla con expresiones regulares.
+        var filter =  new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+          // utilizamos test para comprobar si el parametro valor cumple la regla
+          return filter.test(correo_electronico);
+      }
+
+      
+      //Borrra campos del formulario
+      /*
+      $("#borrar").click(function() {
+        $("input[type=text]").val('');
+      });         
+      */
+      
+
 
       $("#enviar").click(function() {
-        
-          var nombre = $("#nombre").val();
-          var correo = $("#email").val();
-          var empresa = $("#empresa").val();
-          var asunto = $("#asunto").val();
-          var mensaje = $("#mensaje").val();
+
+          var nombre  =  $("#nombre").val();
+          var correo  =  $("#email").val();
+          var empresa =  $("#empresa").val();
+          var asunto  =  $("#asunto").val();
+          var mensaje =  $("#mensaje").val();
 
           if (nombre == '' || correo == '' || empresa == '' || asunto == '' || mensaje == ''){
+            alert("Campos vacios");
+            /*
              $("#respuesta").val('Campos Vacios');
-             $("#respuesta").show("fast");
+             $("#respuesta").css("display: block;");
+             */ 
           }else{
 
-              jQuery.ajax({
+
+           if(validar_email(correo)){
+              alert("correo valido");
+
+              /*
+
+               $("#respuesta").val('Correo valido');
+               $("#respuesta").css("display: block;");
+            
+               jQuery.ajax({
                     type: $("#contactForm").attr('method'),
                     url: "{{path('recibeContacto')}}",
                     dataType: 'text',
-
                     data: {
                             nombre  : nombre,
                             correo  : correo,
@@ -119,15 +144,16 @@ $(document).ready(function() {
                             mensaje : mensaje
                           },
                     success: function(response){
-
                         var respuesta = response;
 
                         if (respuesta == 100){
+                           alert("100");
                            $("#respuesta").val('Correo no enviado');
-                           $("#respuesta").show("fast");
+                           $("#respuesta").css("display: block;");
                         }else{
+                          alert("200");
                            $("#respuesta").val('Su correo se ah enviado satisfactoriamente');
-                           $("#respuesta").show("fast");
+                           $("#respuesta").css("display: block;");
                         };
 
                     },
@@ -135,9 +161,16 @@ $(document).ready(function() {
                         alert(thrownError);
                     }
               });
+              */
+            }else{
+                alert("invalido");
+                /*
+                $("#respuesta").val('Correo invalido');
+                $("#respuesta").css("display: block;");
+                */
+            }
           }
+        });
       });
-
-    });
 </script>
 {% endblock %}
