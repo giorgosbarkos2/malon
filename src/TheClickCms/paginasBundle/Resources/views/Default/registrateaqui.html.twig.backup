@@ -26,8 +26,8 @@
 <br><hr>
     <div class="formularios-registro">
             <form id="form-registro"  name="formulario" action="" method="POST">
-            <span><h4 class="nom-clientes" style="color:#f00;">Datos</h4></span>
-            <span><h4 class="nom-clientes" style="color:#f00;">Nombre Completo:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.titulo}}</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo1}}:</h4></span>
             <input id="nombre" name="nombre" type="text">
             <span><h4 class="nom-clientes" style="color:#f00;">Nombre de Usuario:</h4></span>
             <input id="nusuario" name="nusuario" type="text">

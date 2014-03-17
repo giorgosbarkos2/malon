@@ -34,11 +34,11 @@
     <div class="formularios-registro" >
             <form id="form-registro"  name="formulario" action="" method="POST" data-validate="parsley" >
 
-            <h4 class="nom-clientes" style="color:#f00;">Datos</h4>
+            <h4 class="nom-clientes" style="color:#f00;">{{registrateaca.titulo}}</h4>
 
 
 
-                <span><h4 class="nom-clientes" style="color:#f00;">Nombre:</h4></span>
+                <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo1}}:</h4></span>
                  <input id="nombre" name="nombre" type="text" data-required="true"  data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment..">
 
 
@@ -47,12 +47,12 @@
 
 
 
-            <span><h4 class="nom-clientes" style="color:#f00;">Nombre de Usuario:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo2}}:</h4></span>
             <input id="nusuario" name="nusuario" type="text"  >
 
 
 
-            <span><h4 class="nom-clientes" style="color:#f00;">Correo Electronico:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo3}}:</h4></span>
             <input id="email" name="email" type="text">
 
 
@@ -60,7 +60,7 @@
 
 
 
-                <span><h4 class="nom-clientes" style="color:#f00;">Seleccione un País:</h4></span>
+                <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo4}}:</h4></span>
             <select name="pais" id ="pais" class="form-control">
               <option value="Argentina">Argentina</option>
               <option value="Bolivia">Bolivia</option>
@@ -94,7 +94,7 @@
 
 
 
-            <span><h4 class="nom-clientes" style="color:#f00;">Empresa:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo5}}:</h4></span>
 			<select name="empresa" id="empresa">
                 {%  for empresas in empresas %}
                     <option value="{{ empresas.id }}"> {{ empresas.nombre }}</option>
@@ -106,21 +106,21 @@
 
 
 
-            <span><h4 class="nom-clientes" style="color:#f00;">Cargo:</h4></span>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo6}}:</h4></span>
             <input name="cargo" type="text">
 
 
             <hr>
 
-            <span><h4 class="nom-clientes" style="color:#f00;">Clave de Acceso</h4></span>
-                <input id="claveuno" type="text" placeholder="Clave Uno"/>
+            <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo8}}</h4></span>
+                <input id="claveuno" type="text" placeholder="{{registrateaca.campo9}}"/>
 
 
 
 
                <span> <p>(4 Caracteres mínimo)</p></span>
 
-                <input id="clavedos" type="text" placeholder="Clave Dos"/>
+                <input id="clavedos" type="text" placeholder="{{registrateaca.campo10}}"/>
 
 
 
