@@ -309,94 +309,94 @@ class DefaultController extends Controller
 
         if ($usuario) {
 
-         if ($idioma == 'EN') {
+             if ($idioma == 'EN') {
 
 
-            $lenguaje = 'Ingles';
-            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
-            $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+                $lenguaje = 'Ingles';
+                $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+                $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
+                $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
 
 
-            $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
-            $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
-            $actualizar = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formularioactualizaciones));
+                $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
+                $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
+                $actualizar = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formularioactualizaciones));
 
-            $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            
-            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
-                array(
-                   'menuacceso' => $menuacceso, 
-                   'empresas' => $empresas, 
-                   'idioma' => $idioma, 'persona' => $persona, 
-                   'actualizacion' => $actualizacion , 
-                   'path' => $path,
-                   'cambioclave' => $cambioclave,
-                   'actualizarusuario' =>  $actualizausuario,
-                   'actualizar' => $actualizar 
-                )
-            );
-
-
-        } elseif ($idioma == 'ES') {
-            
-            $lenguaje = 'Español';
-            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
-            $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
-            
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
+                $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
+                
+                return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
+                    array(
+                       'menuacceso' => $menuacceso, 
+                       'empresas' => $empresas, 
+                       'idioma' => $idioma, 'persona' => $persona, 
+                       'actualizacion' => $actualizacion , 
+                       'path' => $path,
+                       'cambioclave' => $cambioclave,
+                       'actualizarusuario' =>  $actualizausuario,
+                       'actualizar' => $actualizar 
+                    )
+                );
 
 
-            $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
-            $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
-            $actualizar = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formularioactualizaciones));
-
-            $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            
-            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
-                array(
-                   'menuacceso' => $menuacceso, 
-                   'empresas' => $empresas, 
-                   'idioma' => $idioma, 'persona' => $persona, 
-                   'actualizacion' => $actualizacion , 
-                   'path' => $path,
-                   'cambioclave' => $cambioclave,
-                   'actualizarusuario' =>  $actualizausuario,
-                   'actualizar' => $actualizar 
-                )
-            );
+            } elseif ($idioma == 'ES') {
+                
+                $lenguaje = 'Español';
+                $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+                $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+                
+                $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
 
 
-        }elseif ('PT') {
-            $lenguaje = 'Portugues';
+                $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
+                $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
+                $actualizar = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formularioactualizaciones));
 
-            $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
-            $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
+                $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
+                
+                return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
+                    array(
+                       'menuacceso' => $menuacceso, 
+                       'empresas' => $empresas, 
+                       'idioma' => $idioma, 'persona' => $persona, 
+                       'actualizacion' => $actualizacion , 
+                       'path' => $path,
+                       'cambioclave' => $cambioclave,
+                       'actualizarusuario' =>  $actualizausuario,
+                       'actualizar' => $actualizar 
+                    )
+                );
 
 
-            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
+            }elseif ('PT') {
+                $lenguaje = 'Portugues';
+
+                $persona = $usuarios = $em->getRepository('TheClickCmsAdminBundle:Usuarios')->findOneBy(array('nusuario' => $usuario) );
+                $empresas = $em->getRepository('TheClickCmsAdminBundle:Empresa')->findAll();
 
 
-            $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
-            $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
-            $actualizar = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formularioactualizaciones));
+                $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('idioma' => $lenguaje));
 
-            $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
-            
-            return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
-                array(
-                   'empresas' => $empresas,
-                   'idioma' => $idioma, 'persona' => $persona, 
-                   'actualizacion' => $actualizacion , 
-                   'path' => $path,
-                   'cambioclave' => $cambioclave,
-                   'actualizarusuario' =>  $actualizausuario,
-                   'actualizar' => $actualizar 
-                )
-            );
-        }
+
+                $cambioclave = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulariocambiaclave));
+                $actualizausuario = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' =>  $formularioactualizarusuario));
+                $actualizar = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formularioactualizaciones));
+
+                $menuacceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario));
+                
+                return $this->render('TheClickCmspaginasBundle:Default:acceso.html.twig',
+                    array(
+                       'empresas' => $empresas,
+                       'idioma' => $idioma, 'persona' => $persona, 
+                       'actualizacion' => $actualizacion , 
+                       'path' => $path,
+                       'cambioclave' => $cambioclave,
+                       'actualizarusuario' =>  $actualizausuario,
+                       'actualizar' => $actualizar 
+                    )
+                );
+            }
 
         $idioma = 'ES';
 
@@ -417,11 +417,22 @@ class DefaultController extends Controller
 
         }else{
         
-        $idioma = 'ES';
-        $path = '../home';
+            if($idioma == ''){
+                $idioma = 'ES';
+            } 
+            
 
-        return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path));
 
+            $path = '../home';
+
+            if($idioma == 'EN'){
+
+                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path));
+            }elseif ($idioma == 'ES') {
+                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path));
+            }elseif($idioma == 'PT'){
+                return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'path' => $path));
+            }
         }
     }
 
