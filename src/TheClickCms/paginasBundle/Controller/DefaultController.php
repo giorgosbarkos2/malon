@@ -247,28 +247,37 @@ class DefaultController extends Controller
 
 
 
-        $nombre = $data->request->get('nombre');
-        $correo = $data->request->get('correo');
+
         $empresa = $data->request->get('empresa');
+
+        $nombre = $data->request->get('nombre');
+        $correo = $data->request->get('email');
+
         $asunto = $data->request->get('asunto');
         $mensaje = $data->request->get('mensaje');
+
+
 
         
         if ($nombre == '' or $correo == '' or $empresa == '' or $asunto == '' or $mensaje == '') {
 
 
-            return new response(100);
+            return new response(200);
             
             
         } else {
 
+
+
+
+
             $message = \Swift_Message::newInstance()
                     ->setSubject('Hola mundo soy subject')
-                    ->setFrom('')
-                    ->setTo('')
+                    ->setFrom('giorgosbarkos@gmail.com')
+                    ->setTo('giorgosbarkos@gmail.com')
                     ->setBody(
                     $this->renderView(
-                        'projectAdminprincipalBundle:Default:enviacorreo.html.twig', 
+                        'TheClickCmspaginasBundle:Default:enviacorreo.html.twig',
                         array(
                             'nombre' => $nombre, 
                             'correo' => $correo, 
@@ -280,7 +289,7 @@ class DefaultController extends Controller
                     );
             $this->get('mailer')->send($message);
 
-            return new response(200);
+            return new response(100);
         }
     }
 

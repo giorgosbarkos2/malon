@@ -62,4 +62,5 @@ swiftmailer:
     transport: gmail
     username:  vicente.monsalve
     password:  m4jestic12
-    spool:     { type: memory }
+
+
