@@ -65,13 +65,13 @@ class Empresa
     /**
      * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Usuarios", mappedBy="empresa")
      */
-    
+
     
     private $usuario;
   
 
     /**
-    * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Fotos", mappedBy="Empresa" , cascade={"remove"})
+    * @ORM\OneToMany(targetEntity="TheClickCms\AdminBundle\Entity\Fotos", mappedBy="empresa")
     */
 
 

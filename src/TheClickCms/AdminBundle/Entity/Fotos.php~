@@ -26,15 +26,19 @@ class Fotos
      */
 
     private $url;
-    
+
+
+
+
 
     /**
-    * @ORM\ManyToOne(targetEntity="TheClickCms\AdminBundle\Entity\Actualizacion", inversedBy="Fotos")
-    * @ORM\JoinColumn(name="actualizacion_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="TheClickCms\AdminBundle\Entity\Empresa", inversedBy="fotos")
+    * @ORM\JoinColumn(name="empresa_id", referencedColumnName="id")
     *
     */
 
     private $empresa;
     
   
+
 }

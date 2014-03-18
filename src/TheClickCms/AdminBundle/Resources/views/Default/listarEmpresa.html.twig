@@ -67,10 +67,13 @@
 						<td>{{empresa.correo}}</td>
 						<td>{{empresa.fecha | date("m/d/Y")}}</td>
 						<td>
+
+
+
 							{% if empresa.fotos %}
 								{% set fotos = empresa.fotos %}
-								{% for fotos in fotos %}
-								    <img src="../../empresas/{{empresa.id}}/{{fotos.url}}" alt="{{fotos.url}}" />
+								{% for foto in fotos %}
+								    <img src="../../empresas/{{empresa.id}}/{{foto.url}}" width="100" height="100" alt="{{foto.url}}" />
 								{% endfor %}
 							{% endif %}
 						</td>
