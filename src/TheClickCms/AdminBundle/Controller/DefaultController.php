@@ -810,7 +810,8 @@ class DefaultController extends Controller {
     {
         $id = $request->request->get('recordToDelete');
 
-        $em = $this->getDoctrine->getManager();
+        $em = $this->getDoctrine()->getManager();
+
 
         $archivos = $em->getRepository('TheClickCmsAdminBundle:Archivos')->find($id);
 
@@ -825,7 +826,7 @@ class DefaultController extends Controller {
         
         $id = $request->request->get('recordToDelete');
 
-        $em = $this->getDoctrine->getManager();
+        $em = $this->getDoctrine()->getManager();
 
         $fotos = $em->getRepository('TheClickCmsAdminBundle:Fotos')->find($id);
 

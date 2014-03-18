@@ -100,9 +100,9 @@
                                     <td>{{archivo.url}}
                                     <br>
                                     <br>
-                                    <a id="archivo-{{archivo.id}}" class="eliminar">
-                                    <button class="btn btn-danger" style="margin: 10px;">Eliminar</button>
-                                    </a>
+
+                                    <button  id="archivo-{{archivo.id}}"   class="eliminar" style="margin: 10px;">Eliminar</button>
+
                                     </td>
                                  </tr>
                              </tbody>
@@ -119,11 +119,17 @@
         </div>
         <script type="text/javascript">
 
-            jQuery(document).ready(function($) {
-                jQuery("#tablaarchivo").on('click', '.eliminar', function() {
+            $(document).ready(function() {
+
+                console.log('probando');
+
+                $(".tablaarchivo").on('click', '.eliminar', function() {
+
+
                      
                     var clickedID = this.id.split('-');
                     var DbNumberID = clickedID[1]; // toma el numero del array
+                    console.log(DbNumberID);
 
                     var myData = 'recordToDelete=' + DbNumberID;
 
