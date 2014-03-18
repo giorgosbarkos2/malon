@@ -181,11 +181,11 @@ class DefaultController extends Controller {
             // Strip the temp .part suffix off 
             rename("{$filePath}.part", $filePath);
 
-          $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $session = $this->getRequest()->getSession();
             $id = $session->get('idActualizacion');
 
-            
+
            $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->findOneBy(array('id' => $id));
 
 
@@ -392,6 +392,7 @@ class DefaultController extends Controller {
             
             
         }
+        $resp = 0;
 
         return new Response($resp);
     }
@@ -653,6 +654,7 @@ class DefaultController extends Controller {
 	public function vistaEditarEmpresaAction($id){
 		$session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
+         $session->set('idEmpresa' , $id);
 
         $nombre =  $session->get('usuario');
         $password = $session->get('password');
@@ -666,6 +668,11 @@ class DefaultController extends Controller {
             return $this->render('TheClickCmsAdminBundle:Default:login.html.twig');
 		}
 	}
+
+
+
+
+
 
 	public function guardarEditarEmpresaAction(Request $data){
 		$id = $data->request->get('id');
@@ -771,6 +778,7 @@ class DefaultController extends Controller {
 
         $nombre =  $session->get('usuario');
         $password = $session->get('password');
+        $session->set('idActualizacion' , $id);
         $admin = $em->getRepository('TheClickCmsAdminBundle:Admin')->findOneBy(array('nombre' => $nombre, 'password' => $password));
 
         if($admin){
@@ -811,7 +819,6 @@ class DefaultController extends Controller {
         $id = $request->request->get('recordToDelete');
 
         $em = $this->getDoctrine()->getManager();
-
 
         $archivos = $em->getRepository('TheClickCmsAdminBundle:Archivos')->find($id);
 
