@@ -43,7 +43,7 @@ guardarEditarEmpresa:
     defaults: {_controller: TheClickCmsAdminBundle:Default:guardarEditarEmpresa}
 
 eliminarEmpresa:
-    pattern: /admin/eliminarEmpresa/
+    pattern: /admin/eliminarEmpresa
     defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarEmpresa}
 
 logout:
@@ -99,7 +99,7 @@ guardarEditarActualizacion:
     defaults: {_controller: TheClickCmsAdminBundle:Default:guardarEditarActualizacion}
 
 eliminarActualizacion:
-    pattern: /admin/eliminarActualizacion/
+    pattern: /admin/eliminarActualizacion
     defaults: {_controller: TheClickCmsAdminBundle:Default:eliminarActualizacion}
 
 uploadFotoEmpresa:

@@ -93,6 +93,9 @@
 		        var DbNumberID = clickedID[1]; // toma el numero del array
 		        var myData = 'recordToDelete=' + DbNumberID;
 		     
+		        console.log(myData);
+
+		        
 		        jQuery.ajax({
 		            type: "POST",
 		            url: $('#formEliminarEmpresa').attr('action'),

@@ -27,13 +27,12 @@ class Fotos
 
     private $url;
     
- 
 
     /**
-     * @ORM\ManyToOne(targetEntity="TheClickCms\AdminBundle\Entity\Empresa", inversedBy="Fotos")
-     * @ORM\JoinColumn(name="empresa_id", referencedColumnName="id")
-      * 
-     */  
+    * @ORM\ManyToOne(targetEntity="TheClickCms\AdminBundle\Entity\Actualizacion", inversedBy="Fotos")
+    * @ORM\JoinColumn(name="actualizacion_id", referencedColumnName="id")
+    *
+    */
 
     private $empresa;
     
@@ -75,10 +74,10 @@ class Fotos
     /**
      * Set empresa
      *
-     * @param \TheClickCms\AdminBundle\Entity\Empresa $empresa
+     * @param \TheClickCms\AdminBundle\Entity\Actualizacion $empresa
      * @return Fotos
      */
-    public function setEmpresa(\TheClickCms\AdminBundle\Entity\Empresa $empresa = null)
+    public function setEmpresa(\TheClickCms\AdminBundle\Entity\Actualizacion $empresa = null)
     {
         $this->empresa = $empresa;
     
@@ -88,7 +87,7 @@ class Fotos
     /**
      * Get empresa
      *
-     * @return \TheClickCms\AdminBundle\Entity\Empresa 
+     * @return \TheClickCms\AdminBundle\Entity\Actualizacion 
      */
     public function getEmpresa()
     {

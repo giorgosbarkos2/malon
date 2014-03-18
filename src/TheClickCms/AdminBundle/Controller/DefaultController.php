@@ -695,16 +695,35 @@ class DefaultController extends Controller {
         return $this->redirect($this->generateUrl('listarEmpresas'));
 	}
 
-	public function eliminarEmpresaAction(Request $data){
+	public function eliminarEmpresaAction(Request $request){
 
-        $id = $data->request->get('recordToDelete');
+        $id = $request->request->get('recordToDelete');
 
 		$em = $this->getDoctrine()->getManager();
 		$empresa = $em->getRepository('TheClickCmsAdminBundle:Empresa')->find($id);
-		$em->remove($empresa);
-		$em->flush();
-		return new Response('Empresa Eliminado');
+		
+
+        $em->remove($empresa);
+        
+		
+        $em->flush();
+		
+        return new Response('Empresa Eliminado');
 	}
+
+    public function eliminarActualizacionAction(Request $request)
+    {
+        $id = $request->request->get('recordToDelete');
+        
+        $em = $this->getDoctrine()->getManager();
+        $actualizacion = $em->getRepository('TheClickCmsAdminBundle:Actualizacion')->find($id);
+        $em->remove($actualizacion);
+
+        $em->flush();
+
+        return new Response('Actualizacion Eliminada');
+
+    }
 
 	public function vistaAgregarActualizacionAction(){
 		$session = $this->getRequest()->getSession();
