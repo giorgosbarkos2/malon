@@ -1,5 +1,5 @@
 the_click_cmspaginas_homepage:
-    pattern:  /home
+    pattern:  /home/
     defaults: { _controller: TheClickCmspaginasBundle:Default:index }
 
 vistaHistoria:
