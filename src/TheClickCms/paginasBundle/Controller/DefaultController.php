@@ -19,7 +19,7 @@ class DefaultController extends Controller
         
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
-        $path = 'home';
+        $path = '../home/';
 
         if ($idioma == '') {
             $idioma = 'ES';
@@ -63,7 +63,7 @@ class DefaultController extends Controller
         
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
-        $path = '../home';
+        $path = '../home/';
 
         if($idioma == ''){
             $idioma = 'ES';
@@ -113,7 +113,7 @@ class DefaultController extends Controller
         $idioma = $session->get('idioma');
         $seccion = 'noticia';
 
-        $path = '../home';
+        $path = '../home/';
 
 
          if($idioma == ''){
@@ -146,7 +146,7 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
         $seccion = 'servicio';
-        $path = '../home';
+        $path = '../home/';
 
 
         if($idioma == ''){
@@ -183,7 +183,7 @@ class DefaultController extends Controller
 
         $seccion = 'productos';
 
-         $path = '../home';
+         $path = '../home/';
 
 
 
@@ -220,7 +220,7 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
         $formulario = 'contacto';
-        $path = '../home';
+        $path = '../home/';
 
 
 
@@ -300,7 +300,7 @@ class DefaultController extends Controller
         
         $usuario = $session->get('nusuario');
         $contrasena = $session->get('contrasena');
-        $path = '../home';
+        $path = '../home/';
 
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
@@ -608,7 +608,7 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
         $formulario = 'registrateaca';
-        $path = '../home';
+        $path = '../home/';
 
 
 
@@ -662,7 +662,7 @@ class DefaultController extends Controller
         $session = $this->getRequest()->getSession();
         $idioma = $session->get('idioma');
         $formulario = 'registrateaca';
-        $path = '../home';
+        $path = '../home/';
 
 
 
