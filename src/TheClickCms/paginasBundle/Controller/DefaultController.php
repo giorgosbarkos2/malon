@@ -38,7 +38,7 @@ class DefaultController extends Controller
 
         if ($idioma == 'EN') {
 
-            $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario  , 'mobil' => $mobil ));
+            $acceso = $em->getRepository('TheClickCmsIdiomaBundle:Formularios')->findOneBy(array('idioma' => $idioma, 'NombreFormulario' => $formulario  ));
             
             return $this->render('TheClickCmspaginasBundle:Default:index.html.twig', array('idioma' => $idioma, 'acceso' => $acceso , 'path' => $path, 'mobil' => $mobil));
 
