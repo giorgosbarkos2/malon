@@ -62,7 +62,7 @@ $('.bxslider').bxSlider({
           <tr>
             <td>{{actualizacion.descripcionCorta}}</td>
             <td>{{actualizacion.fechaActualizacion | date("m/d/Y") }}</td>
-            <td><a href="../../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
+            <td><a href="../actualizaciones/{{actualizacion.id}}/{{archivos.url}}" class="btn-des"><span>{{actualizar.campo8}}</span></a></td>
           </tr>
           {% endfor %}
           {% endif %}

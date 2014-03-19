@@ -113,14 +113,14 @@
             <hr>
 
             <span><h4 class="nom-clientes" style="color:#f00;">{{registrateaca.campo7}}</h4></span>
-                <input id="claveuno" type="text" placeholder="{{registrateaca.campo8}}"/>
+                <input id="claveuno" type="password" placeholder="{{registrateaca.campo8}}"/>
 
 
 
 
                <span> <p>(4 Caracteres mínimo)</p></span>
 
-                <input id="clavedos" type="text" placeholder="{{registrateaca.campo9}}"/>
+                <input id="clavedos" type="password" placeholder="{{registrateaca.campo9}}"/>
 
 
 
@@ -190,7 +190,6 @@
 
 
 
-            $( '#form-registro' ).parsley('validate');
 
 
 			
@@ -205,7 +204,7 @@
 
 			if (nombre == '' || nusuario == '' || correo == '' || pais == '' || empresa == '' || cargo == '' || claveuno == '' || clavedos == '' ) {
 
-
+        alert("Campos vacios");
 
 			}else{
 
@@ -226,7 +225,8 @@
 						success: function(response) {
 							var respuesta = response;
 							if (respuesta == 100) {
-								alert("Sus datos se han guadado.");
+								alert("Sus datos se han guardado.");
+                $("#form-registro")[0].reset();
 							};
 
 		                },
